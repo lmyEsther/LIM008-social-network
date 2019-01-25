@@ -29,6 +29,7 @@
       <input type="radio" value="1">Madre primeriza 
       <input type="radio" value="2">Madre con experienca </li>
     </ul>
+    <span id="error2" class="message-error"></span>
 
     <p>O ingresa con tu cuentas de:</p>
 
@@ -42,6 +43,18 @@
 
   <footer class=""> </footer>
   <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCS6xlGDQkVczoOT8vu6sgNcSP5XCuRG-E",
+      authDomain: "mommyslove-edf5d.firebaseapp.com",
+      databaseURL: "https://mommyslove-edf5d.firebaseio.com",
+      projectId: "mommyslove-edf5d",
+      storageBucket: "mommyslove-edf5d.appspot.com",
+      messagingSenderId: "390042811062"
+    };
+    firebase.initializeApp(config);
+  </script>
   <script type="module" src="main.js"></script>
 
 </body>
