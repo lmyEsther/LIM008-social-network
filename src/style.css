@@ -1,0 +1,29 @@
+
+.btn-face, .btn-google{
+    margin-top: 120px;
+    margin-left: 30px;
+    margin-bottom: 40px;
+    text-decoration: none;
+    padding: 12px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #ffffff;
+    border-radius: 6px;
+    }
+    
+    #btn-crear-cuenta {
+        margin-left: 30px;
+        padding: 12px;
+        font-weight: 600;
+        font-size: 15px;
+        border-radius: 6px;
+    }
+    .btn-face {
+        background-color: rgb(30, 61, 161);
+    }
+    
+    .btn-google {
+        background-color: #ffffff;
+        color: red;
+    }
+    
