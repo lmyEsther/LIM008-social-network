@@ -1,6 +1,9 @@
 
+.sign-up {
+    margin-bottom: 5%;
+}
 .btn-face, .btn-google{
-    margin-top: 120px;
+    margin-top: 30px;
     margin-left: 30px;
     margin-bottom: 40px;
     text-decoration: none;
