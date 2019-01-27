@@ -39,17 +39,17 @@ btnLoginGoogle.addEventListener('click', () => {
     let user = result.user;
     // ...
   }).then(() => {
-      location.href = 'ui/redsocial.html';
-    }).catch(function(error) {
+    location.href = 'ui/redsocial.html';
+  }).catch(function(error) {
     // Handle Errors here.
-      let errorCode = error.code;
-      let errorMessage = error.message;
-      // The email of the user's account used.
-      let email = error.email;
-      // The firebase.auth.AuthCredential type that was used.
-      let credential = error.credential;
+    let errorCode = error.code;
+    let errorMessage = error.message;
+    // The email of the user's account used.
+    let email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    let credential = error.credential;
     // ...
-    });
+  });
 });
 // boton de registro con google
 const registerWithGoogle = document.getElementById('register-google');

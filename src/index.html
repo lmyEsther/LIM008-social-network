@@ -1,63 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <img src="logo/encabezado.png" alt="encabezado">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Sriracha" rel="stylesheet">
   <link rel="shortcut icon" href="./logo/sonaja-logo.ico" type="image/x-icon"/>
   <link rel="stylesheet" href="style.css">
   <title>Mommy's Love</title>
 </head>
 
 <body>
-
-  <div class="sign-in">
-      <h2>"Ya no estás sola, aquí está la comunidad que necesitabas"</h2>
-      <p>Iniciar sesión</p>
-      <form>
-      <ul>
-        <li>
-        <input id="correo" type="text" placeholder="Correo electrónico"></li>
-        <li>
-        <input id="password" type="password" placeholder="Contraseña"></li>
-        <button id="ingresar">Ingresar</button>
-        <p>O ingresa con tu cuentas de:</p>
-        <button id= "login-facebook" class="btn-face">FACEBOOK</button>
-        <button id="login-google" class="btn-google">GOOGLE</button></li>
-        <p>¿Eres nueva?  <a href="">Registrate aquí</a></p>
-      </ul>
-    </form>
-  </div>
-
-  <div class="register">
-    <form>
-    <ul>
-      <li>REGISTRATE</li>
-      <li> 
-        <label for="name">Nombre:</label>
-        <input type="text" id="name"></li>
-      <li>
-        <label for="reg-correo">Correo:</label>
-        <input type="email" id="reg-correo"></li>
-      <li>
-        <label for="reg-pass">Password:</label>
-        <input type="password" id="reg-pass"></li>
-      <li>
-      <input type="radio" value="1">Madre primeriza 
-      <input type="radio" value="2">Madre con experienca </li>
-    </ul>
-  </form>
-    <span id="error2" class="message-error"></span>
-
-    <p>O ingresa con tu cuentas de:</p>
-
-    <button id="register-facebook" class="btn-face">FACEBOOK</button>
-    <button id="register-google" class="btn-google">GOOGLE</button> <br>
-
-    <button id="btn-crear-cuenta">CREAR CUENTA</button>
-  </div>
-
+  <header class="cabecera">
+      <img src="logo/encabezado.png" alt="encabezado">
+  </header>
+  <main class="cuerpo">
+      <div class="sign-in">
+          <form class="formulario"> 
+        <div>
+            <p class="texto-1" class="texto-center">"Ya no estás sola, aquí está la comunidad que necesitabas"</p>
+        </div>
+          <p class="texto-center">Iniciar sesión con tu cuenta</p>
+          
+            <input id="correo" type="text" placeholder="Correo electrónico">
+            <input id="password" type="password" placeholder="Contraseña">
+            <button id="ingresar">Ingresar</button>
+            <p>--------O ingresa con tu cuentas de: ----------</p>
+            <button id= "login-facebook" class="btn-face">FACEBOOK</button>
+            <button id="login-google" class="btn-google">GOOGLE</button></li>
+            <p>¿Eres nueva?  <a href="">Registrate aquí</a></p>
+        </form>
+      </div>
+    
+      <div class="register">
+        <form class="formulario">
+      
+          <p>Crea tu cuenta aquí</p>
+        
+            <label for="name">Nombre:</label>
+            <input type="text" id="name">
+          
+            <label for="reg-correo">Correo:</label>
+            <input type="email" id="reg-correo">
+          
+            <label for="reg-pass">Password:</label>
+            <input type="password" id="reg-pass">
+        
+          <input type="radio" value="1">Madre primeriza 
+          <input type="radio" value="2">Madre con experienca
+          <span id="error2" class="message-error"></span>
+    
+          <p>O ingresa con tu cuentas de:</p>
+      
+          <button id="register-facebook" class="btn-face">FACEBOOK</button>
+          <button id="register-google" class="btn-google">GOOGLE</button> <br>
+      
+          <button id="btn-crear-cuenta">CREAR CUENTA</button>
+        </div>
+      
+      </form>
+        
+  </main>
+  
   <section id="container" class="flex margin-top"></section>
 
   <footer class=""></footer>

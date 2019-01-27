@@ -1,4 +1,41 @@
 
+.cabecera img{
+    width: 250px;
+    height: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: #FEFFDF;
+}
+.barra-navegacion{
+    font-family: 'Sriracha', cursive;
+}
+.cuerpo{
+    font-family: 'Roboto', sans-serif;
+    text-align: right;
+}
+.formulario{
+    width: 300px;
+    margin: auto;
+    background: #FEFFDF;
+    padding: 10px 30px;
+    box-sizing: border-box;
+    margin-top: 40px;
+    border-radius: 7px;
+    font-size: 15px;
+    text-align: center;
+}
+.formulario input{
+    width: 100%;
+    padding: 5px;
+    padding-top: 5px
+}
+.texo-1{
+    text-align: center;
+    font-size: 14px;
+}
+.texto-center{
+    text-align: center;
+}
 .sign-up {
     margin-bottom: 5%;
 }
