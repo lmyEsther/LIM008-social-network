@@ -1,31 +1,92 @@
-// aqui exportaras las funciones que necesites
+// Iniciar Sesion con correo y contraseña
+let signInEmail = document.getElementById('correo');
+let signInPass = document.getElementById('password');
+let login = document.getElementById('ingresar');
 
-export const myFunction = () => {
-  // aqui tu codigo
-}
+login.addEventListener('click', (ev) => {
+  ev.preventDefault();
+  let signInEmailValue = signInEmail.value;
+  let signInPassValue = signInPass.value;
+    
+  firebase.auth().signInWithEmailAndPassword(signInEmailValue, signInPassValue)
+    .then(() => {
+      location.href = 'ui/redsocial.html';
+    })
+    .catch(function(error) {
+      // Handle Errors here.
+      let errorCode = error.code;
+      let errorMessage = error.message;
+      // ...
+    });
+});
 
-const ingresoFacebook = () => {
-  const provider = new firebase.auth.FacebookAuthProvider();
-     firebase.auth().signInWithPopup(provider).then( results => {
-      $("#avatar").attr("src", result.user.photoURL)
-      $(".modal").modal("close")
-      Materialize.toast("Bienvenido ${result.user.displayName} !!", 4000)   
-})
-.cath(error => {
-  Materialize.toast("Error al autenticarse con facebook: ¢{error}", 4000)
-})
-};
+// Logeando al usuario con google
+// botón de log in con google
+const btnLoginGoogle = document.getElementById('login-google');
+btnLoginGoogle.addEventListener('click', () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+  firebase.auth().languageCode = 'pt';
+  // To apply the default browser preference instead of explicitly setting it.
+  // firebase.auth().useDeviceLanguage();
+  provider.setCustomParameters({
+    'login_hint': 'user@example.com'
+  });
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+  // This gives you a Google Access Token. You can use it to access the Google API.
+    let token = result.credential.accessToken;
+    // The signed-in user info.
+    let user = result.user;
+    // ...
+  }).then(() => {
+      location.href = 'ui/redsocial.html';
+    }).catch(function(error) {
+    // Handle Errors here.
+      let errorCode = error.code;
+      let errorMessage = error.message;
+      // The email of the user's account used.
+      let email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      let credential = error.credential;
+    // ...
+    });
+});
+// boton de registro con google
+const registerWithGoogle = document.getElementById('register-google');
+registerWithGoogle.addEventListener('click', () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+  firebase.auth().languageCode = 'pt';
+  // To apply the default browser preference instead of explicitly setting it.
+  // firebase.auth().useDeviceLanguage();
+  provider.setCustomParameters({
+    'login_hint': 'user@example.com'
+  });
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+  // This gives you a Google Access Token. You can use it to access the Google API.
+    let token = result.credential.accessToken;
+    // The signed-in user info.
+    let user = result.user;
+    // ...
+  }).then(() => {
+    location.href = 'ui/redsocial.html';
+  }).catch(function(error) {
+    // Handle Errors here.
+    let errorCode = error.code;
+    let errorMessage = error.message;
+    // The email of the user's account used.
+    let email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    let credential = error.credential;
+    // ...
+  });
+});
 
-document.getElementById("facebook").addEventListener("click", () => {
-  ingresoFacebook();
-})
+firebase.auth().signOut().then(function() {
+  // Sign-out successful.
+}).catch(function(error) {
+  // An error happened.
+});
 
-/*
-alert("Exito");
-console.log(results);
-}).catch(function(error){
- alert("Error");
- console.log(error);
-}) 
 
-*/
+
