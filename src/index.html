@@ -7,6 +7,19 @@
   <link rel="stylesheet" href="style.css">
   <title>Mommy's Love</title>
 
+  <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCS6xlGDQkVczoOT8vu6sgNcSP5XCuRG-E",
+      authDomain: "mommyslove-edf5d.firebaseapp.com",
+      databaseURL: "https://mommyslove-edf5d.firebaseio.com",
+      projectId: "mommyslove-edf5d",
+      storageBucket: "mommyslove-edf5d.appspot.com",
+      messagingSenderId: "390042811062"
+    };
+    firebase.initializeApp(config);
+  </script>
 
 </head>
 
@@ -29,25 +42,27 @@
   </div>
 
   <div class="registre">
-    <ul>
-      <li>REGISTRATE</li>
-      <li> 
-        <label for="name">Nombre:</label>
-        <input type="text" id="name"></li>
-      <li>
-        <label for="correo">Correo:</label>
-        <input type="email" id="correo"></li>
-      <li>
-        <label for="pass">Password:</label>
-        <input type="password" id="pass"></li>
-      <li>
-      <input type="radio" value="1">Madre primeriza 
-      <input type="radio" value="2">Madre con experienca </li>
-    </ul>
+    <form action="">
+      <ul>
+        <li>REGISTRATE</li>
+        <li> 
+          <label for="name">Nombre:</label>
+          <input type="text" id="name"></li>
+        <li>
+          <label for="correo">Correo:</label>
+          <input type="email" id="correo"></li>
+        <li>
+          <label for="pass">Password:</label>
+          <input type="password" id="pass"></li>
+        <li>
+          <input type="radio" value="1">Madre primeriza 
+          <input type="radio" value="2">Madre con experienca </li>
+        </ul>
+    </form>
 
     <p>O ingresa con tu cuentas de:</p>
 
-    <button class="btn-face">FACEBOOK</button>
+    <button id="facebook" class="btn-face">FACEBOOK</button>
     <button class="btn-google">GOOGLE</button> <br>
 
     <button id="btn-crear-cuenta">CREAR CUENTA</button>
