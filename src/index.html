@@ -17,29 +17,29 @@
       <p>Iniciar sesión</p>
       <ul>
         <li>
-        <input type="text" placeholder="Correo electrónico"></li>
+        <input id="correo" type="text" placeholder="Correo electrónico"></li>
         <li>
-        <input type="password" placeholder="Contraseña"></li>
-        <a href="">INGRESA</a>
+        <input id="password" type="password" placeholder="Contraseña"></li>
+        <button id="ingresar">Ingresar</button>
         <p>O ingresa con tu cuentas de:</p>
         <button class="btn-face">FACEBOOK</button>
         <button class="btn-google">GOOGLE</button></li>
-        <p>¿Eres nueva?  <a href="">Registrate aquí</a></p><!--Aqui creo que iria el enlace para el modal que hara Joan con CSS-->
+        <p>¿Eres nueva?  <a href="#/registro">Registrate aquí</a></p>
       </ul>
   </div>
 
-  <div class="registre">
+  <div class="register">
     <ul>
       <li>REGISTRATE</li>
       <li> 
         <label for="name">Nombre:</label>
         <input type="text" id="name"></li>
       <li>
-        <label for="correo">Correo:</label>
-        <input type="email" id="correo"></li>
+        <label for="reg-correo">Correo:</label>
+        <input type="email" id="reg-correo"></li>
       <li>
-        <label for="pass">Password:</label>
-        <input type="password" id="pass"></li>
+        <label for="reg-pass">Password:</label>
+        <input type="password" id="reg-pass"></li>
       <li>
       <input type="radio" value="1">Madre primeriza 
       <input type="radio" value="2">Madre con experienca </li>
@@ -48,29 +48,17 @@
 
     <p>O ingresa con tu cuentas de:</p>
 
-    <button class="btn-face">FACEBOOK</button>
-    <button class="btn-google">GOOGLE</button> <br>
-
     <button id="btn-crear-cuenta">CREAR CUENTA</button>
   </div>
 
+  <section id="container" class="flex margin-top"></section>
 
-  <footer class=""> </footer>
-  <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyCS6xlGDQkVczoOT8vu6sgNcSP5XCuRG-E",
-      authDomain: "mommyslove-edf5d.firebaseapp.com",
-      databaseURL: "https://mommyslove-edf5d.firebaseio.com",
-      projectId: "mommyslove-edf5d",
-      storageBucket: "mommyslove-edf5d.appspot.com",
-      messagingSenderId: "390042811062"
-    };
-    firebase.initializeApp(config);
-  </script>
-  <script type="module" src="main.js"></script>
-
+  <footer class=""></footer>
+  <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>  
+  <script type="module" src="./lib/main.js"></script>
+  <script type="module" src="./lib/index.js"></script>
+  <script type="module" src="./lib/registro.js"></script>
+  <script type="module" src="./lib/datafire.js"></script>
 </body>
 </html>
 
