@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <img src="logo/encabezado.png" alt="encabezado">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -14,6 +15,7 @@
   <div class="sign-in">
       <h2>"Ya no estás sola, aquí está la comunidad que necesitabas"</h2>
       <p>Iniciar sesión</p>
+      <form>
       <ul>
         <li>
         <input id="correo" type="text" placeholder="Correo electrónico"></li>
@@ -21,13 +23,15 @@
         <input id="password" type="password" placeholder="Contraseña"></li>
         <button id="ingresar">Ingresar</button>
         <p>O ingresa con tu cuentas de:</p>
-        <button class="btn-face">FACEBOOK</button>
+        <button id= "login-facebook" class="btn-face">FACEBOOK</button>
         <button id="login-google" class="btn-google">GOOGLE</button></li>
         <p>¿Eres nueva?  <a href="">Registrate aquí</a></p>
       </ul>
+    </form>
   </div>
 
   <div class="register">
+    <form>
     <ul>
       <li>REGISTRATE</li>
       <li> 
@@ -43,11 +47,12 @@
       <input type="radio" value="1">Madre primeriza 
       <input type="radio" value="2">Madre con experienca </li>
     </ul>
+  </form>
     <span id="error2" class="message-error"></span>
 
     <p>O ingresa con tu cuentas de:</p>
 
-    <button class="btn-face">FACEBOOK</button>
+    <button id="register-facebook" class="btn-face">FACEBOOK</button>
     <button id="register-google" class="btn-google">GOOGLE</button> <br>
 
     <button id="btn-crear-cuenta">CREAR CUENTA</button>

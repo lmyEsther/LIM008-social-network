@@ -38,11 +38,9 @@ btnLoginGoogle.addEventListener('click', () => {
     // The signed-in user info.
     let user = result.user;
     // ...
-  })
-    .then(() => {
+  }).then(() => {
       location.href = 'ui/redsocial.html';
-    })
-    .catch(function(error) {
+    }).catch(function(error) {
     // Handle Errors here.
       let errorCode = error.code;
       let errorMessage = error.message;
@@ -89,4 +87,6 @@ firebase.auth().signOut().then(function() {
 }).catch(function(error) {
   // An error happened.
 });
+
+
 
