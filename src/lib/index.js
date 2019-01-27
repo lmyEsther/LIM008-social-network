@@ -17,6 +17,10 @@ login.addEventListener('click', (ev) => {
       let errorCode = error.code;
       let errorMessage = error.message;
       // ...
+      console.log(errorCode);
+      console.log(errorMessage);
+      document.getElementById("error-1").innerHTML = errorCode + " / " + errorMessage;
+
     });
 });
 
