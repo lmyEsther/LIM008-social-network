@@ -23,7 +23,7 @@
         <a href="">INGRESA</a>
         <p>O ingresa con tu cuentas de:</p>
         <button class="btn-face">FACEBOOK</button>
-        <button class="btn-google">GOOGLE</button></li>
+        <button id="login-google" class="btn-google">GOOGLE</button></li>
         <p>¿Eres nueva?  <a href="">Registrate aquí</a></p><!--Aqui creo que iria el enlace para el modal que hara Joan con CSS-->
       </ul>
   </div>
@@ -49,7 +49,7 @@
     <p>O ingresa con tu cuentas de:</p>
 
     <button class="btn-face">FACEBOOK</button>
-    <button class="btn-google">GOOGLE</button> <br>
+    <button id="register-google" class="btn-google">GOOGLE</button> <br>
 
     <button id="btn-crear-cuenta">CREAR CUENTA</button>
   </div>
@@ -70,6 +70,7 @@
     firebase.initializeApp(config);
   </script>
   <script type="module" src="main.js"></script>
+  <script src="./lib/login-firebase.js"></script>
 
 </body>
 </html>
