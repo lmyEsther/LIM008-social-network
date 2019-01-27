@@ -14,7 +14,7 @@
     border-radius: 6px;
     }
     
-    #btn-crear-cuenta {
+    .btn-crear-cuenta {
         margin-left: 30px;
         padding: 12px;
         font-weight: 600;
