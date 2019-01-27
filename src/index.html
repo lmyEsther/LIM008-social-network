@@ -25,10 +25,12 @@
           
             <input id="correo" type="text" placeholder="Correo electrónico">
             <input id="password" type="password" placeholder="Contraseña">
-            <button id="ingresar">Ingresar</button>
-            <p>--------O ingresa con tu cuentas de: ----------</p>
-            <button id= "login-facebook" class="btn-face">FACEBOOK</button>
-            <button id="login-google" class="btn-google">GOOGLE</button></li>
+            <button id="ingresar" class="boton-iniciar">INGRESA</button>
+            <p>---O ingresa con tu cuentas de: ---</p>
+            <div class="botones-login">
+                <button id= "login-facebook" class="btn-face">FACEBOOK</button>
+                <button id="login-google" class="btn-google">GOOGLE</button></li>
+            </div>
             <p>¿Eres nueva?  <a href="">Registrate aquí</a></p>
         </form>
       </div>
@@ -46,26 +48,32 @@
           
             <label for="reg-pass">Password:</label>
             <input type="password" id="reg-pass">
-        
-          <input type="radio" value="1">Madre primeriza 
-          <input type="radio" value="2">Madre con experienca
+        <div class="botones-login">
+            <input type="radio" value="1">Madre primeriza 
+            <input type="radio" value="2">Madre con experienca
+        </div> 
           <span id="error2" class="message-error"></span>
     
           <p>O ingresa con tu cuentas de:</p>
-      
+      <div class="botones-login">
           <button id="register-facebook" class="btn-face">FACEBOOK</button>
-          <button id="register-google" class="btn-google">GOOGLE</button> <br>
-      
-          <button id="btn-crear-cuenta">CREAR CUENTA</button>
+          <button id="register-google" class="btn-google">GOOGLE</button>
+      </div>
+           <br>
+          <button id="btn-crear-cuenta" class="boton-iniciar">CREAR CUENTA</button>
         </div>
-      
+    
+        
       </form>
         
   </main>
   
   <section id="container" class="flex margin-top"></section>
 
-  <footer class=""></footer>
+  <footer class="footer">
+    <img src="./logo/Sin título-1.png" alt="logo">
+    <p><span>Mommy’s Love</span> Copyright © All rights reserved. </p>
+  </footer>
   <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>  
   <script type="module" src="./lib/main.js"></script>
   <script type="module" src="./lib/index.js"></script>
