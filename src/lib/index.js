@@ -21,14 +21,6 @@ login.addEventListener('click', (ev) => {
 });
 
 // Logeando al usuario con google
-
-// const auth = firebase.auth();
-// auth.signInWithEmailAndPassword(email, pass);
-// auth.createUserWithEmailAndPassword(email, pass);
-// auth.onAuthStateChanged(firebaseUser => {});
-
-
-// Logeando al usuario con google
 // botón de log in con google
 const btnLoginGoogle = document.getElementById('login-google');
 btnLoginGoogle.addEventListener('click', () => {
@@ -46,16 +38,20 @@ btnLoginGoogle.addEventListener('click', () => {
     // The signed-in user info.
     let user = result.user;
     // ...
-  }).catch(function(error) {
+  })
+    .then(() => {
+      location.href = 'ui/redsocial.html';
+    })
+    .catch(function(error) {
     // Handle Errors here.
-    let errorCode = error.code;
-    let errorMessage = error.message;
-    // The email of the user's account used.
-    let email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
-    let credential = error.credential;
+      let errorCode = error.code;
+      let errorMessage = error.message;
+      // The email of the user's account used.
+      let email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      let credential = error.credential;
     // ...
-  });
+    });
 });
 // boton de registro con google
 const registerWithGoogle = document.getElementById('register-google');
@@ -74,6 +70,8 @@ registerWithGoogle.addEventListener('click', () => {
     // The signed-in user info.
     let user = result.user;
     // ...
+  }).then(() => {
+    location.href = 'ui/redsocial.html';
   }).catch(function(error) {
     // Handle Errors here.
     let errorCode = error.code;
