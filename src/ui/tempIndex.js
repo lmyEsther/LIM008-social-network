@@ -1,6 +1,6 @@
 export default {
 
-  registro: `<div class="register" id="registro">
+  registro: `<div class="register">
     <form class="formulario">
     <div>
       <p class="btn-1"class="titulo-registro">Crea tu cuenta aquí</p>
@@ -13,9 +13,6 @@ export default {
       
         <label class="btn-1" for="reg-pass">Password:</label>
         <input  class="btn-1" type="password" id="reg-pass" required>
-
-        <label class="btn-1" for="reg-pass-confirm">Confirma tu Password:</label>
-        <input  class="btn-1" type="password" id="reg-pass-confirm" required>
 
     <div class="botones-radio">
         <input type="radio" value="1">Madre primeriza 
