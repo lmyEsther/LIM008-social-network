@@ -1,4 +1,30 @@
 /* Modelo Mobile Firts */
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    min-width: 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  nav ul li {
+    float: left;
+    position: relative;
+    margin: 0 20px 0 20px;
+  }
+  
+  nav ul::after {
+    content:'';
+    display: block;
+    clear: both;
+  }
+
+  nav ul li a {
+    text-decoration-line: none;
+  }
+
 .cabecera{
     background-color: #FEFFDF;
     display: flex;
