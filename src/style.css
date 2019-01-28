@@ -1,32 +1,138 @@
-
+/* Modelo Mobile Firts */
+.cabecera{
+    background-color: #FEFFDF;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+.cabecera img{
+    width: 250px;
+    height: 100px; 
+}
+.section{
+    display: flex;
+    flex-wrap:  wrap;
+    flex-direction: row;
+}
+.barra-navegacion{
+    font-family: 'Sriracha', cursive;
+}
+.cuerpo{
+    font-family: 'Roboto', sans-serif;
+    text-align: right;
+}
+.formulario{
+    width: 300px;
+    margin: auto;
+    background: rgb(255, 255, 255);
+    padding: 10px 30px;
+    box-sizing: border-box;
+    margin-top: 40px;
+    border-radius: 7px;
+    font-size: 15px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+.formulario input{
+    width: 80%;
+    padding: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #E5E5E5;
+}
+.formulario p{
+    margin-top: 20px;
+}
+.texo-1{
+    text-align: center;
+    font-size: 14px;
+}
+.texto-center{
+    text-align: center;
+}
 .sign-up {
+    margin-top: 15%;
     margin-bottom: 5%;
+}
+.titulo-registro{
+    margin-bottom: 20px;
+}
+.link-registro{
+    color: #EF5A5A;
+    text-decoration: none;
+    margin: 5px;
+}
+.botones-login{
+ display: flex;
+ justify-content: center;
+ align-content: space-between;
+ margin-top: 10px;
+ margin-bottom: 10px;
 }
 .btn-face, .btn-google{
     margin-top: 30px;
-    margin-left: 30px;
-    margin-bottom: 40px;
-    text-decoration: none;
-    padding: 12px;
-    font-weight: 600;
-    font-size: 15px;
-    color: #ffffff;
-    border-radius: 6px;
+    margin-bottom: 20px;
+    border-radius: 100%;
+    padding: 0%;
+    background-color: rgb(255, 249, 249);
+    border-bottom-color: none;
+    border: 0%;
     }
-    
-    .btn-crear-cuenta {
-        margin-left: 30px;
+    .btn-google{
+        margin-left: 25px;
+    }
+    .botones-radio{
+        display: flex;
+        padding: 15px;
+        margin-top: 15px;
+    }
+    .btn-1{
+        margin: 10px;
+        margin-top: 10px;
+    }
+    .boton-iniciar {
         padding: 12px;
         font-weight: 600;
         font-size: 15px;
-        border-radius: 6px;
+        background-color: #EF5A5A;
+        color: #FEFFDF
     }
-    .btn-face {
-        background-color: rgb(30, 61, 161);
+    .footer{
+        background-color: #EF5A5A;
+        display: flex;
+        justify-content: center;
+        font-size: 14px;
+        color: #FEFFDF;
+        padding-top: 15px;
+        padding-bottom: 15px;
     }
-    
-    .btn-google {
-        background-color: #ffffff;
-        color: red;
+    .footer img{
+        width: 20px;
+        height: 20px;
     }
-    
+    @media screen and (max-width:1300px) and (min-width:1000){
+        .cabecera{
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+        }
+        .cabecera img{  
+            width: 350px;
+            height: 200px;
+        }
+        .formulario{
+            width: 300px;
+            margin: auto;
+            background: rgb(255, 255, 255);
+            padding: 10px 30px;
+            box-sizing: border-box;
+            margin-top: 40px;
+            border-radius: 7px;
+            font-size: 15px;
+            text-align: right;
+            padding-bottom: 20px;
+        }
+    }
