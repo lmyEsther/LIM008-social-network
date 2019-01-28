@@ -15,78 +15,58 @@
   <header class="cabecera">
       <img src="logo/encabezado.png" alt="encabezado">
   </header>
+  <nav>
+    <ul>
+      <li>
+        <a class="boton-iniciar" href="#/registro">Sign-up</a>
+      </li>
+      <li>
+        <a class="boton-iniciar" href="#/ingreso">Sign-In</a>
+      </li>
+    </ul>
+  </nav>
   <main class="cuerpo" class="section">
     <!-- <section>
       <img src="./logo/embarazada.jpg" alt="Mommy’s Love">
     </section> -->
-      <div>
-          <form class="formulario"> 
-            <p class="texto-1" class="texto-center" class="titulo-registro">"Ya no estás sola, aquí está la comunidad que necesitabas"</p>
-            <br>
-            <p class="texto-center" class="btn-1">Iniciar sesión con tu cuenta</p>
-            <div class="input">
-            <input class="btn-1" id="correo" type="text" placeholder="Correo electrónico">
-            <input class="btn-1" id="password" type="password" placeholder="Contraseña">
-          </div>
-            <div class="btn-1">
-              <button id="ingresar" class="boton-iniciar">INGRESA</button>
+      
+        <section id="container" class="flex margin-top">
+          <div>
+            <form class="formulario"> 
+              <p class="texto-1" class="texto-center" class="titulo-registro">"Ya no estás sola, aquí está la comunidad que necesitabas"</p>
+              <br>
+              <p class="texto-center" class="btn-1">Iniciar sesión con tu cuenta</p>
+              <div class="input">
+              <input class="btn-1" id="correo" type="text" placeholder="Correo electrónico">
+              <input class="btn-1" id="password" type="password" placeholder="Contraseña">
             </div>
-            <p class="sign-up">--- O ingresa con tu cuenta de: ---</p>
-            <div class="botones-login">
-                <button id= "login-facebook" class="btn-face"><img src="./logo/facebook.png"></button>
-                <button id="login-google" class="btn-google"><img src="./logo/google-plus.png"></button></li>
-            </div>
-            <p>¿Eres nueva? --- <a href="#registro" class="link-registro"> REGISTRATE </a> ---  </p>
-        </form>
-      </div>
-    
-      <div class="register" id="registro">
-        <form class="formulario">
-      <div>
-        <p class="btn-1"class="titulo-registro">Crea tu cuenta aquí</p>
-        <br>
-      </div>
-            <label class="btn-1" for="name">Nombre:</label>
-            <input class="btn-1" type="text" id="name">
-          
-            <label  class="btn-1" for="reg-correo">Correo:</label>
-            <input  class="btn-1" type="email" id="reg-correo">
-          
-            <label class="btn-1" for="reg-pass">Password:</label>
-            <input  class="btn-1" type="password" id="reg-pass">
-        <div class="botones-radio">
-            <input type="radio" value="1">Madre primeriza 
-            <input type="radio" value="2">Madre con experienca
-        </div> 
-          <span id="error2" class="message-error"></span>
-    
-          <p class="sign-up">--- O ingresa con tu cuenta de: ---</p>
-      <div class="botones-login">
-          <button id="register-facebook" class="btn-face"><img src="./logo/facebook.png"></button>
-          <button id="register-google" class="btn-google"><img src="./logo/google-plus.png"></button>
-      </div>
-           <br>
-           <div class="btn-1">
-            <button id="btn-crear-cuenta" class="boton-iniciar">CREAR CUENTA</button>
-           </div>
-          
+              <div class="btn-1">
+                <button id="ingresar" class="boton-iniciar">INGRESA</button>
+              </div>
+              <p class="sign-up">--- O ingresa con tu cuenta de: ---</p>
+              <div class="botones-login">
+                  <button id= "login-facebook" class="btn-face"><img src="./logo/facebook.png"></button>
+                  <button id="login-google" class="btn-google"><img src="./logo/google-plus.png"></button></li>
+              </div>
+              <p>¿Eres nueva? --- <a href="#registro" class="link-registro"> REGISTRATE </a> ---  </p>
+          </form>
         </div>
-      </form>
-        
+        </section>
+
   </main>
   
-  <section id="container" class="flex margin-top"></section>
-
   <footer class="footer">
     <img src="./logo/Sin título-1.png" alt="logo">
     <p><span class="barra-navegacion">Mommy’s Love</span> Copyright © All rights reserved. </p>
   </footer>
+  
   <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>  
-  <script type="module" src="./lib/main.js"></script>
+  <script type="module" src="./lib/publicaciones.js"></script>
   <script type="module" src="./lib/index.js"></script>
   <script type="module" src="./lib/registro.js"></script>
   <script type="module" src="./lib/datafire.js"></script>
-
+  <script type="module" src="./ui/uindex.js"></script>
+  <script type="module" src="./ui/tempIndex.js"></script>
 </body>
 </html>
 
