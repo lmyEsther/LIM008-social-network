@@ -4,58 +4,83 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Sriracha" rel="stylesheet">
   <link rel="shortcut icon" href="./logo/sonaja-logo.ico" type="image/x-icon"/>
   <link rel="stylesheet" href="style.css">
   <title>Mommy's Love</title>
 </head>
 
 <body>
-
-  <div class="sign-in">
-      <h2>"Ya no estás sola, aquí está la comunidad que necesitabas"</h2>
-      <p>Iniciar sesión</p>
-      <ul>
-        <li>
-        <input id="correo" type="text" placeholder="Correo electrónico"></li>
-        <li>
-        <input id="password" type="password" placeholder="Contraseña"></li>
-        <button id="ingresar">Ingresar</button>
-        <p>O ingresa con tu cuentas de:</p>
-        <button class="btn-face">FACEBOOK</button>
-        <button id="login-google" class="btn-google">GOOGLE</button></li>
-        <p>¿Eres nueva?  <a href="#/registro">Registrate aquí</a></p>
-      </ul>
-  </div>
-
-  <div class="register">
-    <ul>
-      <li>REGISTRATE</li>
-      <li> 
-        <label for="name">Nombre:</label>
-        <input type="text" id="name"></li>
-      <li>
-        <label for="reg-correo">Correo:</label>
-        <input type="email" id="reg-correo"></li>
-      <li>
-        <label for="reg-pass">Password:</label>
-        <input type="password" id="reg-pass"></li>
-      <li>
-      <input type="radio" value="1">Madre primeriza 
-      <input type="radio" value="2">Madre con experienca </li>
-    </ul>
-    <span id="error2" class="message-error"></span>
-
-    <p>O ingresa con tu cuentas de:</p>
-
-    <button class="btn-face">FACEBOOK</button>
-    <button id="register-google" class="btn-google">GOOGLE</button> <br>
-
-    <button id="btn-crear-cuenta">CREAR CUENTA</button>
-  </div>
-
+  <header class="cabecera">
+      <img src="logo/encabezado.png" alt="encabezado">
+  </header>
+  <main class="cuerpo" class="section">
+    <!-- <section>
+      <img src="./logo/embarazada.jpg" alt="Mommy’s Love">
+    </section> -->
+      <div>
+          <form class="formulario"> 
+            <p class="texto-1" class="texto-center" class="titulo-registro">"Ya no estás sola, aquí está la comunidad que necesitabas"</p>
+            <br>
+            <p class="texto-center" class="btn-1">Iniciar sesión con tu cuenta</p>
+            <div class="input">
+            <input class="btn-1" id="correo" type="text" placeholder="Correo electrónico">
+            <input class="btn-1" id="password" type="password" placeholder="Contraseña">
+          </div>
+            <div class="btn-1">
+              <button id="ingresar" class="boton-iniciar">INGRESA</button>
+            </div>
+            <p class="sign-up">--- O ingresa con tu cuenta de: ---</p>
+            <div class="botones-login">
+                <button id= "login-facebook" class="btn-face"><img src="./logo/facebook.png"></button>
+                <button id="login-google" class="btn-google"><img src="./logo/google-plus.png"></button></li>
+            </div>
+            <p>¿Eres nueva? --- <a href="#registro" class="link-registro"> REGISTRATE </a> ---  </p>
+        </form>
+      </div>
+    
+      <div class="register" id="registro">
+        <form class="formulario">
+      <div>
+        <p class="btn-1"class="titulo-registro">Crea tu cuenta aquí</p>
+        <br>
+      </div>
+            <label class="btn-1" for="name">Nombre:</label>
+            <input class="btn-1" type="text" id="name">
+          
+            <label  class="btn-1" for="reg-correo">Correo:</label>
+            <input  class="btn-1" type="email" id="reg-correo">
+          
+            <label class="btn-1" for="reg-pass">Password:</label>
+            <input  class="btn-1" type="password" id="reg-pass">
+        <div class="botones-radio">
+            <input type="radio" value="1">Madre primeriza 
+            <input type="radio" value="2">Madre con experienca
+        </div> 
+          <span id="error2" class="message-error"></span>
+    
+          <p class="sign-up">--- O ingresa con tu cuenta de: ---</p>
+      <div class="botones-login">
+          <button id="register-facebook" class="btn-face"><img src="./logo/facebook.png"></button>
+          <button id="register-google" class="btn-google"><img src="./logo/google-plus.png"></button>
+      </div>
+           <br>
+           <div class="btn-1">
+            <button id="btn-crear-cuenta" class="boton-iniciar">CREAR CUENTA</button>
+           </div>
+          
+        </div>
+      </form>
+        
+  </main>
+  
   <section id="container" class="flex margin-top"></section>
 
-  <footer class=""></footer>
+  <footer class="footer">
+    <img src="./logo/Sin título-1.png" alt="logo">
+    <p><span class="barra-navegacion">Mommy’s Love</span> Copyright © All rights reserved. </p>
+  </footer>
   <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>  
   <script type="module" src="./lib/publicaciones.js"></script>
   <script type="module" src="./lib/index.js"></script>
