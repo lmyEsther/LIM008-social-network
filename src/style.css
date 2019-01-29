@@ -175,3 +175,7 @@ nav ul {
             padding-bottom: 20px;
         }
     }
+
+    #error-login-pass {
+        color: red;    
+    }
