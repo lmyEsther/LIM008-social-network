@@ -16,8 +16,7 @@ btnCrearCuenta.addEventListener('click', () => {
       let errorCode = error.code;
       let errorMessage = error.message;
       // ...
-      document.getElementById("error-login-pass").innerHTML = errorCode + " / " + errorMessage;
-
+      document.getElementById('error-login-pass').innerHTML = errorCode + ' / ' + errorMessage;
     });
 });
 
