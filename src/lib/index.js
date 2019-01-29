@@ -17,7 +17,7 @@ login.addEventListener('click', (ev) => {
       let errorCode = error.code;
       let errorMessage = error.message;
       // ...
-      document.getElementById("error-1").innerHTML = errorCode + " / " + errorMessage;
+      document.getElementById('error-1').innerHTML = errorCode + ' / ' + errorMessage;
 
     });
 });
@@ -85,7 +85,8 @@ registerWithGoogle.addEventListener('click', () => {
 });
 
 // Registro con facebook
-const registroFacebook = document.getElementById('register-facebook').addEventListener('click', () => {
+const registroFacebook = document.getElementById('register-facebook');
+registroFacebook.addEventListener('click', () => {
   let provider = new firebase.auth.FacebookAuthProvider();
   firebase.auth().signInWithPopup(provider).then(function(result) {
     alert('Exito');
@@ -96,7 +97,8 @@ const registroFacebook = document.getElementById('register-facebook').addEventLi
   });
 });
 // login con facebook
-const loginFacebook = document.getElementById('login-facebook').addEventListener('click', () => {
+const loginFacebook = document.getElementById('login-facebook');
+loginFacebook.addEventListener('click', () => {
   let provider = new firebase.auth.FacebookAuthProvider();
   firebase.auth().signInWithPopup(provider).then(function(result) {
     alert('Exito');

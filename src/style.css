@@ -1,5 +1,7 @@
 /* Modelo Mobile Firts */
-
+body{
+    background-color: #fafafa;
+}
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -26,7 +28,7 @@ nav ul {
   }
 
 .cabecera{
-    background-color: #FEFFDF;
+    background-color: #fbd5af;
     display: flex;
     align-content: center;
     justify-content: center;
@@ -52,7 +54,7 @@ nav ul {
 .formulario{
     width: 300px;
     margin: auto;
-    background: rgb(255, 255, 255);
+    background: #fafafa;
     padding: 10px 30px;
     box-sizing: border-box;
     margin-top: 40px;
@@ -64,9 +66,10 @@ nav ul {
 .formulario input{
     width: 80%;
     padding: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    background-color: #E5E5E5;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    background-color: rgba(245, 241, 241, 0.801);
 }
 .formulario p{
     margin-top: 20px;
@@ -119,11 +122,12 @@ nav ul {
         margin-top: 10px;
     }
     .boton-iniciar {
-        padding: 12px;
+        padding: 15px;
         font-weight: 600;
         font-size: 15px;
         background-color: #EF5A5A;
-        color: #FEFFDF
+        color: #FEFFDF;
+        border-radius: 10px;
     }
     .footer{
         background-color: #EF5A5A;
@@ -137,6 +141,15 @@ nav ul {
     .footer img{
         width: 20px;
         height: 20px;
+    }
+    .nav-view{
+      display: flex;
+      align-items: center;
+    }
+    .boton-view{
+      margin-top: 25px;  
+      width: 40px;
+      height: 40px;
     }
     @media screen and (max-width:1300px) and (min-width:1000){
         .cabecera{
