@@ -1,9 +1,17 @@
+import datafire from './datafire.js';
+import { initRouter } from '../ui/uindex.js'
+datafire.initFirebase();
+initRouter();
+
+console.log('fffffff')
+
+
 // Iniciar Sesion con correo y contraseña
 let signInEmail = document.getElementById('correo');
 let signInPass = document.getElementById('password');
 let login = document.getElementById('ingresar');
 
-login.addEventListener('click', (ev) => {
+login && login.addEventListener('click', (ev) => {
   ev.preventDefault();
   let signInEmailValue = signInEmail.value;
   let signInPassValue = signInPass.value;
@@ -25,7 +33,7 @@ login.addEventListener('click', (ev) => {
 // Logeando al usuario con google
 // botón de log in con google
 const btnLoginGoogle = document.getElementById('login-google');
-btnLoginGoogle.addEventListener('click', () => {
+btnLoginGoogle && btnLoginGoogle.addEventListener('click', () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
   firebase.auth().languageCode = 'pt';
@@ -55,7 +63,7 @@ btnLoginGoogle.addEventListener('click', () => {
 });
 // boton de registro con google
 const registerWithGoogle = document.getElementById('register-google');
-registerWithGoogle.addEventListener('click', () => {
+registerWithGoogle && registerWithGoogle.addEventListener('click', () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
   firebase.auth().languageCode = 'pt';
@@ -86,7 +94,7 @@ registerWithGoogle.addEventListener('click', () => {
 
 // Registro con facebook
 const registroFacebook = document.getElementById('register-facebook');
-registroFacebook.addEventListener('click', () => {
+registroFacebook && registroFacebook.addEventListener('click', () => {
   let provider = new firebase.auth.FacebookAuthProvider();
   firebase.auth().signInWithPopup(provider).then(function(result) {
     alert('Exito');
@@ -98,7 +106,7 @@ registroFacebook.addEventListener('click', () => {
 });
 // login con facebook
 const loginFacebook = document.getElementById('login-facebook');
-loginFacebook.addEventListener('click', () => {
+loginFacebook && loginFacebook.addEventListener('click', () => {
   let provider = new firebase.auth.FacebookAuthProvider();
   firebase.auth().signInWithPopup(provider).then(function(result) {
     alert('Exito');

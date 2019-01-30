@@ -23,13 +23,13 @@ export default {
       <div class="btn-1">
         <button id="btn-crear-cuenta" class="boton-iniciar">CREAR CUENTA</button>
        </div>
-
       <p class="sign-up">--- O ingresa con tu cuenta de: ---</p>
+      </form>
+
       <div class="botones-login">
           <button id="register-facebook" class="btn-face"><img src="./logo/facebook.png"></button>
           <button id="register-google" class="btn-google"><img src="./logo/google-plus.png"></button>
       </div>
-    </form>
     </div>`,
 
   ingreso: `<div>
@@ -44,13 +44,15 @@ export default {
       <div class="btn-1">
         <button id="ingresar" class="boton-iniciar">INGRESA</button>
       </div>
+
       <p class="sign-up">--- O ingresa con tu cuenta de: ---</p>
+      </form>
+
       <div class="botones-login">
           <button id= "login-facebook" class="btn-face"><img src="./logo/facebook.png"></button>
           <button id="login-google" class="btn-google"><img src="./logo/google-plus.png"></button></li>
       </div>
       <p>¿Eres nueva? --- <a href="#/registro" class="link-registro"> REGISTRATE </a> ---  </p>
-  </form>
 </div>`
 
 };
