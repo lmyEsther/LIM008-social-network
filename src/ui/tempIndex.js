@@ -52,7 +52,9 @@ export default {
           <button id= "login-facebook" class="btn-face"><img src="./logo/facebook.png"></button>
           <button id="login-google" class="btn-google"><img src="./logo/google-plus.png"></button></li>
       </div>
-      <p>¿Eres nueva? --- <a href="#/registro" class="link-registro"> REGISTRATE </a> ---  </p>
-</div>`
+      <div class="texto-center">
+      <p class="texto-center">¿Eres nueva? --- <a href="#/registro" class="link-registro"> REGISTRATE </a> ---  </p>
+      </div>
+      </div>`
 
 };
