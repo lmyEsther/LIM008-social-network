@@ -24,7 +24,6 @@ login && login.addEventListener('click', (ev) => {
       let errorMessage = error.message;
       // ...
       document.getElementById('error-1').innerHTML = errorCode + ' / ' + errorMessage;
-
     });
 });
 
@@ -115,10 +114,10 @@ loginFacebook && loginFacebook.addEventListener('click', () => {
   });
 });
 
-firebase.auth().signOut().then(function() {
+/* firebase.auth().signOut().then(function() {
   // Sign-out successful.
 }).catch(function(error) {
   // An error happened.
-});
+}); */
 
 
