@@ -1,13 +1,10 @@
 import tempIndex from './tempIndex.js';
-import { initEventListeners } from '../lib/registro.js'
+import { initEventListeners } from '../lib/registro.js';
 
 export const initRouter = () => {
-  console.log('aaaaaaaaaaaa')
   const showTemp = (routers) => {
-    console.log(routers)
     const router = routers.substr(2, routers.length - 2);
     const section = document.getElementById('container');
-    console.log('aaaaaa', router)
     section.innerHTML = tempIndex[router];
     initEventListeners();
   };

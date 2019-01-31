@@ -1,9 +1,7 @@
 import datafire from './datafire.js';
-import { initRouter } from '../ui/uindex.js'
+import { initRouter } from '../ui/uindex.js';
 datafire.initFirebase();
 initRouter();
-
-console.log('fffffff')
 
 
 // Iniciar Sesion con correo y contraseña

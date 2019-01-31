@@ -16,6 +16,6 @@ export const initEventListeners = () => {
         document.getElementById('error-login-pass').innerHTML = errorCode + ' / ' + errorMessage;
       });
   });
-}
+};
 
 
