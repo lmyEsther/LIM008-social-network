@@ -1,7 +1,6 @@
 import tempIndex from './tempIndex.js';
-import { initEventListeners , loginWhitGoogle , regWithGoogle } from '../lib/registro.js'
-loginWhitGoogle();
-regWithGoogle();
+import { initEventListeners } from '../lib/registro.js'
+
 
 export const initRouter = () => {
   console.log('aaaaaaaaaaaa')
