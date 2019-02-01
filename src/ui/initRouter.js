@@ -1,16 +1,18 @@
-import tempIndex from './tempIndex.js';
-import { initEventListeners } from '../lib/registro.js'
+import { registroForm, ingresoForm } from './view.js';
 
 
 export const initRouter = () => {
-  console.log('aaaaaaaaaaaa')
+  
   const showTemp = (routers) => {
-    console.log(routers)
     const router = routers.substr(2, routers.length - 2);
     const section = document.getElementById('container');
-    console.log('aaaaaa', router)
-    section.innerHTML = tempIndex[router];
-    initEventListeners();
+    section.innerHTML = '';
+    if (router === 'registro') {
+      const elem = registroForm();
+      section.appendChild(elem);
+    } else if (router === 'ingreso') {
+      section.appendChild(ingresoForm());
+    }
   };
   
   const switchTemp = (hash) => {
@@ -22,4 +24,4 @@ export const initRouter = () => {
   
   window.addEventListener('load', switchTemp(window.location.hash));
   if (('onhashchange' in window)) window.onhashchange = () => switchTemp(window.location.hash);
-}
+};
