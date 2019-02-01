@@ -1,7 +1,7 @@
 export const initEventListeners = () => {
   const btnCrearCuenta = document.getElementById('btn-crear-cuenta');
   let regCorreo = document.getElementById('reg-correo');
-  let regPass = document.getElementById('reg-password');
+  let regPass = document.getElementById('reg-pass');
   
   btnCrearCuenta && btnCrearCuenta.addEventListener('click', () => {
     let regCorreoValue = regCorreo.value;
