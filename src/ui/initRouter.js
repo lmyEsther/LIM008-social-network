@@ -1,5 +1,6 @@
 import { registroForm, ingresoForm } from './view.js';
 
+
 export const initRouter = () => {
   
   const showTemp = (routers) => {

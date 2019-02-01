@@ -46,6 +46,7 @@ nav ul {
 }
 .barra-navegacion{
     font-family: 'Sriracha', cursive;
+    color: #FEFFDF;
 }
 .cuerpo{
     font-family: 'Roboto', sans-serif;
@@ -91,7 +92,14 @@ nav ul {
 .link-registro{
     color: #EF5A5A;
     text-decoration: none;
-    margin: 5px;
+    margin: 2px;
+    text-align: center;
+}
+.link-footer{
+    color: #FEFFDF;
+    text-decoration: none;
+    margin: 2px;
+    text-align: center;
 }
 .botones-login{
  display: flex;
@@ -130,15 +138,21 @@ nav ul {
         border-radius: 10px;
     }
     .footer{
-        background-color: #EF5A5A;
         display: flex;
         justify-content: center;
         font-size: 14px;
         color: #FEFFDF;
         padding-top: 15px;
         padding-bottom: 15px;
+        background-color: #EF5A5A;
     }
-    .footer img{
+    .footer-color{
+        background-color: #EF5A5A;
+    }
+    .footer-texto-color{
+        color: #FEFFDF;
+    }
+    .footer-img{
         width: 20px;
         height: 20px;
     }
@@ -151,6 +165,46 @@ nav ul {
       width: 40px;
       height: 40px;
     }
+    .divisor{
+        border: 3px solid #fbd5af;
+        margin-top: 0%;
+    }
+    .texto-footer{
+        color: #FEFFDF;
+        text-align: center;
+    }
+    .opciones-footer{
+        display: flex;
+        flex-direction: row;
+        align-content: space-around;
+        justify-content: space-around;
+    }
+    .img-header{
+        width: 30px;
+        height: 30px;
+    }
+    .marca-header{
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 15px;
+        margin-top: 15px;
+    }
+    .header-position{
+        background-color: #EF5A5A;
+        display: flex;
+        flex-direction: row;
+    }
+    .op-header{
+        display: flex;
+        flex-direction: row;
+        align-content: flex-end;
+        justify-content: flex-end;
+    }
+    .opcion-header{
+       position: end;
+       margin: 15px;
+       margin-left: 20px;
+     }
     @media screen and (max-width:1300px) and (min-width:1000){
         .cabecera{
             display: flex;
