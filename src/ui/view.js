@@ -1,4 +1,7 @@
-import { signUpWithEmailAndPasswordOnClick, signInWithPasswordOnClick} from './view-controller.js';
+import {signUpWithEmailAndPasswordOnClick, 
+  signInWithPasswordOnClick, 
+  loginWithGoogleOnClick, 
+  loginWithFacebookOnClick} from '../lib/view-controller.js';
 
 export const registroForm = () => {
   const tmpl = `<div class="register">
@@ -23,14 +26,8 @@ export const registroForm = () => {
 
       <div class="btn-1">
         <button id="btn-crear-cuenta" class="boton-iniciar">CREAR CUENTA</button>
-       </div>
-      <p class="sign-up">--- O ingresa con tu cuenta de: ---</p>
+        </div>
       </form>
-
-      <div class="botones-login">
-          <button id="register-facebook" class="btn-face"><img src="./logo/facebook.png"></button>
-          <button id="register-google" class="btn-google"><img src="./logo/google-plus.png"></button>
-      </div>
     </div>`;
   const div = document.createElement('div');
   div.innerHTML = tmpl;
@@ -65,6 +62,10 @@ export const ingresoForm = () => {
   const div = document.createElement('div');
   div.innerHTML = temp;
   const btnIngresar = div.querySelector('#ingresar');
+  const btnGoogle = div.querySelector('#login-google');
+  const btnFacebook = div.querySelector('#login-facebook');
   btnIngresar.addEventListener('click', signInWithPasswordOnClick);
+  btnGoogle.addEventListener('click', loginWithGoogleOnClick);
+  btnFacebook.addEventListener('click', loginWithFacebookOnClick);
   return div;
 };

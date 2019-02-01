@@ -1,4 +1,4 @@
-import { signUpWithEmailAndPassword, signInWithPassword } from './controller.js';
+import { signUpWithEmailAndPassword, signInWithPassword, loginWithGoogle, loginWithFacebook } from './controller.js';
 
 export const signUpWithEmailAndPasswordOnClick = (evt) => {
   evt.preventDefault();
@@ -20,4 +20,14 @@ export const signInWithPasswordOnClick = (evt) => {
       alert(error);
     }
   });
+};
+
+export const loginWithGoogleOnClick = (evt) => {
+  evt.preventDefault();
+  loginWithGoogle();
+};
+
+export const loginWithFacebookOnClick = (evt) => {
+  evt.preventDefault();
+  loginWithFacebook();
 };
