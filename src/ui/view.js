@@ -43,8 +43,8 @@ export const ingresoForm = () => {
     <br>
     <p class="texto-center" class="btn-1">Iniciar sesión con tu cuenta</p>
     <div class="input">
-    <input class="btn-1" id="correo" type="text" placeholder="Correo electrónico">
-    <input class="btn-1" id="password" type="password" placeholder="Contraseña">
+    <input class="btn-1" id="correo" type="text" placeholder="Correo electrónico" required>
+    <input class="btn-1" id="password" type="password" placeholder="Contraseña" required>
   </div>
 
     <div class="btn-1">

@@ -64,7 +64,7 @@ export const loginWithFacebook = () => {
     result;
   }).then(() => {
     location.href = 'redsocial.html';
-  }).cath(function(error) {
+  }).catch(function(error) {
     error;
   });
 };
