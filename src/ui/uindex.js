@@ -1,15 +1,16 @@
-import tempIndex from './tempIndex.js';
-import { initEventListeners } from '../lib/registro.js';
-import { registroForm } from '../lib/view.js';
+import { registroForm, ingresoForm } from '../lib/view.js';
 
 export const initRouter = () => {
   const showTemp = (routers) => {
     const router = routers.substr(2, routers.length - 2);
     const section = document.getElementById('container');
     section.innerHTML = '';
-    const elem = registroForm();
-    section.appendChild(elem);
-    //initEventListeners();
+    if (router === 'registro') {
+      const elem = registroForm();
+      section.appendChild(elem);
+    } else if (router === 'ingreso') {
+      section.appendChild(ingresoForm());
+    }
   };
   
   const switchTemp = (hash) => {
