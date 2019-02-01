@@ -18,7 +18,7 @@ export const signUpWithEmailAndPassword = (email, password, cb) => {
 export const signInWithPassword = (email, password, callback) => {
   firebase.auth().signInWithEmailAndPassword(email, password)
     .then(() => {
-      location.href = 'ui/redsocial.html';
+      location.href = 'redsocial.html';
     })
     .catch(function(error) {
       // Handle Errors here.
@@ -45,7 +45,7 @@ export const loginWithGoogle = () => {
     let user = result.user;
     // ...
   }).then(() => {
-    location.href = 'ui/redsocial.html';
+    location.href = 'redsocial.html';
   }).catch(function(error) {
     // Handle Errors here.
     let errorCode = error.code;
@@ -63,7 +63,7 @@ export const loginWithFacebook = () => {
   firebase.auth().signInWithPopup(provider).then(function(result) {
     result;
   }).then(() => {
-    location.href = 'ui/redsocial.html';
+    location.href = 'redsocial.html';
   }).cath(function(error) {
     error;
   });
