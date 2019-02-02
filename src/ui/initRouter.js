@@ -1,4 +1,4 @@
-import { registroForm, ingresoForm } from './view.js';
+import { registroForm, ingresoForm, redsocial } from './view.js';
 
 
 export const initRouter = () => {
@@ -12,11 +12,13 @@ export const initRouter = () => {
       section.appendChild(elem);
     } else if (router === 'ingreso') {
       section.appendChild(ingresoForm());
+    } else if (router === 'redsocial') { // muestra lo que estaba en redsocial.html
+      section.appendChild(redsocial());
     }
   };
   
   const switchTemp = (hash) => {
-    if (hash === '#/registro' || hash === '#/ingreso') {
+    if (hash === '#/registro' || hash === '#/ingreso' || hash === '#/redsocial') {
       return showTemp(hash);
     }
     return showTemp('#/ingreso');
