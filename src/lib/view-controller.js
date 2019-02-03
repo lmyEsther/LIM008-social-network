@@ -1,4 +1,5 @@
-import { signUpWithEmailAndPassword, signInWithPassword, loginWithGoogle, loginWithFacebook } from './controller.js';
+import { signUpWithEmailAndPassword, signInWithPassword, 
+  loginWithGoogle, loginWithFacebook } from './controller.js';
 
 export const signUpWithEmailAndPasswordOnClick = (evt) => {
   evt.preventDefault();

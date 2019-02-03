@@ -6,6 +6,15 @@ initRouter();
 
 export const signUpWithEmailAndPassword = (email, password, cb) => {    
   firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(result => {
+      const redir = {
+        url: 'http://localhost:5000/'
+      };
+      result.user.sendEmailVerification(redir).catch(function(error) {
+        alert(`No se pudo enviar email ${error}`);
+      });
+      firebase.auth().signOut();
+    })
     .catch(function(error) {
       // Handle Errors here.
       let errorCode = error.code;
@@ -17,8 +26,12 @@ export const signUpWithEmailAndPassword = (email, password, cb) => {
 
 export const signInWithPassword = (email, password, callback) => {
   firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(() => {
-      location.hash = '#/redsocial'; // nuevo metodo y nueva ruta al muro de publicaciones
+    .then((result) => {
+      if (result.user.emailVerified) {
+        location.hash = '#/redsocial'; // nuevo metodo y nueva ruta al muro de publicaciones
+      } else {
+        alert('Por favor, verifica tu email');
+      }
     })
     .catch(function(error) {
       // Handle Errors here.

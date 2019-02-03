@@ -2,7 +2,6 @@ import { registroForm, ingresoForm, redsocial } from './view.js';
 
 
 export const initRouter = () => {
-  
   const showTemp = (routers) => {
     const router = routers.substr(2, routers.length - 2);
     const section = document.getElementById('container');
