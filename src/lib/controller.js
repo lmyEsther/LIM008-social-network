@@ -55,6 +55,7 @@ export const loginWithGoogle = () => {
     // The firebase.auth.AuthCredential type that was used.
     let credential = error.credential;
     // ...
+    console.log(errorCode, errorMessage, email, credential);
   });
 };
 
@@ -68,3 +69,21 @@ export const loginWithFacebook = () => {
     error;
   });
 };
+
+export const addPost = (textNewPost) =>
+  firebase.firestore().collection('post').add({
+    title: textNewPost,
+    state: false
+  });
+
+export const getPost = (callback) =>
+  firebase.firestore().collection('post')
+    .onSnapshot((querySnapshot) => {
+      const data = [];
+      querySnapshot.forEach((doc) => {
+        data.push({ id: doc.id, ...doc.data() });
+      });
+      callback(data);
+    }); 
+
+// agregar la funcion deletePost
