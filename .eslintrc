@@ -40,7 +40,10 @@
 "extends": "eslint:recommended",
 "globals": {
   "example": false,
-  "firebase": false
-
+  "firebase": false,
+  "describe": false,
+  "it": false,
+  "getNotes": false,
+  "expect": false
 }
 }
