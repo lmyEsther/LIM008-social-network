@@ -18,12 +18,12 @@ global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled
 import { addPost, getPost } from '../src/lib/controller.js';
 
 describe('lista de notas', () => {
-  it('Debería porder agregar una nota', (done) => {
-    return addPost('preparar la pildora')
+  it('Debería porder agregar una publicacion', (done) => {
+    return addPost('soy mamá primeriza')
       .then(() => getPost(
         (data) => {
-          const result = data.find((note) => note.title === 'preparar la pildora');
-          expect(result.title).toBe('preparar la pildora');
+          const result = data.find((note) => note.title === 'soy mamá primeriza');
+          expect(result.title).toBe('soy mamá primeriza');
           done();
         }
       ));

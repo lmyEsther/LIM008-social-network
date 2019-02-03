@@ -108,37 +108,40 @@ export const ingresoForm = () => {
 
 // const itemPost = (objNote) => {
 //   const divElement = document.createElement('div');
-//   divElement.classList.add('mdl-list__item');
 //   divElement.innerHTML = `
-//    <div>
-//      <img src="./logo/girl (1).png" alt="">
-//     <span id="nombre-usuario"></span>
-//     <select id="configuracion">
-//       <option id="editar-post" value="editar">Editar</option>
-//       <option id="eliminar-post${objNote.id}" value="eliminar">Eliminar</option>
-//   </select>
-// </div>
-
-// <div id="contenido-post">
-//   <div>
-//     <span>
-//      <span id="texto-publicacion">${objNote.title}</span>
-//     <span>
-//  </div>
-//   <div>
-//       <button>
-//           <img src="./logo/happy.png"></img>
-//       </button>
-//       <button>
-//           <img src="./logo/sad.png"></img>
-//       </button>
-//       <button>
-//           <img src="./logo/heart.png"></img>
-//       </button>
-//       <button>
-//           <img src="./logo/sonaja-logo.ico"></img>
-//       </button>
+//   <div class="formulario-post">
+//   <div class="imagen-post">
+//     <div class="fondo-avatar">
+//        <img  class="imagen-tamaño" src="./logo/girl (1).png">
+//     </div>
+//       <span id="nombre-usuario">Milagros Coaquira</span>
+//       <select class="selec-confi" id="configuracion">
+//         <option id="editar-post" value="editar">Editar</option>
+//         <option id="eliminar-post${objNote.id}" value="eliminar">Eliminar</option>
+//     </select>
 //   </div>
+  
+//   <div id="contenido-post">
+//     <div>
+//       <span>
+//        <span id="texto-publicacion">${objNote.title}</span>
+//       <span>
+//    </div>
+//     <div class="imagen-post">
+//         <button class="emoji-btn">
+//             <img class="emoji-post" src="./logo/happy.png"></img>
+//         </button>
+//         <button class="emoji-btn">
+//             <img class="emoji-post" src="./logo/sad.png"></img>
+//         </button>
+//         <button class="emoji-btn">
+//             <img class="emoji-post" src="./logo/heart.png"></img>
+//         </button>
+//         <button class="emoji-btn">
+//             <img class="emoji-post" src="./logo/sonaja-logo.ico"></img>
+//         </button>
+//     </div>
+//     </div>
 //   </div>
 //   `;
 //   // aqui se agregara el dom para eliminar la publicacion
@@ -146,7 +149,7 @@ export const ingresoForm = () => {
 // };
 
 // creando la pagina de la red social
-export const redsocial = (post) => {
+export const redsocial = () => {
   const temp = `<header class="header-position">
   <div class="marca-header">
     <img class="footer-img" src="./logo/Sin título-1.png" alt="logo">
@@ -177,6 +180,7 @@ export const redsocial = (post) => {
   </div>
 </form>
 </div>
+<div id="publicacion-post">
 
 <div class="formulario-post">
 <div class="imagen-post">
@@ -196,7 +200,6 @@ export const redsocial = (post) => {
      <span id="texto-publicacion">Hola Mundo</span>
     <span>
  </div>
- 
   <div class="imagen-post">
       <button class="emoji-btn">
           <img class="emoji-post" src="./logo/happy.png"></img>
@@ -213,6 +216,7 @@ export const redsocial = (post) => {
   </div>
   </div>
 </div>
+
 </div>
 </main>
 

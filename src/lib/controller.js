@@ -30,33 +30,40 @@ export const signInWithPassword = (email, password, callback) => {
 };
 
 export const loginWithGoogle = () => {
-  const provider = new firebase.auth.GoogleAuthProvider();
-  provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-  firebase.auth().languageCode = 'pt';
-  // To apply the default browser preference instead of explicitly setting it.
-  // firebase.auth().useDeviceLanguage();
-  provider.setCustomParameters({
-    'login_hint': 'user@example.com'
-  });
-  firebase.auth().signInWithPopup(provider).then(function(result) {
-  // This gives you a Google Access Token. You can use it to access the Google API.
-    let token = result.credential.accessToken;
-    // The signed-in user info.
-    let user = result.user;
-    // ...
-  }).then(() => {
-    location.hash = '#/redsocial';
-  }).catch(function(error) {
+  if (!firebase.auth().currentUser) {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+    firebase.auth().languageCode = 'pt';
+    // To apply the default browser preference instead of explicitly setting it.
+    // firebase.auth().useDeviceLanguage();
+    provider.setCustomParameters({
+      'login_hint': 'user@example.com'
+    });
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+      let token = result.credential.accessToken;
+      // The signed-in user info.
+      let user = result.user;
+      // ...
+      console.log(user);
+    }).then(() => {
+      location.hash = '#/redsocial';
+    }).catch(function(error) {
     // Handle Errors here.
-    let errorCode = error.code;
-    let errorMessage = error.message;
-    // The email of the user's account used.
-    let email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
-    let credential = error.credential;
-    // ...
-    console.log(errorCode, errorMessage, email, credential);
-  });
+      let errorCode = error.code;
+      let errorMessage = error.message;
+      // The email of the user's account used.
+      let email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      let credential = error.credential;
+      // ...
+      if (errorCode === 'auth/account-exists-with-different-credential') {
+        alert('Es el mismo usuario');
+      }
+    });
+  } else {
+    firebase.auth().signOut();
+  }
 };
 
 export const loginWithFacebook = () => {
@@ -70,13 +77,13 @@ export const loginWithFacebook = () => {
   });
 };
 
-export const addPost = (textNewPost) =>
+export const addPost = (textNewPost) => {
   firebase.firestore().collection('post').add({
     title: textNewPost,
     state: false
   });
-
-export const getPost = (callback) =>
+};
+export const getPost = (callback) => {
   firebase.firestore().collection('post')
     .onSnapshot((querySnapshot) => {
       const data = [];
@@ -85,5 +92,12 @@ export const getPost = (callback) =>
       });
       callback(data);
     }); 
+};
 
-// agregar la funcion deletePost
+const validarInputText = document.querySelector('#post').value;
+const inputTextArea = () => {
+  if ( value === ''){
+
+  }
+}
+// agregar la funcion deletePost)
