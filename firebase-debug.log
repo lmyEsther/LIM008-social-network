@@ -1,29 +1,25 @@
-[debug] [2019-02-03T22:10:50.298Z] ----------------------------------------------------------------------
-[debug] [2019-02-03T22:10:50.342Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ivan_\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
-[debug] [2019-02-03T22:10:50.343Z] CLI Version:   6.3.1
-[debug] [2019-02-03T22:10:50.343Z] Platform:      win32
-[debug] [2019-02-03T22:10:50.343Z] Node Version:  v11.2.0
-[debug] [2019-02-03T22:10:50.448Z] Time:          Sun Feb 03 2019 17:10:50 GMT-0500 (GMT-05:00)
-[debug] [2019-02-03T22:10:50.448Z] ----------------------------------------------------------------------
+[debug] [2019-02-04T13:31:25.715Z] ----------------------------------------------------------------------
+[debug] [2019-02-04T13:31:25.723Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ivan_\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-02-04T13:31:25.724Z] CLI Version:   6.3.1
+[debug] [2019-02-04T13:31:25.724Z] Platform:      win32
+[debug] [2019-02-04T13:31:25.724Z] Node Version:  v11.2.0
+[debug] [2019-02-04T13:31:25.728Z] Time:          Mon Feb 04 2019 08:31:25 GMT-0500 (GMT-05:00)
+[debug] [2019-02-04T13:31:25.728Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2019-02-03T22:10:50.653Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2019-02-03T22:10:50.654Z] > authorizing via signed-in user
-[debug] [2019-02-03T22:10:50.655Z] [iam] checking project mommyslove-edf5d for permissions ["firebase.projects.get"]
-[debug] [2019-02-03T22:10:50.659Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2019-02-03T22:10:50.659Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
- <request body omitted>
-[debug] [2019-02-03T22:10:51.749Z] <<< HTTP RESPONSE 200
-[debug] [2019-02-03T22:10:51.897Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/mommyslove-edf5d:testIamPermissions  
+[debug] [2019-02-04T13:31:25.782Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-02-04T13:31:25.784Z] > authorizing via signed-in user
+[debug] [2019-02-04T13:31:25.784Z] [iam] checking project mommyslove-edf5d for permissions ["firebase.projects.get"]
+[debug] [2019-02-04T13:31:25.793Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/mommyslove-edf5d:testIamPermissions  
 
-[debug] [2019-02-03T22:10:52.534Z] <<< HTTP RESPONSE 200
-[debug] [2019-02-03T22:10:52.536Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/mommyslove-edf5d  
+[debug] [2019-02-04T13:31:26.352Z] <<< HTTP RESPONSE 200
+[debug] [2019-02-04T13:31:26.357Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/mommyslove-edf5d  
  
-[debug] [2019-02-03T22:10:52.977Z] <<< HTTP RESPONSE 200
+[debug] [2019-02-04T13:31:26.717Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from 'C:\Users\ivan_\Desktop\PROYECTO RED SOCIAL\LIM008-social-network'...
 [info] 
-[debug] [2019-02-03T22:10:53.030Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/390042811062/clients/_:getWebAppConfig  
+[debug] [2019-02-04T13:31:26.724Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/390042811062/clients/_:getWebAppConfig  
  
-[debug] [2019-02-03T22:10:53.707Z] <<< HTTP RESPONSE 200
-[info] i  hosting: Serving hosting files from: public
+[debug] [2019-02-04T13:31:27.395Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: ./src
 [info] +  hosting: Local server: http://localhost:5000
