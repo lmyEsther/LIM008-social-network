@@ -1,4 +1,5 @@
-import { signUpWithEmailAndPassword, signInWithPassword, loginWithGoogle, loginWithFacebook, addPost } from './controller.js';
+import { signUpWithEmailAndPassword, signInWithPassword, loginWithGoogle, loginWithFacebook, 
+  addPost, deletePost } from './controller.js';
 
 export const signUpWithEmailAndPasswordOnClick = (evt) => {
   evt.preventDefault();
@@ -34,7 +35,7 @@ export const loginWithFacebookOnClick = (evt) => {
 
 export const addPostOnSubmit = (evt) => {
   evt.preventDefault();
-  const inputText = document.getElementById('post').value;
+  const inputText = document.getElementById('post');
   // const spanPost = document.getElementById('texto-publicacion');
   // data que muestra el snackbar
   const data = {
@@ -49,6 +50,8 @@ export const addPostOnSubmit = (evt) => {
       data.message = 'Publicación agregada';
     }).cath(() => {
       inputText.value = '';
-      data.message = 'Lo sentimos, no se pudo agregar la nota';
+      data.message = 'Lo sentimos, no se pudo agregar tu publicación';
     });
 };
+
+export const deletePostOnClick = (objPost) => deletePost(objPost.id);

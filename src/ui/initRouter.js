@@ -1,4 +1,5 @@
 import { registroForm, ingresoForm, redsocial } from './view.js';
+import { getPost } from '../lib/controller.js';
 
 
 export const initRouter = () => {
@@ -11,8 +12,11 @@ export const initRouter = () => {
       section.appendChild(elem);
     } else if (router === 'ingreso') {
       section.appendChild(ingresoForm());
-    } else if (router === 'redsocial') { // muestra lo que estaba en redsocial.html
-      section.appendChild(redsocial());
+    } else if (router === 'redsocial') {
+      getPost((posts) => {
+        section.innerHTML = '';        
+        section.appendChild(redsocial(posts));
+      })
     }
   };
   
