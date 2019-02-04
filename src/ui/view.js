@@ -1,6 +1,6 @@
 import {signUpWithEmailAndPasswordOnClick, signInWithPasswordOnClick, 
   loginWithGoogleOnClick, loginWithFacebookOnClick, 
-  addPostOnSubmit, deletePostOnClick} from '../lib/view-controller.js';
+  addPostOnSubmit, deletePostOnClick, editarPostOnSubmit} from '../lib/view-controller.js';
 
 export const registroForm = () => {
   const tmpl = `<header class="cabecera">
@@ -105,7 +105,6 @@ export const ingresoForm = () => {
   return div;
 };
 
-// <!--<option id="eliminar-post-${objPost.id}" value="eliminar">Eliminar</option>-->No funciona con este evento
 // creando la publicacion de forma dinamica por cada post publicado
 const cadaPost = (objPost) => {
   const elem = document.createElement('li');
@@ -114,11 +113,17 @@ const cadaPost = (objPost) => {
    <div>
      <img src="./logo/girl (1).png" alt="avatar">
     <span id="nombre-usuario">${objPost.displayName}</span>
-    <select id="configuracion">
-      <option id="editar-post" value="editar">Editar</option>
-   </select>
+    <button id="mostrar-modal">Editar</button>
    <button id="eliminar-post-${objPost.id}">Eliminar</button>
    </div>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <button id="editar-post-${objPost.id}">Guardar</button>
+      <textarea id="texto-edit" cols="60" rows="5">${objPost.title}</textarea>
+    </div>
+  </div>
+
 
 <div id="contenido-post">
   <div>
@@ -145,6 +150,16 @@ const cadaPost = (objPost) => {
   
   const optionEliminar = elem.querySelector(`#eliminar-post-${objPost.id}`);
   optionEliminar.addEventListener('click', () => deletePostOnClick(objPost));
+  const btnModal = elem.querySelector("#mostrar-modal");
+  btnModal.addEventListener("click", () => {
+  let modal = elem.querySelector('#myModal');
+  modal.style.display = "block";
+  });
+  const btnEditar = elem.querySelector(`#editar-post-${objPost.id}`);
+  btnEditar.addEventListener("click", () => { 
+    console.log('ckigjhf')
+    editarPostOnSubmit(objPost)}); 
+
   return elem;
 };
 

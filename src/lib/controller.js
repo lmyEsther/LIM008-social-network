@@ -18,7 +18,7 @@ export const signUpWithEmailAndPassword = (email, password, cb) => {
     //   firebase.auth().signOut();
     // })
     .catch(function(error) {
-      // Handle Errors here.
+
       let errorCode = error.code;
       let errorMessage = error.message;
 
@@ -50,29 +50,21 @@ export const loginWithGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
   firebase.auth().languageCode = 'pt';
-  // To apply the default browser preference instead of explicitly setting it.
-  // firebase.auth().useDeviceLanguage();
   provider.setCustomParameters({
     'login_hint': 'user@example.com'
   });
   firebase.auth().signInWithPopup(provider).then(function(result) {
-  // This gives you a Google Access Token. You can use it to access the Google API.
     let token = result.credential.accessToken;
-    // The signed-in user info.
     let user = result.user;
-    // ...
+
   }).then(() => {
     location.hash = '#/redsocial';
+
   }).catch(function(error) {
-    // Handle Errors here.
     let errorCode = error.code;
     let errorMessage = error.message;
-    // The email of the user's account used.
     let email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
     let credential = error.credential;
-    // ...
-    console.log(errorCode, errorMessage, email, credential);
   });
 };
 
@@ -105,3 +97,24 @@ export const getPost = (callback) =>
 
 export const deletePost = (idPost) =>
   database.collection('posts').doc(idPost).delete();
+
+
+//Editar publicación
+
+
+export const editPost = (idPost, textNewUpdate) => {
+
+  var washingtonRef = database.collection('posts').doc(idPost);
+
+  return washingtonRef.update({
+    title: textNewUpdate,
+  })
+  .then(function() {
+      console.log("Document successfully updated!");
+  })
+  .catch(function(error) {
+      console.error("Error updating document: ", error);
+  });
+
+}
+
