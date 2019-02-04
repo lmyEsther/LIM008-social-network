@@ -116,7 +116,10 @@ const cadaPost = (objPost) => {
    <div class="fondo-avatar">
      <img class="imagen-tamaño" src="./logo/girl (1).png" alt="avatar">
      </div>
+    <div class="icono-estado">
     <span id="nombre-usuario">${objPost.displayName}</span>
+    <span><img class="footer-img" src="./logo/friendship.png" alt="amigas"></span>
+    </div>
     <select id="configuracion" class="selec-confi">
       <option id="editar-post" value="editar">Editar</option>
    </select>

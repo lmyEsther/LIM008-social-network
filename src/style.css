@@ -264,6 +264,11 @@ nav ul {
      #lista-publicaciones{
        list-style: none;
      }
+     .icono-estado{
+         display: flex;
+         flex-direction: column;
+         justify-content: flex-start;
+     }
     @media screen and (max-width:1300px) and (min-width:1000){
         .cabecera{
             display: flex;

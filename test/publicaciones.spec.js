@@ -5,7 +5,7 @@ const fixtureData = {
     notes: {
       __doc__: {
         abc1d: {
-          title: 'terminar la pildora',
+          title: 'soy mamá con experiencia',
           complete: false
         },
       }
@@ -17,12 +17,12 @@ global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled
 
 import { addPost, getPost } from '../src/lib/controller.js';
 
-describe('lista de notas', () => {
+describe('lista de publicaciones', () => {
   it('Debería porder agregar una publicacion', (done) => {
     return addPost('soy mamá primeriza')
       .then(() => getPost(
         (data) => {
-          const result = data.find((note) => note.title === 'soy mamá primeriza');
+          const result = data.find((post) => post.title === 'soy mamá primeriza');
           expect(result.title).toBe('soy mamá primeriza');
           done();
         }

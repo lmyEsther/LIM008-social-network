@@ -37,12 +37,28 @@ export const addPostOnSubmit = (evt) => {
   evt.preventDefault();
   const inputText = document.getElementById('post');
   const selecPrivacy = document.getElementById('privacidad');
-  if (inputText === '') {
-    alert('Realiza una publicación');
+  if (inputText.value === '') {
+    alert('Ingresa un contenido');
   } else if (selecPrivacy.value === 'amigos' && inputText !== '') {
-    console.log('Soy una publicacion de amigos');
+    console.log('Soy una publicación de amigos');
+    addPost(inputText.value)
+      .then(() => {
+        inputText.value = '';
+        data.message = 'Publicación agregada';
+      }).cath(() => {
+        inputText.value = '';
+        data.message = 'Lo sentimos, no se pudo agregar tu publicación';
+      });
   } else if (selecPrivacy.value === 'publico' && inputText !== '') {
-    console.log('Soy una publicacion publica');
+    console.log('Soy una publicación publica');
+    addPost(inputText.value)
+      .then(() => {
+        inputText.value = '';
+        data.message = 'Publicación agregada';
+      }).cath(() => {
+        inputText.value = '';
+        data.message = 'Lo sentimos, no se pudo agregar tu publicación';
+      });
   } else {
     console.log('no se ejecuta');
   }
@@ -52,15 +68,6 @@ export const addPostOnSubmit = (evt) => {
     timeout: 2000,
     actionText: 'Undo'
   };
-
-  addPost(inputText.value)
-    .then(() => {
-      inputText.value = '';
-      data.message = 'Publicación agregada';
-    }).cath(() => {
-      inputText.value = '';
-      data.message = 'Lo sentimos, no se pudo agregar tu publicación';
-    });
 };
 
 export const deletePostOnClick = (objPost) => deletePost(objPost.id);
