@@ -1,5 +1,6 @@
 import {signUpWithEmailAndPasswordOnClick, signInWithPasswordOnClick, 
-  loginWithGoogleOnClick, loginWithFacebookOnClick, addPostOnSubmit} from '../lib/view-controller.js';
+  loginWithGoogleOnClick, loginWithFacebookOnClick, 
+  addPostOnSubmit, deletePostOnClick} from '../lib/view-controller.js';
 
 export const registroForm = () => {
   const tmpl = `<header class="cabecera">
@@ -104,49 +105,51 @@ export const ingresoForm = () => {
   return div;
 };
 
+// <!--<option id="eliminar-post-${objPost.id}" value="eliminar">Eliminar</option>-->No funciona con este evento
 // creando la publicacion de forma dinamica por cada post publicado
+const cadaPost = (objPost) => {
+  const elem = document.createElement('li');
+  elem.classList.add('formulario-post');
+  elem.innerHTML = `
+   <div>
+     <img src="./logo/girl (1).png" alt="avatar">
+    <span id="nombre-usuario">${objPost.displayName}</span>
+    <select id="configuracion">
+      <option id="editar-post" value="editar">Editar</option>
+   </select>
+   <button id="eliminar-post-${objPost.id}">Eliminar</button>
+   </div>
 
-// const itemPost = (objNote) => {
-//   const divElement = document.createElement('div');
-//   divElement.classList.add('mdl-list__item');
-//   divElement.innerHTML = `
-//    <div>
-//      <img src="./logo/girl (1).png" alt="">
-//     <span id="nombre-usuario"></span>
-//     <select id="configuracion">
-//       <option id="editar-post" value="editar">Editar</option>
-//       <option id="eliminar-post${objNote.id}" value="eliminar">Eliminar</option>
-//   </select>
-// </div>
-
-// <div id="contenido-post">
-//   <div>
-//     <span>
-//      <span id="texto-publicacion">${objNote.title}</span>
-//     <span>
-//  </div>
-//   <div>
-//       <button>
-//           <img src="./logo/happy.png"></img>
-//       </button>
-//       <button>
-//           <img src="./logo/sad.png"></img>
-//       </button>
-//       <button>
-//           <img src="./logo/heart.png"></img>
-//       </button>
-//       <button>
-//           <img src="./logo/sonaja-logo.ico"></img>
-//       </button>
-//   </div>
-//   </div>
-//   `;
-//   // aqui se agregara el dom para eliminar la publicacion
-//   return divElement;
-// };
+<div id="contenido-post">
+  <div>
+    <span>
+     <span id="texto-publicacion">${objPost.title}</span>
+    <span>
+ </div>
+  <div>
+      <button>
+          <img src="./logo/happy.png"></img>
+      </button>
+      <button>
+          <img src="./logo/sad.png"></img>
+      </button>
+      <button>
+          <img src="./logo/heart.png"></img>
+      </button>
+      <button>
+          <img src="./logo/sonaja-logo.ico"></img>
+      </button>
+  </div>
+  </div>
+  `;
+  
+  const optionEliminar = elem.querySelector(`#eliminar-post-${objPost.id}`);
+  optionEliminar.addEventListener('click', () => deletePostOnClick(objPost));
+  return elem;
+};
 
 // creando la pagina de la red social
-export const redsocial = (post) => {
+export const redsocial = (posts) => {
   const temp = `<header class="header-position">
   <div class="marca-header">
     <img class="footer-img" src="./logo/Sin título-1.png" alt="logo">
@@ -178,42 +181,11 @@ export const redsocial = (post) => {
 </form>
 </div>
 
-<div class="formulario-post">
-<div class="imagen-post">
-  <div class="fondo-avatar">
-     <img  class="imagen-tamaño" src="./logo/girl (1).png">
-  </div>
-    <span id="nombre-usuario">Milagros Coaquira</span>
-    <select class="selec-confi" id="configuracion">
-      <option id="editar-post" value="editar">Editar</option>
-      <option id="eliminar-post" value="eliminar">Eliminar</option>
-  </select>
-</div>
 
-<div id="contenido-post">
-  <div>
-    <span>
-     <span id="texto-publicacion">Hola Mundo</span>
-    <span>
- </div>
- 
-  <div class="imagen-post">
-      <button class="emoji-btn">
-          <img class="emoji-post" src="./logo/happy.png"></img>
-      </button>
-      <button class="emoji-btn">
-          <img class="emoji-post" src="./logo/sad.png"></img>
-      </button>
-      <button class="emoji-btn">
-          <img class="emoji-post" src="./logo/heart.png"></img>
-      </button>
-      <button class="emoji-btn">
-          <img class="emoji-post" src="./logo/sonaja-logo.ico"></img>
-      </button>
-  </div>
-  </div>
-</div>
-</div>
+<section>
+      <ul id="lista-publicaciones"></ul>
+</section>
+
 </main>
 
 <footer class="footer-color">
@@ -233,18 +205,13 @@ export const redsocial = (post) => {
 
   const div = document.createElement('div');
   div.innerHTML = temp;
-  // aqui deberia ir toda la funcionalidad que le vayamos dando 
-  // conforme avancemos las funciones de publicar , editar y eliminar
-  // ojo esto se puede ir modificando en template dinamicos mas pequeños para mostrar las publicaciones etc
-  // solo lo he hecho asi para dar ruta dinamica a redsocial y no tenerlo como otro archivo html 
-  // de manera que no se recargue la pagina de nuevo... ahi vamos comentando los cambios chicas... Vamos bien!
 
-  // const btnPost = div.querySelector('#publicar');
-  // const tagDiv = div.querySelector('#publicacion-post');
-  // post.forEach(post => {
-  //   tagDiv.appendChild(itemPost(post));
-  // });
-  // btnPost.addEventListener('click', addPostOnSubmit);
+  const btnPost = div.querySelector('#publicar');
+  const tagUl = div.querySelector('#lista-publicaciones');
+  posts.forEach(post => {
+    tagUl.appendChild(cadaPost(post));
+  });
+  btnPost.addEventListener('click', addPostOnSubmit);
   return div;
 };
 

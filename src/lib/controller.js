@@ -4,13 +4,24 @@ import { initRouter } from '../ui/initRouter.js';
 datafire.initFirebase();
 initRouter();
 
+const database = firebase.firestore();
+
 export const signUpWithEmailAndPassword = (email, password, cb) => {    
   firebase.auth().createUserWithEmailAndPassword(email, password)
+    // .then(result => {
+    //   const redir = {
+    //     url: 'http://localhost:5000/'
+    //   };
+    //   result.user.sendEmailVerification(redir).catch(function(error) {
+    //     alert(`No se pudo enviar email ${error}`);
+    //   });
+    //   firebase.auth().signOut();
+    // })
     .catch(function(error) {
       // Handle Errors here.
       let errorCode = error.code;
       let errorMessage = error.message;
-      // ...
+
       cb(errorCode + ' / ' + errorMessage);
     });
 };
@@ -18,7 +29,13 @@ export const signUpWithEmailAndPassword = (email, password, cb) => {
 export const signInWithPassword = (email, password, callback) => {
   firebase.auth().signInWithEmailAndPassword(email, password)
     .then(() => {
-      location.hash = '#/redsocial'; // nuevo metodo y nueva ruta al muro de publicaciones
+      location.hash = '#/redsocial';
+      // (result) => {
+      // if (result.user.emailVerified) {
+      //   location.hash = '#/redsocial'; // nuevo metodo y nueva ruta al muro de publicaciones
+      // } else {
+      //   alert('Por favor, verifica tu email');
+      // }
     })
     .catch(function(error) {
       // Handle Errors here.
@@ -71,13 +88,13 @@ export const loginWithFacebook = () => {
 };
 
 export const addPost = (textNewPost) =>
-  firebase.firestore().collection('post').add({
+  database.collection('posts').add({
     title: textNewPost,
     state: false
   });
 
 export const getPost = (callback) =>
-  firebase.firestore().collection('post')
+  database.collection('posts')
     .onSnapshot((querySnapshot) => {
       const data = [];
       querySnapshot.forEach((doc) => {
@@ -86,4 +103,5 @@ export const getPost = (callback) =>
       callback(data);
     }); 
 
-// agregar la funcion deletePost
+export const deletePost = (idPost) =>
+  database.collection('posts').doc(idPost).delete();
