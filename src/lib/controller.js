@@ -94,11 +94,4 @@ export const getPost = (callback) => {
     }); 
 };
 
-// export const inputTextArea = () => {
-//   if (validarInputText === '') {
-//     alert('Realiza una publicación')
-//   } else {
-//     addPost();
-//   }
-// };
 // agregar la funcion deletePost

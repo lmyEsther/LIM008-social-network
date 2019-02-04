@@ -35,8 +35,17 @@ export const loginWithFacebookOnClick = (evt) => {
 export const addPostOnSubmit = (evt) => {
   evt.preventDefault();
   const inputText = document.getElementById('post').value;
+  const selecPrivacy = document.getElementById('privacidad');
+  if (inputText === '') {
+    alert('Realiza una publicación');
+  } else if (selecPrivacy.value === 'amigos' && inputText !== '') {
+    console.log('Soy una publicacion de amigos');
+  } else if (selecPrivacy.value === 'publico' && inputText !== '') {
+    console.log('Soy una publicacion publica');
+  } else {
+    console.log('no se ejecuta');
+  }
   // const spanPost = document.getElementById('texto-publicacion');
-  // data que muestra el snackbar
   const data = {
     message: '',
     timeout: 2000,
