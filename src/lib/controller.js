@@ -94,10 +94,10 @@ export const getPost = (callback) => {
     }); 
 };
 
-const validarInputText = document.querySelector('#post').value;
 const inputTextArea = () => {
-  if ( value === ''){
-
-  }
-}
+  if (validarInputText === '') {
+    alert('Realiza una publicación')
+  } else {
+   addPost();
+};
 // agregar la funcion deletePost)
