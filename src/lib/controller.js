@@ -109,7 +109,6 @@ export const getPost = (callback) =>
       });
       callback(data);
     }); 
-};
 
 export const deletePost = (idPost) =>
   database.collection('posts').doc(idPost).delete();
