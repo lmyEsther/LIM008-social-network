@@ -1,11 +1,3 @@
-import datafire from './datafire.js';
-import { initRouter } from '../ui/initRouter.js';
-
-datafire.initFirebase();
-initRouter();
-
-const database = firebase.firestore();
-
 export const signUpWithEmailAndPassword = (email, password, cb) => {    
   firebase.auth().createUserWithEmailAndPassword(email, password)
     // .then(result => {
@@ -49,30 +41,21 @@ export const loginWithGoogle = () => {
   if (!firebase.auth().currentUser) {
     const provider = new firebase.auth.GoogleAuthProvider();
     provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-    firebase.auth().languageCode = 'pt';
-    // To apply the default browser preference instead of explicitly setting it.
-    // firebase.auth().useDeviceLanguage();
+    firebase.auth().languageCode = 'es';
+
     provider.setCustomParameters({
       'login_hint': 'user@example.com'
     });
     firebase.auth().signInWithPopup(provider).then(function(result) {
-    // This gives you a Google Access Token. You can use it to access the Google API.
       let token = result.credential.accessToken;
-      // The signed-in user info.
       let user = result.user;
-      // ...
-      console.log(user);
     }).then(() => {
       location.hash = '#/redsocial';
     }).catch(function(error) {
-    // Handle Errors here.
       let errorCode = error.code;
       let errorMessage = error.message;
-      // The email of the user's account used.
       let email = error.email;
-      // The firebase.auth.AuthCredential type that was used.
       let credential = error.credential;
-      // ...
       if (errorCode === 'auth/account-exists-with-different-credential') {
         alert('Es el mismo usuario');
       }
@@ -94,13 +77,13 @@ export const loginWithFacebook = () => {
 };
 
 export const addPost = (textNewPost) =>
-  database.collection('posts').add({
+  firebase.firestore().collection('posts').add({
     title: textNewPost,
     state: false
   });
 
 export const getPost = (callback) =>
-  database.collection('posts')
+  firebase.firestore().collection('posts')
     .onSnapshot((querySnapshot) => {
       const data = [];
       querySnapshot.forEach((doc) => {
@@ -110,21 +93,18 @@ export const getPost = (callback) =>
     }); 
 
 export const deletePost = (idPost) =>
-  database.collection('posts').doc(idPost).delete();
+  firebase.firestore().collection('posts').doc(idPost).delete();
 
 
 // Editar publicación
 
 
 export const editPost = (idPost, textNewUpdate) => {
-  let washingtonRef = database.collection('posts').doc(idPost);
+  let washingtonRef = firebase.firestore().collection('posts').doc(idPost);
 
   return washingtonRef.update({
     title: textNewUpdate,
   })
-    .then(function() {
-      console.log('Document successfully updated!');
-    })
     .catch(function(error) {
       console.error('Error updating document: ', error);
     });
