@@ -2,10 +2,10 @@ import MockFirebase from 'mock-cloud-firestore';
 
 const fixtureData = {
   __collection__: {
-    notes: {
+    post: {
       __doc__: {
         li234: {
-          title: 'Hola Mundo',
+          title: 'soy mamá con experiencia',
           complete: false
         },
       }

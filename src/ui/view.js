@@ -107,15 +107,22 @@ export const ingresoForm = () => {
 
 // creando la publicacion de forma dinamica por cada post publicado
 const cadaPost = (objPost) => {
-  const elem = document.createElement('li');
+  const elem = document.createElement('div');
   elem.classList.add('formulario-post');
   elem.innerHTML = `
-   <div>
-    <img src="./logo/girl (1).png" alt="avatar">
+  <div>
+  <div class="imagen-post">
+  <div class="fondo-avatar">
+    <img class="imagen-tamaño" src="./logo/girl (1).png" alt="avatar">
+    </div>
     <span id="nombre-usuario">${objPost.displayName}</span>
-    <button id="mostrar-modal">Editar</button>
-    <button id="confirm-eliminar">Eliminar</button>
+    <div class="icono-estado">
+    <button class="selec-confi" id="mostrar-modal">Editar</button>
+    <button class="selec-confi" id="confirm-eliminar">Eliminar</button>
+    </div>
    </div>
+   <button class="botones-post" id="eliminar-post-${objPost.id}">Eliminar</button>
+   
 
    <div id="myModal" class="modal">
    <div class="modal-content">
@@ -140,17 +147,17 @@ const cadaPost = (objPost) => {
     <span>
  </div>
   <div>
-      <button>
-          <img src="./logo/happy.png"></img>
+      <button class="emoji-btn">
+          <img class="emoji-post" src="./logo/happy.png"></img>
       </button>
-      <button>
-          <img src="./logo/sad.png"></img>
+      <button class="emoji-btn">
+          <img class="emoji-post" src="./logo/sad.png"></img>
       </button>
-      <button>
-          <img src="./logo/heart.png"></img>
+      <button class="emoji-btn">
+          <img  class="emoji-post" src="./logo/heart.png"></img>
       </button>
-      <button>
-          <img src="./logo/sonaja-logo.ico"></img>
+      <button class="emoji-btn">
+          <img class="emoji-post" src="./logo/sonaja-logo.ico"></img>
       </button>
   </div>
   </div>
@@ -212,10 +219,11 @@ export const redsocial = (posts) => {
   </div>
 </form>
 </div>
+<div id="publicacion-post">
 
 
-<section>
-      <ul id="lista-publicaciones"></ul>
+<section id="lista-publicaciones">
+      
 </section>
 
 </main>
@@ -239,9 +247,9 @@ export const redsocial = (posts) => {
   div.innerHTML = temp;
 
   const btnPost = div.querySelector('#publicar');
-  const tagUl = div.querySelector('#lista-publicaciones');
+  const tagDiv = div.querySelector('#lista-publicaciones');
   posts.forEach(post => {
-    tagUl.appendChild(cadaPost(post));
+    tagDiv.appendChild(cadaPost(post));
   });
   btnPost.addEventListener('click', addPostOnSubmit);
   return div;
