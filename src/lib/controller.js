@@ -93,9 +93,12 @@ export const loginWithFacebook = () => {
   });
 };
 
-export const addPost = (textNewPost) =>
+export const addPost = (textNewPost, ) =>
   database.collection('posts').add({
     title: textNewPost,
+    privacidad: 
+    uid: 
+    di
     state: false
   });
 
