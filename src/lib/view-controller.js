@@ -56,14 +56,11 @@ export const addPostOnSubmit = (evt) => {
 
 
 export const deletePostOnClick = (objPost) => deletePost(objPost.id);
-export const editarPostOnSubmit = (objPost) => {
 
-  let textNewUpdate = document.querySelector("#texto-edit");
+export const editarPostOnSubmit = (objPost) => {
+  let textNewUpdate = document.querySelector('#texto-edit');
   let modal = document.querySelector('#myModal');
-  modal.style.display = "none";
+  modal.style.display = 'none';
 
   editPost(objPost.id, textNewUpdate.value);
-
-  };
-
-
+};

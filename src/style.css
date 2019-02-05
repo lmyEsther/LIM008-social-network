@@ -261,36 +261,8 @@ nav ul {
          margin: 8px;
          margin-top: 15px;
      }
-    @media screen and (max-width:1300px) and (min-width:1000){
-        .cabecera{
-            display: flex;
-            align-content: center;
-            justify-content: center;
-            align-items: center;
-        }
-        .cabecera img{  
-            width: 350px;
-            height: 200px;
-        }
-        .formulario{
-            width: 300px;
-            margin: auto;
-            background: rgb(255, 255, 255);
-            padding: 10px 30px;
-            box-sizing: border-box;
-            margin-top: 40px;
-            border-radius: 7px;
-            font-size: 15px;
-            text-align: right;
-            padding-bottom: 20px;
-        }
-    }
 
-    #error-login-pass {
-        color: red;    
-    }
-
-    .modal {
+     .modal {
         display: none; 
         position: fixed; 
         z-index: 1; 
@@ -330,3 +302,35 @@ nav ul {
          width: 100%;
          height: 20%;
       }
+
+     
+    @media screen and (max-width:1300px) and (min-width:1000){
+        .cabecera{
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+        }
+        .cabecera img{  
+            width: 350px;
+            height: 200px;
+        }
+        .formulario{
+            width: 300px;
+            margin: auto;
+            background: rgb(255, 255, 255);
+            padding: 10px 30px;
+            box-sizing: border-box;
+            margin-top: 40px;
+            border-radius: 7px;
+            font-size: 15px;
+            text-align: right;
+            padding-bottom: 20px;
+        }
+    }
+
+    #error-login-pass {
+        color: red;    
+    }
+
+    

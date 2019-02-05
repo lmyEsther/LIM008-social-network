@@ -18,7 +18,6 @@ export const signUpWithEmailAndPassword = (email, password, cb) => {
     //   firebase.auth().signOut();
     // })
     .catch(function(error) {
-
       let errorCode = error.code;
       let errorMessage = error.message;
 
@@ -56,10 +55,8 @@ export const loginWithGoogle = () => {
   firebase.auth().signInWithPopup(provider).then(function(result) {
     let token = result.credential.accessToken;
     let user = result.user;
-
   }).then(() => {
     location.hash = '#/redsocial';
-
   }).catch(function(error) {
     let errorCode = error.code;
     let errorMessage = error.message;
@@ -99,22 +96,20 @@ export const deletePost = (idPost) =>
   database.collection('posts').doc(idPost).delete();
 
 
-//Editar publicación
+// Editar publicación
 
 
 export const editPost = (idPost, textNewUpdate) => {
-
-  var washingtonRef = database.collection('posts').doc(idPost);
+  let washingtonRef = database.collection('posts').doc(idPost);
 
   return washingtonRef.update({
     title: textNewUpdate,
   })
-  .then(function() {
-      console.log("Document successfully updated!");
-  })
-  .catch(function(error) {
-      console.error("Error updating document: ", error);
-  });
-
-}
+    .then(function() {
+      console.log('Document successfully updated!');
+    })
+    .catch(function(error) {
+      console.error('Error updating document: ', error);
+    });
+};
 
