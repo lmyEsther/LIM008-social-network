@@ -111,16 +111,24 @@ const cadaPost = (objPost) => {
   elem.classList.add('formulario-post');
   elem.innerHTML = `
    <div>
-     <img src="./logo/girl (1).png" alt="avatar">
+    <img src="./logo/girl (1).png" alt="avatar">
     <span id="nombre-usuario">${objPost.displayName}</span>
     <button id="mostrar-modal">Editar</button>
-   <button id="eliminar-post-${objPost.id}">Eliminar</button>
+    <button id="confirm-eliminar">Eliminar</button>
    </div>
 
-  <div id="myModal" class="modal">
+   <div id="myModal" class="modal">
+   <div class="modal-content">
+     <button id="editar-post-${objPost.id}">Guardar</button>
+     <textarea id="texto-edit" cols="60" rows="5">${objPost.title}</textarea>
+   </div>
+ </div>
+
+  <div id="confirm-modal" class="modal">
     <div class="modal-content">
-      <button id="editar-post-${objPost.id}">Guardar</button>
-      <textarea id="texto-edit" cols="60" rows="5">${objPost.title}</textarea>
+      <p>¿Estas segura de que quieres eliminar este post?</p>
+      <button id="eliminar-post-${objPost.id}">SI</button>
+      <button id="no-eliminar">No</button>
     </div>
   </div>
 
@@ -147,18 +155,27 @@ const cadaPost = (objPost) => {
   </div>
   </div>
   `;
+  const modalConfirm = elem.querySelector('#confirm-modal');
+
+  const btnConfirm = elem.querySelector('#confirm-eliminar'); 
+  btnConfirm.addEventListener('click', () => {
+    modalConfirm.style.display = 'block';
+  });
+  const btnEliminar = elem.querySelector(`#eliminar-post-${objPost.id}`);
+  btnEliminar.addEventListener('click', () => deletePostOnClick(objPost));
+
+  const noEliminar = elem.querySelector('#no-eliminar');
+  noEliminar.addEventListener('click', () => {
+    modalConfirm.style.display = 'none';
+  });
   
-  const optionEliminar = elem.querySelector(`#eliminar-post-${objPost.id}`);
-  optionEliminar.addEventListener('click', () => deletePostOnClick(objPost));
-  const btnModal = elem.querySelector("#mostrar-modal");
-  btnModal.addEventListener("click", () => {
-  let modal = elem.querySelector('#myModal');
-  modal.style.display = "block";
+  const btnModal = elem.querySelector('#mostrar-modal');
+  btnModal.addEventListener('click', () => {
+    let modal = elem.querySelector('#myModal');
+    modal.style.display = 'block';
   });
   const btnEditar = elem.querySelector(`#editar-post-${objPost.id}`);
-  btnEditar.addEventListener("click", () => { 
-    console.log('ckigjhf')
-    editarPostOnSubmit(objPost)}); 
+  btnEditar.addEventListener('click', () => editarPostOnSubmit(objPost)); 
 
   return elem;
 };
