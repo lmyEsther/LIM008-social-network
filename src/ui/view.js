@@ -105,7 +105,6 @@ export const ingresoForm = () => {
   return div;
 };
 
-// <!--<option id="eliminar-post-${objPost.id}" value="eliminar">Eliminar</option>-->No funciona con este evento
 // creando la publicacion de forma dinamica por cada post publicado
 const cadaPost = (objPost) => {
   const elem = document.createElement('li');

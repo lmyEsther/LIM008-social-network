@@ -16,7 +16,7 @@ export const initRouter = () => {
       getPost((posts) => {
         section.innerHTML = '';        
         section.appendChild(redsocial(posts));
-      })
+      });
     }
   };
   

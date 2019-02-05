@@ -261,6 +261,7 @@ nav ul {
          margin: 8px;
          margin-top: 15px;
      }
+     
     @media screen and (max-width:1300px) and (min-width:1000){
         .cabecera{
             display: flex;

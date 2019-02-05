@@ -4,8 +4,8 @@ const fixtureData = {
   __collection__: {
     notes: {
       __doc__: {
-        abc1d: {
-          title: 'terminar la pildora',
+        li234: {
+          title: 'Hola Mundo',
           complete: false
         },
       }
@@ -15,15 +15,25 @@ const fixtureData = {
   
 global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled: true });
 
-import { addPost, getPost } from '../src/lib/controller.js';
+import { addPost, getPost, deletePost } from '../src/lib/controller.js';
 
-describe('lista de notas', () => {
-  it('Debería porder agregar una nota', (done) => {
-    return addPost('preparar la pildora')
+describe('Div de Cada Post', () => {
+  it('Debería agregar un post', (done) => {
+    return addPost('Hola Mundo')
       .then(() => getPost(
         (data) => {
-          const result = data.find((note) => note.title === 'preparar la pildora');
-          expect(result.title).toBe('preparar la pildora');
+          const result = data.find((post) => post.title === 'Hola Mundo');
+          expect(result.title).toBe('Hola Mundo');
+          done();
+        }
+      ));
+  });
+  it('Deberia eliminar el post agregado', (done) => {
+    return deletePost('li234')
+      .then(() => getPost(
+        (data) => {
+          const result = data.find((post) => post.id === 'li234');
+          expect(result.id).toBe('undefined');
           done();
         }
       ));
