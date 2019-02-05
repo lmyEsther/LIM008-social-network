@@ -1,5 +1,5 @@
 import { signUpWithEmailAndPassword, signInWithPassword, loginWithGoogle, loginWithFacebook, 
-  addPost, deletePost } from './controller.js';
+  addPost, deletePost, editPost } from './controller.js';
 
 export const signUpWithEmailAndPasswordOnClick = (evt) => {
   evt.preventDefault();
@@ -37,9 +37,14 @@ export const addPostOnSubmit = (evt) => {
   evt.preventDefault();
   const inputText = document.getElementById('post');
   const selecPrivacy = document.getElementById('privacidad');
-  if (inputText.value === '') {
+  let inputSpace = '                                                                                ';
+  const inputTrim = inputSpace.trim();
+  const stringSpace = String;
+  let valueSpace = `                                ${stringSpace}                                  `;
+  const valueTrim = valueSpace.trim();
+  if (inputText.value === '' || inputText.value === inputTrim || inputText.value === ' ') {
     alert('Ingresa un contenido');
-  } else if (selecPrivacy.value === 'amigos' && inputText !== '') {
+  } else if (selecPrivacy.value === 'amigos' && inputText !== '' || inputText.value === valueTrim) {
     console.log('Soy una publicación de amigos');
     addPost(inputText.value)
       .then(() => {
@@ -49,7 +54,7 @@ export const addPostOnSubmit = (evt) => {
         inputText.value = '';
         data.message = 'Lo sentimos, no se pudo agregar tu publicación';
       });
-  } else if (selecPrivacy.value === 'publico' && inputText !== '') {
+  } else if (selecPrivacy.value === 'publico' && inputText !== '' || inputText.value === valueTrim) {
     console.log('Soy una publicación publica');
     addPost(inputText.value)
       .then(() => {
@@ -70,4 +75,13 @@ export const addPostOnSubmit = (evt) => {
   };
 };
 
+
 export const deletePostOnClick = (objPost) => deletePost(objPost.id);
+
+export const editarPostOnSubmit = (objPost) => {
+  let textNewUpdate = document.querySelector('#texto-edit');
+  let modal = document.querySelector('#myModal');
+  modal.style.display = 'none';
+
+  editPost(objPost.id, textNewUpdate.value);
+};

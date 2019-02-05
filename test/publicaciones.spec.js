@@ -2,9 +2,9 @@ import MockFirebase from 'mock-cloud-firestore';
 
 const fixtureData = {
   __collection__: {
-    notes: {
+    post: {
       __doc__: {
-        abc1d: {
+        li234: {
           title: 'soy mamá con experiencia',
           complete: false
         },
@@ -15,15 +15,25 @@ const fixtureData = {
   
 global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled: true });
 
-import { addPost, getPost } from '../src/lib/controller.js';
+import { addPost, getPost, deletePost } from '../src/lib/controller.js';
 
-describe('lista de publicaciones', () => {
-  it('Debería porder agregar una publicacion', (done) => {
-    return addPost('soy mamá primeriza')
+describe('Div de Cada Post', () => {
+  it('Debería agregar un post', (done) => {
+    return addPost('Hola Mundo')
       .then(() => getPost(
         (data) => {
-          const result = data.find((post) => post.title === 'soy mamá primeriza');
-          expect(result.title).toBe('soy mamá primeriza');
+          const result = data.find((post) => post.title === 'Hola Mundo');
+          expect(result.title).toBe('Hola Mundo');
+          done();
+        }
+      ));
+  });
+  it('Deberia eliminar el post agregado', (done) => {
+    return deletePost('li234')
+      .then(() => getPost(
+        (data) => {
+          const result = data.find((post) => post.id === 'li234');
+          expect(result.id).toBe('undefined');
           done();
         }
       ));

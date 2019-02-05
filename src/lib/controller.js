@@ -18,7 +18,6 @@ export const signUpWithEmailAndPassword = (email, password, cb) => {
     //   firebase.auth().signOut();
     // })
     .catch(function(error) {
-      // Handle Errors here.
       let errorCode = error.code;
       let errorMessage = error.message;
 
@@ -112,3 +111,22 @@ export const getPost = (callback) =>
 
 export const deletePost = (idPost) =>
   database.collection('posts').doc(idPost).delete();
+
+
+// Editar publicación
+
+
+export const editPost = (idPost, textNewUpdate) => {
+  let washingtonRef = database.collection('posts').doc(idPost);
+
+  return washingtonRef.update({
+    title: textNewUpdate,
+  })
+    .then(function() {
+      console.log('Document successfully updated!');
+    })
+    .catch(function(error) {
+      console.error('Error updating document: ', error);
+    });
+};
+

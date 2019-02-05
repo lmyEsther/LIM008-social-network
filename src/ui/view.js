@@ -1,6 +1,6 @@
 import {signUpWithEmailAndPasswordOnClick, signInWithPasswordOnClick, 
   loginWithGoogleOnClick, loginWithFacebookOnClick, 
-  addPostOnSubmit, deletePostOnClick} from '../lib/view-controller.js';
+  addPostOnSubmit, deletePostOnClick, editarPostOnSubmit} from '../lib/view-controller.js';
 
 export const registroForm = () => {
   const tmpl = `<header class="cabecera">
@@ -105,24 +105,40 @@ export const ingresoForm = () => {
   return div;
 };
 
-// <!--<option id="eliminar-post-${objPost.id}" value="eliminar">Eliminar</option>-->No funciona con este evento
 // creando la publicacion de forma dinamica por cada post publicado
 const cadaPost = (objPost) => {
   const elem = document.createElement('div');
   elem.classList.add('formulario-post');
   elem.innerHTML = `
-   <div>
-   <div class="imagen-post">
-   <div class="fondo-avatar">
-     <img class="imagen-tamaño" src="./logo/girl (1).png" alt="avatar">
-     </div>
+  <div>
+  <div class="imagen-post">
+  <div class="fondo-avatar">
+    <img class="imagen-tamaño" src="./logo/girl (1).png" alt="avatar">
+    </div>
     <span id="nombre-usuario">${objPost.displayName}</span>
-    <select id="configuracion" class="selec-confi">
-      <option id="editar-post" value="editar">Editar</option>
-   </select>
+    <div class="icono-estado">
+    <button class="selec-confi" id="mostrar-modal">Editar</button>
+    <button class="selec-confi" id="confirm-eliminar">Eliminar</button>
+    </div>
    </div>
    <button class="botones-post" id="eliminar-post-${objPost.id}">Eliminar</button>
    
+
+   <div id="myModal" class="modal">
+   <div class="modal-content">
+     <button id="editar-post-${objPost.id}">Guardar</button>
+     <textarea id="texto-edit" cols="60" rows="5">${objPost.title}</textarea>
+   </div>
+ </div>
+
+  <div id="confirm-modal" class="modal">
+    <div class="modal-content">
+      <p>¿Estas segura de que quieres eliminar este post?</p>
+      <button id="eliminar-post-${objPost.id}">SI</button>
+      <button id="no-eliminar">No</button>
+    </div>
+  </div>
+
 
 <div id="contenido-post">
   <div>
@@ -146,9 +162,28 @@ const cadaPost = (objPost) => {
   </div>
   </div>
   `;
+  const modalConfirm = elem.querySelector('#confirm-modal');
+
+  const btnConfirm = elem.querySelector('#confirm-eliminar'); 
+  btnConfirm.addEventListener('click', () => {
+    modalConfirm.style.display = 'block';
+  });
+  const btnEliminar = elem.querySelector(`#eliminar-post-${objPost.id}`);
+  btnEliminar.addEventListener('click', () => deletePostOnClick(objPost));
+
+  const noEliminar = elem.querySelector('#no-eliminar');
+  noEliminar.addEventListener('click', () => {
+    modalConfirm.style.display = 'none';
+  });
   
-  const optionEliminar = elem.querySelector(`#eliminar-post-${objPost.id}`);
-  optionEliminar.addEventListener('click', () => deletePostOnClick(objPost));
+  const btnModal = elem.querySelector('#mostrar-modal');
+  btnModal.addEventListener('click', () => {
+    let modal = elem.querySelector('#myModal');
+    modal.style.display = 'block';
+  });
+  const btnEditar = elem.querySelector(`#editar-post-${objPost.id}`);
+  btnEditar.addEventListener('click', () => editarPostOnSubmit(objPost)); 
+
   return elem;
 };
 
