@@ -1,5 +1,5 @@
 import { signUpWithEmailAndPassword, signInWithPassword, loginWithGoogle, loginWithFacebook, 
-  addPost, deletePost } from './controller.js';
+  addPost, deletePost, editPost } from './controller.js';
 
 export const signUpWithEmailAndPasswordOnClick = (evt) => {
   evt.preventDefault();
@@ -54,4 +54,16 @@ export const addPostOnSubmit = (evt) => {
     });
 };
 
+
 export const deletePostOnClick = (objPost) => deletePost(objPost.id);
+export const editarPostOnSubmit = (objPost) => {
+
+  let textNewUpdate = document.querySelector("#texto-edit");
+  let modal = document.querySelector('#myModal');
+  modal.style.display = "none";
+
+  editPost(objPost.id, textNewUpdate.value);
+
+  };
+
+
