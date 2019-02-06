@@ -16,11 +16,18 @@ export const signInWithPasswordOnClick = (evt) => {
   evt.preventDefault();
   const email = document.getElementById('correo').value;
   const password = document.getElementById('password').value;
-  signInWithPassword(email, password, (error) => {
-    if (error) {
-      alert(error);
-    }
-  });
+
+  signInWithPassword(email, password)
+    .then(() => {
+      location.hash = '#/redsocial';
+    // (result) => {
+    // if (result.user.emailVerified) {
+    //   location.hash = '#/redsocial'; // nuevo metodo y nueva ruta al muro de publicaciones
+    // } else {
+    //   alert('Por favor, verifica tu email');
+    // }
+    })
+    .catch(() => {});
 };
 
 export const loginWithGoogleOnClick = (evt) => {

@@ -17,25 +17,9 @@ export const signUpWithEmailAndPassword = (email, password, cb) => {
     });
 };
 
-export const signInWithPassword = (email, password, callback) => {
-  firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(() => {
-      location.hash = '#/redsocial';
-      // (result) => {
-      // if (result.user.emailVerified) {
-      //   location.hash = '#/redsocial'; // nuevo metodo y nueva ruta al muro de publicaciones
-      // } else {
-      //   alert('Por favor, verifica tu email');
-      // }
-    })
-    .catch(function(error) {
-      // Handle Errors here.
-      let errorCode = error.code;
-      let errorMessage = error.message;
-      // ...
-      callback(errorCode + ' / ' + errorMessage);
-    });
-};
+export const signInWithPassword = (email, password) =>
+  firebase.auth().signInWithEmailAndPassword(email, password);
+
 
 export const loginWithGoogle = () => {
   if (!firebase.auth().currentUser) {
