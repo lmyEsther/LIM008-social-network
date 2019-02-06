@@ -62,8 +62,7 @@ export const loginWithFacebook = () => {
 
 export const addPost = (textNewPost) =>
   firebase.firestore().collection('posts').add({
-    title: textNewPost,
-    state: false
+    title: textNewPost
   });
 
 export const getPost = (callback) =>
@@ -81,7 +80,6 @@ export const deletePost = (idPost) =>
 
 
 // Editar publicación
-
 
 export const editPost = (idPost, textNewUpdate) => {
   let washingtonRef = firebase.firestore().collection('posts').doc(idPost);

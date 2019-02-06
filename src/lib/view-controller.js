@@ -16,6 +16,7 @@ export const signInWithPasswordOnClick = (evt) => {
   evt.preventDefault();
   const email = document.getElementById('correo').value;
   const password = document.getElementById('password').value;
+  const textError = document.getElementById('error').value;
 
   signInWithPassword(email, password)
     .then(() => {
@@ -27,7 +28,11 @@ export const signInWithPasswordOnClick = (evt) => {
     //   alert('Por favor, verifica tu email');
     // }
     })
-    .catch(() => {});
+    .catch((error) => {
+      let errorCode = error.code;
+      let errorMessage = error.message;
+      textError.innerHTML = errorMessage;
+    });
 };
 
 export const loginWithGoogleOnClick = (evt) => {
