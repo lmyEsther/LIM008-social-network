@@ -10,7 +10,6 @@ export const loginWithGoogle = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     // provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
     firebase.auth().languageCode = 'es';
-
     provider.setCustomParameters({
       'login_hint': 'user@example.com'
     });
