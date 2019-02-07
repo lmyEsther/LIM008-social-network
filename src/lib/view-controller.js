@@ -60,7 +60,7 @@ export const addPostOnSubmit = (evt) => {
     alert('Ingresa un contenido');
   } else if (selecPrivacy.value === 'amigos' && inputText !== '' || inputText.value === valueTrim) {
     console.log('Soy una publicación de amigos');
-    addPost(inputText.value)
+    addPost(inputText.value, usarNameText, selecPrivacy)
       .then(() => {
         inputText.value = '';
         data.message = 'Publicación agregada';
@@ -71,7 +71,7 @@ export const addPostOnSubmit = (evt) => {
       });
   } else if (selecPrivacy.value === 'publico' && inputText !== '' || inputText.value === valueTrim) {
     console.log('Soy una publicación publica');
-    addPost(inputText.value)
+    addPost(inputText.value, usarNameText, selecPrivacy)
       .then(() => {
         inputText.value = '';
         data.message = 'Publicación agregada';
