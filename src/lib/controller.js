@@ -24,7 +24,6 @@ export const signInWithPassword = (email, password) =>
 export const loginWithGoogle = () => {
   if (!firebase.auth().currentUser) {
   const provider = new firebase.auth.GoogleAuthProvider();
-  provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
   firebase.auth().languageCode = 'es';
 
   provider.setCustomParameters({
