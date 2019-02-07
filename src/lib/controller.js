@@ -48,7 +48,7 @@ export const signInWithPassword = (email, password, callback) => {
 export const loginWithGoogle = () => {
   if (!firebase.auth().currentUser) {
     const provider = new firebase.auth.GoogleAuthProvider();
-    provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+    // provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
     firebase.auth().languageCode = 'pt';
     // To apply the default browser preference instead of explicitly setting it.
     // firebase.auth().useDeviceLanguage();
