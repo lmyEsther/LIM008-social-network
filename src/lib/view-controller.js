@@ -16,7 +16,7 @@ export const signInWithPasswordOnClick = (evt) => {
   evt.preventDefault();
   const email = document.getElementById('correo').value;
   const password = document.getElementById('password').value;
-  const textError = document.getElementById('error').value;
+  const textError = document.getElementById('error');
 
   signInWithPassword(email, password)
     .then(() => {
@@ -31,7 +31,16 @@ export const signInWithPasswordOnClick = (evt) => {
     .catch((error) => {
       let errorCode = error.code;
       let errorMessage = error.message;
-      textError.innerHTML = errorMessage;
+
+      if (errorCode === 'auth/wrong-password' && errorMessage === 'The password is invalid or the user does not have a password.') {
+        textError.innerHTML = 'Email o contraseña inválidos, vuelve a intentarlo';
+      } else if (errorCode === 'auth/invalid-email' && errorMessage === 'The email address is badly formatted.') {
+        textError.innerHTML = 'Ingrese un email válido';
+      } else if (errorCode === 'auth/user-not-found' && errorMessage === 'There is no user record corresponding to this identifier. The user may have been deleted.') {
+        textError.innerHTML = 'Este usuario no está registrado';
+      } else {
+        textError.innerHTML = `${errorCode} / ${errorMessage}`;
+      }
     });
 };
 
