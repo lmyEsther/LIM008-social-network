@@ -60,13 +60,10 @@ export const loginWithFacebook = () => {
   });
 };
 
-export const addPost = (textNewPost) =>
+export const addPost = (textNewPost, userPrivacy) =>
   firebase.firestore().collection('posts').add({
     title: textNewPost,
-    privacidad: 
-    uid: 
-    di
-    state: false
+    privacy: userPrivacy
   });
 
 export const getPost = (callback) =>
