@@ -120,9 +120,7 @@ const cadaPost = (objPost) => {
     <button class="selec-confi" id="mostrar-modal">Editar</button>
     <button class="selec-confi" id="confirm-eliminar">Eliminar</button>
     </div>
-   </div>
-   <button class="botones-post" id="eliminar-post-${objPost.id}">Eliminar</button>
-   
+   </div>   
 
    <div id="myModal" class="modal">
    <div class="modal-content">

@@ -2,7 +2,7 @@ import MockFirebase from 'mock-cloud-firestore';
 
 const fixtureData = {
   __collection__: {
-    post: {
+    posts: {
       __doc__: {
         li234: {
           title: 'soy mamá con experiencia',
@@ -33,7 +33,7 @@ describe('Div de Cada Post', () => {
       .then(() => getPost(
         (data) => {
           const result = data.find((post) => post.id === 'li234');
-          expect(result.id).toBe('undefined');
+          expect(result).toBe(undefined);
           done();
         }
       ));

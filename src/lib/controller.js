@@ -1,11 +1,3 @@
-import datafire from './datafire.js';
-import { initRouter } from '../ui/initRouter.js';
-
-datafire.initFirebase();
-initRouter();
-
-const database = firebase.firestore();
-
 export const signUpWithEmailAndPassword = (email, password, cb) => {    
   firebase.auth().createUserWithEmailAndPassword(email, password)
     // .then(result => {
@@ -25,60 +17,69 @@ export const signUpWithEmailAndPassword = (email, password, cb) => {
     });
 };
 
-export const signInWithPassword = (email, password, callback) => {
-  firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(() => {
-      location.hash = '#/redsocial';
-      // (result) => {
-      // if (result.user.emailVerified) {
-      //   location.hash = '#/redsocial'; // nuevo metodo y nueva ruta al muro de publicaciones
-      // } else {
-      //   alert('Por favor, verifica tu email');
-      // }
-    })
-    .catch(function(error) {
-      // Handle Errors here.
-      let errorCode = error.code;
-      let errorMessage = error.message;
-      // ...
-      callback(errorCode + ' / ' + errorMessage);
-    });
-};
+export const signInWithPassword = (email, password) =>
+  firebase.auth().signInWithEmailAndPassword(email, password);
+
 
 export const loginWithGoogle = () => {
-  if (!firebase.auth().currentUser) {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-    firebase.auth().languageCode = 'pt';
-    // To apply the default browser preference instead of explicitly setting it.
-    // firebase.auth().useDeviceLanguage();
-    provider.setCustomParameters({
-      'login_hint': 'user@example.com'
-    });
-    firebase.auth().signInWithPopup(provider).then(function(result) {
-    // This gives you a Google Access Token. You can use it to access the Google API.
+  const provider = new firebase.auth.GoogleAuthProvider();
+  provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+  firebase.auth().languageCode = 'es';
+
+  provider.setCustomParameters({
+    'login_hint': 'user@example.com'
+  });
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+    let token = result.credential.accessToken;
+    let user = result.user;
+  });
+  firebase.auth().getRedirectResult().then(function(result) {
+    if (result.credential) {
       let token = result.credential.accessToken;
-      // The signed-in user info.
-      let user = result.user;
-      // ...
-      console.log(user);
-    }).then(() => {
+    }
+    let user = result.user;
+  })
+    .then(() => {
       location.hash = '#/redsocial';
-    }).catch(function(error) {
-    // Handle Errors here.
+    })
+    .catch(function(error) {
       let errorCode = error.code;
       let errorMessage = error.message;
-      // The email of the user's account used.
       let email = error.email;
-      // The firebase.auth.AuthCredential type that was used.
       let credential = error.credential;
-      // ...
       if (errorCode === 'auth/account-exists-with-different-credential') {
         alert('Es el mismo usuario');
       }
     });
+};
+
+
+export const starWithFirebase = () => {
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+      console.log(user);
+    } else {
+      // No user is signed in.
+      console.log('No inicio sesión');
+    }
+  });
+};
+
+export const dataUsers = () => {
+  let user = firebase.auth().currentUser;
+  let name, email, photoUrl, uid, emailVerified, privacy;
+
+  if (user !== null) {
+    // User is signed in.
+    name = user.displayName;
+    email = user.email;
+    photoUrl = user.photoURL;
+    emailVerified = user.emailVerified;
+    uid = user.uid;
+    privacy = user.privacy;
   } else {
-    firebase.auth().signOut();
+    privacy = user.privacy;
   }
 };
 
@@ -94,13 +95,14 @@ export const loginWithFacebook = () => {
 };
 
 export const addPost = (textNewPost) =>
-  database.collection('posts').add({
+  firebase.firestore().collection('posts').add({
+    // displayName: displayName,
     title: textNewPost,
-    state: false
+    // privacy: userPrivacy,
   });
 
 export const getPost = (callback) =>
-  database.collection('posts')
+  firebase.firestore().collection('posts')
     .onSnapshot((querySnapshot) => {
       const data = [];
       querySnapshot.forEach((doc) => {
@@ -110,21 +112,18 @@ export const getPost = (callback) =>
     }); 
 
 export const deletePost = (idPost) =>
-  database.collection('posts').doc(idPost).delete();
+  firebase.firestore().collection('posts').doc(idPost).delete();
 
 
 // Editar publicación
 
 
 export const editPost = (idPost, textNewUpdate) => {
-  let washingtonRef = database.collection('posts').doc(idPost);
+  let washingtonRef = firebase.firestore().collection('posts').doc(idPost);
 
   return washingtonRef.update({
     title: textNewUpdate,
   })
-    .then(function() {
-      console.log('Document successfully updated!');
-    })
     .catch(function(error) {
       console.error('Error updating document: ', error);
     });

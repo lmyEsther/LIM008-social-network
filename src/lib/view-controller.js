@@ -1,5 +1,5 @@
 import { signUpWithEmailAndPassword, signInWithPassword, loginWithGoogle, loginWithFacebook, 
-  addPost, deletePost, editPost } from './controller.js';
+  addPost, deletePost, editPost, starWithFirebase , dataUsers } from './controller.js';
 
 export const signUpWithEmailAndPasswordOnClick = (evt) => {
   evt.preventDefault();
@@ -16,16 +16,24 @@ export const signInWithPasswordOnClick = (evt) => {
   evt.preventDefault();
   const email = document.getElementById('correo').value;
   const password = document.getElementById('password').value;
-  signInWithPassword(email, password, (error) => {
-    if (error) {
-      alert(error);
-    }
-  });
+
+  signInWithPassword(email, password)
+    .then(() => {
+      location.hash = '#/redsocial';
+    // (result) => {
+    // if (result.user.emailVerified) {
+    //   location.hash = '#/redsocial'; // nuevo metodo y nueva ruta al muro de publicaciones
+    // } else {
+    //   alert('Por favor, verifica tu email');
+    // }
+    })
+    .catch(() => {});
 };
 
 export const loginWithGoogleOnClick = (evt) => {
   evt.preventDefault();
   loginWithGoogle();
+  starWithFirebase();
 };
 
 export const loginWithFacebookOnClick = (evt) => {
@@ -37,11 +45,17 @@ export const addPostOnSubmit = (evt) => {
   evt.preventDefault();
   const inputText = document.getElementById('post');
   const selecPrivacy = document.getElementById('privacidad');
+  // const usarNameText = document.getElementById('nombre-usuario');
   let inputSpace = '                                                                                ';
   const inputTrim = inputSpace.trim();
   const stringSpace = String;
   let valueSpace = `                                ${stringSpace}                                  `;
   const valueTrim = valueSpace.trim();
+  const data = {
+    message: '',
+    timeout: 2000,
+    actionText: 'Undo'
+  };
   if (inputText.value === '' || inputText.value === inputTrim || inputText.value === ' ') {
     alert('Ingresa un contenido');
   } else if (selecPrivacy.value === 'amigos' && inputText !== '' || inputText.value === valueTrim) {
@@ -50,7 +64,8 @@ export const addPostOnSubmit = (evt) => {
       .then(() => {
         inputText.value = '';
         data.message = 'Publicación agregada';
-      }).cath(() => {
+      })
+      .cath(() => {
         inputText.value = '';
         data.message = 'Lo sentimos, no se pudo agregar tu publicación';
       });
@@ -60,19 +75,15 @@ export const addPostOnSubmit = (evt) => {
       .then(() => {
         inputText.value = '';
         data.message = 'Publicación agregada';
-      }).cath(() => {
+      })
+      .cath(() => {
         inputText.value = '';
         data.message = 'Lo sentimos, no se pudo agregar tu publicación';
       });
   } else {
     console.log('no se ejecuta');
   }
-  // const spanPost = document.getElementById('texto-publicacion');
-  const data = {
-    message: '',
-    timeout: 2000,
-    actionText: 'Undo'
-  };
+ 
 };
 
 

@@ -247,11 +247,8 @@ nav ul {
      }
      .selec-confi{
          height: 25px;
-         width: 70px;
-         margin: 3px;
-         border-radius: 3px;
-         padding: 5px;
-         color: #383836;
+         width: 80px;
+         margin: 5px;
      }
      .emoji-post{
          width: 25px;
@@ -264,57 +261,6 @@ nav ul {
          margin: 8px;
          margin-top: 15px;
      }
-     #lista-publicaciones{
-       list-style: none;
-     }
-     .icono-estado{
-         display: flex;
-         flex-direction: column;
-         justify-content: flex-end;
-     }
-
-     .modal {
-        display: none; 
-        position: fixed; 
-        z-index: 1; 
-        padding-top: 100px; 
-        left: 0;
-        top: 0;
-        width: 100%; 
-        height: 100%; 
-        overflow: auto; 
-        background-color: rgb(0,0,0); 
-        background-color: rgba(0,0,0,0.4); 
-      }
-      
-      .modal-content {
-        background-color: #fefefe;
-        margin: auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%;
-      }
-      
-      #close {
-        color:#2c32e5;
-        float: right;
-        font-size: 20px;
-        font-weight: bold;
-      }
-      
-      #close:hover,
-      #close:focus {
-        color: #000;
-        text-decoration: none;
-        cursor: pointer;
-      }
-
-     textarea {
-         width: 100%;
-         height: 20%;
-      }
-
-     
     @media screen and (max-width:1300px) and (min-width:1000){
         .cabecera{
             display: flex;
@@ -343,5 +289,44 @@ nav ul {
     #error-login-pass {
         color: red;    
     }
-
     
+    .modal {
+        display: none; 
+        position: fixed; 
+        z-index: 1; 
+        padding-top: 100px; 
+        left: 0;
+        top: 0;
+        width: 100%; 
+        height: 100%; 
+        overflow: auto; 
+        background-color: rgb(0,0,0); 
+        background-color: rgba(0,0,0,0.4); 
+      }
+      
+      .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+      }
+      
+      .close {
+        color:#2c32e5;
+        float: right;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      
+      #close:hover,
+      #close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+     textarea {
+         width: 100%;
+         height: 20%;
+      }
