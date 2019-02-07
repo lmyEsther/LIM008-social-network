@@ -5,11 +5,20 @@ export const signUpWithEmailAndPasswordOnClick = (evt) => {
   evt.preventDefault();
   const email = document.getElementById('reg-correo').value;
   const password = document.getElementById('reg-pass').value;
-  signUpWithEmailAndPassword(email, password, (error) => {
-    if (error) {
-      alert(error);
-    }
-  });
+  signUpWithEmailAndPassword(email, password)
+  // .then(result => {
+    //   const redir = {
+    //     url: 'http://localhost:5000/'
+    //   };
+    //   result.user.sendEmailVerification(redir).catch(function(error) {
+    //     alert(`No se pudo enviar email ${error}`);
+    //   });
+    //   firebase.auth().signOut();
+    // })
+    .catch(function(error) {
+      let errorCode = error.code;
+      let errorMessage = error.message;
+    });
 };
 
 export const signInWithPasswordOnClick = (evt) => {

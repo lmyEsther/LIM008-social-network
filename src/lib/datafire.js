@@ -12,4 +12,4 @@ const init = () => {
   initRouter();
 };
 
-window.onload = init();
+init();
