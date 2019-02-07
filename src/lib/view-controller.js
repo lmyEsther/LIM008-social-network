@@ -1,5 +1,5 @@
 import { signUpWithEmailAndPassword, signInWithPassword, loginWithGoogle, loginWithFacebook, 
-  addPost, deletePost, editPost, starWithFirebase , dataUsers } from './controller.js';
+  addPost, deletePost, editPost } from './controller.js';
 
 export const signUpWithEmailAndPasswordOnClick = (evt) => {
   evt.preventDefault();
@@ -32,8 +32,19 @@ export const signInWithPasswordOnClick = (evt) => {
 
 export const loginWithGoogleOnClick = (evt) => {
   evt.preventDefault();
-  loginWithGoogle();
-  starWithFirebase();
+  loginWithGoogle()
+  .then(() => {
+    location.hash = '#/redsocial';
+  })
+  .catch(function(error) {
+    let errorCode = error.code;
+    let errorMessage = error.message;
+    let email = error.email;
+    let credential = error.credential;
+    if (errorCode === 'auth/account-exists-with-different-credential') {
+      alert('Es el mismo usuario');
+    }
+  });
 };
 
 export const loginWithFacebookOnClick = (evt) => {

@@ -22,6 +22,7 @@ export const signInWithPassword = (email, password) =>
 
 
 export const loginWithGoogle = () => {
+  if (!firebase.auth().currentUser) {
   const provider = new firebase.auth.GoogleAuthProvider();
   provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
   firebase.auth().languageCode = 'es';
@@ -29,59 +30,15 @@ export const loginWithGoogle = () => {
   provider.setCustomParameters({
     'login_hint': 'user@example.com'
   });
-  firebase.auth().signInWithPopup(provider).then(function(result) {
+ return firebase.auth().signInWithPopup(provider).then(function(result) {
     let token = result.credential.accessToken;
     let user = result.user;
   });
-  firebase.auth().getRedirectResult().then(function(result) {
-    if (result.credential) {
-      let token = result.credential.accessToken;
-    }
-    let user = result.user;
-  })
-    .then(() => {
-      location.hash = '#/redsocial';
-    })
-    .catch(function(error) {
-      let errorCode = error.code;
-      let errorMessage = error.message;
-      let email = error.email;
-      let credential = error.credential;
-      if (errorCode === 'auth/account-exists-with-different-credential') {
-        alert('Es el mismo usuario');
-      }
-    });
-};
-
-
-export const starWithFirebase = () => {
-  firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      // User is signed in.
-      console.log(user);
-    } else {
-      // No user is signed in.
-      console.log('No inicio sesión');
-    }
-  });
-};
-
-export const dataUsers = () => {
-  let user = firebase.auth().currentUser;
-  let name, email, photoUrl, uid, emailVerified, privacy;
-
-  if (user !== null) {
-    // User is signed in.
-    name = user.displayName;
-    email = user.email;
-    photoUrl = user.photoURL;
-    emailVerified = user.emailVerified;
-    uid = user.uid;
-    privacy = user.privacy;
   } else {
-    privacy = user.privacy;
+    firebase.auth().signOut();
   }
 };
+
 
 export const loginWithFacebook = () => {
   let provider = new firebase.auth.FacebookAuthProvider();
