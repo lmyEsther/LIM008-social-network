@@ -33,7 +33,7 @@ describe('Div de Cada Post', () => {
       .then(() => getPost(
         (data) => {
           const result = data.find((post) => post.id === 'li234');
-          expect(result.id).toBe('undefined');
+          expect(result).toBe(undefined);
           done();
         }
       ));

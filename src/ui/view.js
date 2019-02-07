@@ -75,6 +75,7 @@ export const ingresoForm = () => {
         <div class="input">
         <input class="btn-1" id="correo" type="text" placeholder="Correo electrónico" required>
         <input class="btn-1" id="password" type="password" placeholder="Contraseña" required>
+        <p id="error"></p>
       </div>
 
         <div class="btn-1">
@@ -132,7 +133,7 @@ const cadaPost = (objPost) => {
   <div id="confirm-modal" class="modal">
     <div class="modal-content">
       <p>¿Estas segura de que quieres eliminar este post?</p>
-      <button id="eliminar-post-${objPost.id}">SI</button>
+      <button id="eliminar-post-${objPost.id}">Si</button>
       <button id="no-eliminar">No</button>
     </div>
   </div>
