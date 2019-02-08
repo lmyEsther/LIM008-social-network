@@ -1,21 +1,5 @@
-export const signUpWithEmailAndPassword = (email, password, cb) => {    
-  firebase.auth().createUserWithEmailAndPassword(email, password)
-    // .then(result => {
-    //   const redir = {
-    //     url: 'http://localhost:5000/'
-    //   };
-    //   result.user.sendEmailVerification(redir).catch(function(error) {
-    //     alert(`No se pudo enviar email ${error}`);
-    //   });
-    //   firebase.auth().signOut();
-    // })
-    .catch(function(error) {
-      let errorCode = error.code;
-      let errorMessage = error.message;
-
-      cb(errorCode + ' / ' + errorMessage);
-    });
-};
+export const signUpWithEmailAndPassword = (email, password) =>    
+  firebase.auth().createUserWithEmailAndPassword(email, password);
 
 export const signInWithPassword = (email, password) =>
   firebase.auth().signInWithEmailAndPassword(email, password);
@@ -52,9 +36,7 @@ export const loginWithFacebook = () => {
 
 export const addPost = (textNewPost) =>
   firebase.firestore().collection('posts').add({
-    // displayName: displayName,
-    title: textNewPost,
-    // privacy: userPrivacy,
+    title: textNewPost
   });
 
 export const getPost = (callback) =>
@@ -70,10 +52,7 @@ export const getPost = (callback) =>
 export const deletePost = (idPost) =>
   firebase.firestore().collection('posts').doc(idPost).delete();
 
-
 // Editar publicación
-
-
 export const editPost = (idPost, textNewUpdate) => {
   let washingtonRef = firebase.firestore().collection('posts').doc(idPost);
 

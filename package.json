@@ -26,5 +26,8 @@
     "jest": "^23.6.0",
     "mock-cloud-firestore": "^0.9.1",
     "regenerator-runtime": "^0.13.1"
+  },
+  "dependencies": {
+    "gitignore": "^0.6.0"
   }
 }
