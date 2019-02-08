@@ -120,7 +120,6 @@ export const addPostOnSubmit = (evt) => {
  
 };
 
-
 export const deletePostOnClick = (objPost) => deletePost(objPost.id);
 
 export const editarPostOnSubmit = (objPost) => {
