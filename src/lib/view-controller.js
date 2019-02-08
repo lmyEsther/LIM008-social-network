@@ -32,7 +32,19 @@ export const signInWithPasswordOnClick = (evt) => {
 
 export const loginWithGoogleOnClick = (evt) => {
   evt.preventDefault();
-  loginWithGoogle();
+  loginWithGoogle()
+  .then(() => {
+    location.hash = '#/redsocial';
+  })
+  .catch(function(error) {
+    let errorCode = error.code;
+    let errorMessage = error.message;
+    let email = error.email;
+    let credential = error.credential;
+    if (errorCode === 'auth/account-exists-with-different-credential') {
+      alert('Es el mismo usuario');
+    }
+  });
 };
 
 export const loginWithFacebookOnClick = (evt) => {
@@ -44,42 +56,45 @@ export const addPostOnSubmit = (evt) => {
   evt.preventDefault();
   const inputText = document.getElementById('post');
   const selecPrivacy = document.getElementById('privacidad');
+  // const usarNameText = document.getElementById('nombre-usuario');
   let inputSpace = '                                                                                ';
   const inputTrim = inputSpace.trim();
   const stringSpace = String;
   let valueSpace = `                                ${stringSpace}                                  `;
   const valueTrim = valueSpace.trim();
+  const data = {
+    message: '',
+    timeout: 2000,
+    actionText: 'Undo'
+  };
   if (inputText.value === '' || inputText.value === inputTrim || inputText.value === ' ') {
     alert('Ingresa un contenido');
   } else if (selecPrivacy.value === 'amigos' && inputText !== '' || inputText.value === valueTrim) {
     console.log('Soy una publicación de amigos');
-    addPost(inputText.value)
+    addPost(inputText.value, usarNameText, selecPrivacy)
       .then(() => {
         inputText.value = '';
         data.message = 'Publicación agregada';
-      }).cath(() => {
+      })
+      .cath(() => {
         inputText.value = '';
         data.message = 'Lo sentimos, no se pudo agregar tu publicación';
       });
   } else if (selecPrivacy.value === 'publico' && inputText !== '' || inputText.value === valueTrim) {
     console.log('Soy una publicación publica');
-    addPost(inputText.value)
+    addPost(inputText.value, usarNameText, selecPrivacy)
       .then(() => {
         inputText.value = '';
         data.message = 'Publicación agregada';
-      }).cath(() => {
+      })
+      .cath(() => {
         inputText.value = '';
         data.message = 'Lo sentimos, no se pudo agregar tu publicación';
       });
   } else {
     console.log('no se ejecuta');
   }
-  // const spanPost = document.getElementById('texto-publicacion');
-  const data = {
-    message: '',
-    timeout: 2000,
-    actionText: 'Undo'
-  };
+ 
 };
 
 

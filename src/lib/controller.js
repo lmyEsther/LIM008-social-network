@@ -23,31 +23,21 @@ export const signInWithPassword = (email, password) =>
 
 export const loginWithGoogle = () => {
   if (!firebase.auth().currentUser) {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-    firebase.auth().languageCode = 'es';
+  const provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth().languageCode = 'es';
 
-    provider.setCustomParameters({
-      'login_hint': 'user@example.com'
-    });
-    firebase.auth().signInWithPopup(provider).then(function(result) {
-      let token = result.credential.accessToken;
-      let user = result.user;
-    }).then(() => {
-      location.hash = '#/redsocial';
-    }).catch(function(error) {
-      let errorCode = error.code;
-      let errorMessage = error.message;
-      let email = error.email;
-      let credential = error.credential;
-      if (errorCode === 'auth/account-exists-with-different-credential') {
-        alert('Es el mismo usuario');
-      }
-    });
+  provider.setCustomParameters({
+    'login_hint': 'user@example.com'
+  });
+ return firebase.auth().signInWithPopup(provider).then(function(result) {
+    let token = result.credential.accessToken;
+    let user = result.user;
+  });
   } else {
     firebase.auth().signOut();
   }
 };
+
 
 export const loginWithFacebook = () => {
   let provider = new firebase.auth.FacebookAuthProvider();
@@ -62,8 +52,9 @@ export const loginWithFacebook = () => {
 
 export const addPost = (textNewPost) =>
   firebase.firestore().collection('posts').add({
+    // displayName: displayName,
     title: textNewPost,
-    state: false
+    // privacy: userPrivacy,
   });
 
 export const getPost = (callback) =>
