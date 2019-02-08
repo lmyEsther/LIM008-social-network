@@ -1,5 +1,5 @@
 import { signUpWithEmailAndPassword, signInWithPassword, loginWithGoogle, loginWithFacebook, 
-  addPost, deletePost, editPost } from './controller.js';
+  addPost, deletePost, editPost, reactionCount } from './controller.js';
 
 export const signUpWithEmailAndPasswordOnClick = (evt) => {
   evt.preventDefault();
@@ -106,4 +106,9 @@ export const editarPostOnSubmit = (objPost) => {
   modal.style.display = 'none';
 
   editPost(objPost.id, textNewUpdate.value);
+};
+
+export const reactionCountOnClick = () => {
+  let numberAction = document.querySelector('#number-of-actions-1');
+   numberAction.innerHTML = reactionCount();
 };

@@ -1,6 +1,6 @@
 import {signUpWithEmailAndPasswordOnClick, signInWithPasswordOnClick, 
   loginWithGoogleOnClick, loginWithFacebookOnClick, 
-  addPostOnSubmit, deletePostOnClick, editarPostOnSubmit} from '../lib/view-controller.js';
+  addPostOnSubmit, deletePostOnClick, editarPostOnSubmit, reactionCountOnClick} from '../lib/view-controller.js';
 
 export const registroForm = () => {
   const tmpl = `<header class="cabecera">
@@ -142,19 +142,20 @@ const cadaPost = (objPost) => {
   <div>
     <span>
      <span id="texto-publicacion">${objPost.title}</span>
-    <span>
+    </span>
  </div>
   <div>
-      <button class="emoji-btn">
+      <button id="emoji-1" class="emoji-btn">
           <img class="emoji-post" src="./logo/happy.png"></img>
       </button>
-      <button class="emoji-btn">
+      <span id="number-of-actions-1"></span>
+      <button id="emoji-2" class="emoji-btn">
           <img class="emoji-post" src="./logo/sad.png"></img>
       </button>
-      <button class="emoji-btn">
+      <button id="emoji-3" class="emoji-btn">
           <img  class="emoji-post" src="./logo/heart.png"></img>
       </button>
-      <button class="emoji-btn">
+      <button id="emoji-4" class="emoji-btn">
           <img class="emoji-post" src="./logo/sonaja-logo.ico"></img>
       </button>
   </div>
@@ -182,6 +183,9 @@ const cadaPost = (objPost) => {
   const btnEditar = elem.querySelector(`#editar-post-${objPost.id}`);
   btnEditar.addEventListener('click', () => editarPostOnSubmit(objPost)); 
 
+ const btnReactionOne = elem.querySelector('#emoji-1');
+ btnReactionOne.addEventListener('click', () => reactionCountOnClick());
+ 
   return elem;
 };
 
