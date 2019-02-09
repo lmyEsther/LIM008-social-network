@@ -152,10 +152,10 @@ const cadaPost = (objPost) => {
           <img class="emoji-post" src="./logo/sad.png"></img>
       </button>
       <button id="emoji-3" class="emoji-btn">
-          <img  class="emoji-post" src="./logo/heart.png"></img>
+          <img  class="emoji-post" src="./logo/likee.png"></img>
       </button>
       <button id="emoji-4" class="emoji-btn">
-          <img class="emoji-post" src="./logo/sonaja-logo.ico"></img>
+          <img class="emoji-post" src="./logo/heart.png"></img>
       </button>
   </div>
   </div>
