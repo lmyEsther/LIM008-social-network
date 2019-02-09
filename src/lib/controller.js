@@ -48,7 +48,8 @@ export const loginWithFacebook = () => {
 
 export const addPost = (textNewPost) =>
   firebase.firestore().collection('posts').add({
-    title: textNewPost
+    title: textNewPost,
+    reaction: 0,
   });
 
 export const getPost = (callback) =>
@@ -79,12 +80,18 @@ export const editPost = (idPost, textNewUpdate) => {
     });
 };
 
-// Conteo de reacciones 
+// Traer  las reacciones y conteo
+export const seeReaction = (idPost) => {
+  return firebase.firestore().collection('posts').doc(idPost).get()
+  .then((result) => {
+   const seeLikes = result.data().reaction;
+   return seeLikes;
+  }).catch(() => {})
+};
+
+
 export const reactionCount = () => {  
   let countClick = 0;
-  function count() { 
-   return countClick += 1 ;
- }  
- console.log(countClick);
- return count();
+  let countMoreClick = countClick + 1; 
+ return  countMoreClick;
 };
