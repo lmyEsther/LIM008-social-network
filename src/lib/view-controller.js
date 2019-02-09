@@ -5,20 +5,24 @@ export const signUpWithEmailAndPasswordOnClick = (evt) => {
   evt.preventDefault();
   const email = document.getElementById('reg-correo').value;
   const password = document.getElementById('reg-pass').value;
+  const inputName = document.getElementById('name').value;
   signUpWithEmailAndPassword(email, password)
-  // .then(result => {
-    //   const redir = {
-    //     url: 'http://localhost:5000/'
-    //   };
-    //   result.user.sendEmailVerification(redir).catch(function(error) {
-    //     alert(`No se pudo enviar email ${error}`);
-    //   });
-    //   firebase.auth().signOut();
-    // })
-    .catch(function(error) {
-      let errorCode = error.code;
-      let errorMessage = error.message;
+    .then(cred => {
+      return firebase.firestore().collection('users').doc(cred.user.uid).set({
+        name: inputName
+      });
+    }).then(() => {
+      location.hash = '#/redsocial';
     });
+  // .then(result => {
+  //   const redir = {
+  //     url: 'http://localhost:5000/'
+  //   };
+  //   result.user.sendEmailVerification(redir).catch(function(error) {
+  //     alert(`No se pudo enviar email ${error}`);
+  //   });
+  //   firebase.auth().signOut();
+  // })
 };
 
 export const signInWithPasswordOnClick = (evt) => {
@@ -29,10 +33,16 @@ export const signInWithPasswordOnClick = (evt) => {
 
   signInWithPassword(email, password)
     .then(() => {
-      location.hash = '#/redsocial';
+      firebase.auth().onAuthStateChanged(user => { // para detectar que el usuario ya se ha logueado
+        if (user) {
+          location.hash = '#/redsocial';
+        } else {
+          console.log('no esta logueado o el email no ha sido verificado');
+        }
+      });
     // (result) => {
     // if (result.user.emailVerified) {
-    //   location.hash = '#/redsocial'; // nuevo metodo y nueva ruta al muro de publicaciones
+    //   location.hash = '#/redsocial';
     // } else {
     //   alert('Por favor, verifica tu email');
     // }
@@ -56,18 +66,15 @@ export const signInWithPasswordOnClick = (evt) => {
 export const loginWithGoogleOnClick = (evt) => {
   evt.preventDefault();
   loginWithGoogle()
-  .then(() => {
-    location.hash = '#/redsocial';
-  })
-  .catch(function(error) {
-    let errorCode = error.code;
-    let errorMessage = error.message;
-    let email = error.email;
-    let credential = error.credential;
-    if (errorCode === 'auth/account-exists-with-different-credential') {
-      alert('Es el mismo usuario');
-    }
-  });
+    .then(() => {
+      location.hash = '#/redsocial';
+    })
+    .catch(function(error) {
+      let errorCode = error.code;
+      if (errorCode === 'auth/account-exists-with-different-credential') {
+        alert('Es el mismo usuario');
+      }
+    });
 };
 
 export const loginWithFacebookOnClick = (evt) => {
@@ -77,47 +84,27 @@ export const loginWithFacebookOnClick = (evt) => {
 
 export const addPostOnSubmit = (evt) => {
   evt.preventDefault();
-  const inputText = document.getElementById('post');
-  const selecPrivacy = document.getElementById('privacidad');
-  // const usarNameText = document.getElementById('nombre-usuario');
-  let inputSpace = '                                                                                ';
-  const inputTrim = inputSpace.trim();
-  const stringSpace = String;
-  let valueSpace = `                                ${stringSpace}                                  `;
-  const valueTrim = valueSpace.trim();
-  const data = {
-    message: '',
-    timeout: 2000,
-    actionText: 'Undo'
-  };
-  if (inputText.value === '' || inputText.value === inputTrim || inputText.value === ' ') {
-    alert('Ingresa un contenido');
-  } else if (selecPrivacy.value === 'amigos' && inputText !== '' || inputText.value === valueTrim) {
-    console.log('Soy una publicación de amigos');
-    addPost(inputText.value, usarNameText, selecPrivacy)
-      .then(() => {
-        inputText.value = '';
-        data.message = 'Publicación agregada';
-      })
-      .cath(() => {
-        inputText.value = '';
-        data.message = 'Lo sentimos, no se pudo agregar tu publicación';
-      });
-  } else if (selecPrivacy.value === 'publico' && inputText !== '' || inputText.value === valueTrim) {
-    console.log('Soy una publicación publica');
-    addPost(inputText.value, usarNameText, selecPrivacy)
-      .then(() => {
-        inputText.value = '';
-        data.message = 'Publicación agregada';
-      })
-      .cath(() => {
-        inputText.value = '';
-        data.message = 'Lo sentimos, no se pudo agregar tu publicación';
-      });
-  } else {
-    console.log('no se ejecuta');
-  }
- 
+  firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+      const inputText = document.getElementById('post');
+      // const selecPrivacy = document.getElementById('privacidad');
+      // const usarNameText = document.getElementById('nombre-usuario');
+      let inputSpace = '                                                                                ';
+      const inputTrim = inputSpace.trim();
+      // const stringSpace = String;
+      // let valueSpace = `                                ${stringSpace}                                  `;
+      // const valueTrim = valueSpace.trim();
+
+      if (inputText.value === '' || inputText.value === inputTrim || inputText.value === ' ') {
+        alert('Ingresa un contenido');
+      } else {
+        firebase.firestore().collection('users').doc(user.uid).get()
+          .then(doc => {
+            addPost(inputText.value, user.uid, doc.data().name);
+          });
+      }
+    }
+  });
 };
 
 export const deletePostOnClick = (objPost) => deletePost(objPost.id);

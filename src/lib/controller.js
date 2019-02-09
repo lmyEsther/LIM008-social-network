@@ -7,16 +7,16 @@ export const signInWithPassword = (email, password) =>
 
 export const loginWithGoogle = () => {
   if (!firebase.auth().currentUser) {
-  const provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().languageCode = 'es';
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().languageCode = 'es';
 
-  provider.setCustomParameters({
-    'login_hint': 'user@example.com'
-  });
- return firebase.auth().signInWithPopup(provider).then(function(result) {
-    let token = result.credential.accessToken;
-    let user = result.user;
-  });
+    provider.setCustomParameters({
+      'login_hint': 'user@example.com'
+    });
+    return firebase.auth().signInWithPopup(provider).then(function(result) {
+      let token = result.credential.accessToken;
+      let user = result.user;
+    });
   } else {
     firebase.auth().signOut();
   }
@@ -34,9 +34,11 @@ export const loginWithFacebook = () => {
   });
 };
 
-export const addPost = (textNewPost) =>
+export const addPost = (textNewPost, userId, userName) =>
   firebase.firestore().collection('posts').add({
-    title: textNewPost
+    content: textNewPost,
+    UID: userId,
+    name: userName
   });
 
 export const getPost = (callback) =>
@@ -57,10 +59,7 @@ export const editPost = (idPost, textNewUpdate) => {
   let washingtonRef = firebase.firestore().collection('posts').doc(idPost);
 
   return washingtonRef.update({
-    title: textNewUpdate,
-  })
-    .catch(function(error) {
-      console.error('Error updating document: ', error);
-    });
+    content: textNewUpdate,
+  });
 };
 

@@ -116,7 +116,7 @@ const cadaPost = (objPost) => {
   <div class="imagen-post">
     <div class="fondo-avatar">
       <img class="imagen-tamaño" src="./logo/girl (1).png" alt="avatar">
-      <span id="nombre-usuario">${objPost.displayName}</span>
+      <span id="nombre-usuario">${objPost.name}</span>
     </div>
     
     <div class="icono-estado">
@@ -128,7 +128,7 @@ const cadaPost = (objPost) => {
   <div id="myModal" class="modal">
     <div class="modal-content">
       <button id="editar-post-${objPost.id}">Guardar</button>
-      <textarea id="texto-edit" cols="60" rows="5">${objPost.title}</textarea>
+      <textarea id="texto-edit" cols="60" rows="5">${objPost.content}</textarea>
     </div>
   </div>
 
@@ -142,7 +142,7 @@ const cadaPost = (objPost) => {
 
   <div id="contenido-post">
     <div>
-        <h6 id="texto-publicacion">${objPost.title}</h6>
+        <p id="texto-publicacion">${objPost.content}</p>
     </div>
 
     <div>
