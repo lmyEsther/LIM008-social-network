@@ -1,4 +1,4 @@
-import { initRouter } from '../ui/initRouter.js';
+import { initRouter } from '../ui/init-router.js';
 
 const init = () => {
   firebase.initializeApp({
@@ -12,4 +12,4 @@ const init = () => {
   initRouter();
 };
 
-window.onload = init();
+window.addEventListener('load', init());

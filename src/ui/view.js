@@ -3,47 +3,48 @@ import {signUpWithEmailAndPasswordOnClick, signInWithPasswordOnClick,
   addPostOnSubmit, deletePostOnClick, editarPostOnSubmit, reactionCountOnClick} from '../lib/view-controller.js';
 
 export const registroForm = () => {
-  const tmpl = `<header class="cabecera">
-  <img src="logo/encabezado.png" alt="encabezado">
-</header>
-<nav class="nav-view">
-<ul>
-  <li>
-    <a href="#/registro"><img class="boton-view" src="./logo/planing.png"></a>
-  </li>
-  <li>
-    <a href="#/ingreso"><img class="boton-view" src="./logo/log-in-button-with-arrow.png"></a>
-  </li>
-</ul>
-</nav>
-    <div class="register">
+  const tmpl = `
+    <header class="cabecera">
+        <img src="logo/encabezado.png" alt="encabezado">
+    </header>
+    <nav class="nav-view">
+        <ul>
+          <li>
+              <a href="#/registro"><img class="boton-view" src="./logo/planing.png"></a>
+          </li>
+          <li>
+            <a href="#/ingreso"><img class="boton-view" src="./logo/log-in-button-with-arrow.png"></a>
+          </li>
+        </ul>
+    </nav>
+    <main class="register">
         <form class="formulario">
-        <div>
-          <p class="btn-1"class="titulo-registro">Crea tu cuenta aquí</p>
-        </div>
-            <label class="btn-1" for="name">Nombre:</label>
-            <input class="btn-1" type="text" id="name">
-          
-            <label  class="btn-1" for="reg-correo">Correo:</label>
-            <input  class="btn-1" type="email" id="reg-correo" required>
-          
-            <label class="btn-1" for="reg-pass">Password:</label>
-            <input  class="btn-1" type="password" id="reg-pass" required>
-
-        <div class="botones-radio">
-            <input type="radio" value="1">Madre primeriza 
-            <input type="radio" value="2">Madre con experienca
-        </div> 
-          <span id="error2" class="message-error"></span>
-
-          <div class="btn-1">
-            <button id="btn-crear-cuenta" class="boton-iniciar">CREAR CUENTA</button>
+            <div>
+              <p class="btn-1"class="titulo-registro">Crea tu cuenta aquí</p>
             </div>
-          </form>
-        </div>
+              <label class="btn-1" for="name">Nombre:</label>
+              <input class="btn-1" type="text" id="name">
+            
+              <label  class="btn-1" for="reg-correo">Correo:</label>
+              <input  class="btn-1" type="email" id="reg-correo" required>
+            
+              <label class="btn-1" for="reg-pass">Password:</label>
+              <input  class="btn-1" type="password" id="reg-pass" required>
+
+            <div class="botones-radio">
+              <input type="radio" value="1">Madre primeriza 
+              <input type="radio" value="2">Madre con experienca
+            </div> 
+            <span id="error2" class="message-error"></span>
+
+            <div class="btn-1">
+                <button id="btn-crear-cuenta" class="boton-iniciar">CREAR CUENTA</button>
+            </div>
+        </form>
+    </main>
     <footer class="footer">
-      <img class="footer-img" src="./logo/Sin título-1.png" alt="logo">
-      <p class="footer-texto-color"><span class="barra-navegacion">Mommy’s Love</span> Copyright © All rights reserved. </p>
+        <img class="footer-img" src="./logo/Sin título-1.png" alt="logo">
+        <p class="footer-texto-color"><span class="barra-navegacion">Mommy’s Love</span> Copyright © All rights reserved. </p>
     </footer>`;
   const div = document.createElement('div');
   div.innerHTML = tmpl;
@@ -54,44 +55,46 @@ export const registroForm = () => {
 };
 
 export const ingresoForm = () => {
-  const temp = `<header class="cabecera">
-  <img src="logo/encabezado.png" alt="encabezado">
-</header>
-<nav class="nav-view">
-<ul>
-  <li>
-    <a href="#/registro"><img class="boton-view" src="./logo/planing.png"></a>
-  </li>
-  <li>
-    <a href="#/ingreso"><img class="boton-view" src="./logo/log-in-button-with-arrow.png"></a>
-  </li>
-</ul>
-</nav>
-    <div>
-      <form class="formulario"> 
-        <p class="texto-1" class="texto-center" class="titulo-registro">"Ya no estás sola, aquí está la comunidad que necesitabas"</p>
-        <br>
-        <p class="texto-center" class="btn-1">Iniciar sesión con tu cuenta</p>
-        <div class="input">
-        <input class="btn-1" id="correo" type="text" placeholder="Correo electrónico" required>
-        <input class="btn-1" id="password" type="password" placeholder="Contraseña" required>
-      </div>
+  const temp = `
+    <header class="cabecera">
+        <img src="logo/encabezado.png" alt="encabezado">
+    </header>
 
-        <div class="btn-1">
-          <button id="ingresar" class="boton-iniciar">INGRESA</button>
-        </div>
-        <p>¿Eres nueva? --- <a href="#/registro" class="link-registro"> REGISTRATE </a> ---  </p>
-        <p class="sign-up">--- O ingresa con tu cuenta de: ---</p>
-        </form>
-        <div class="botones-login">
-            <button id= "login-facebook" class="btn-face"><img src="./logo/facebook.png"></button>
-            <button id="login-google" class="btn-google"><img src="./logo/google-plus.png"></button></li>
-        </div>
-    </div>
-<footer class="footer">
-      <img class="footer-img" src="./logo/Sin título-1.png" alt="logo">
-      <p class="footer-texto-color"><span class="barra-navegacion">Mommy’s Love</span> Copyright © All rights reserved. </p>
-</footer>`;
+    <nav class="nav-view">
+      <ul>
+        <li>
+          <a href="#/registro"><img class="boton-view" src="./logo/planing.png"></a>
+        </li>
+        <li>
+          <a href="#/ingreso"><img class="boton-view" src="./logo/log-in-button-with-arrow.png"></a>
+        </li>
+      </ul>
+    </nav>
+
+    <main>
+      <form class="formulario"> 
+          <p class="texto-center" class="btn-1">Iniciar sesión con tu cuenta</p>
+          <div class="input">
+              <input class="btn-1" id="correo" type="text" placeholder="Correo electrónico" required>
+              <input class="btn-1" id="password" type="password" placeholder="Contraseña" required>
+              <p id="error"></p>
+          </div>
+
+          <div class="btn-1">
+              <button id="ingresar" class="boton-iniciar">INGRESA</button>
+          </div>
+          <p>¿Eres nueva? --- <a href="#/registro" class="link-registro"> REGISTRATE </a> ---  </p>
+          <p class="sign-up">--- O ingresa con tu cuenta de: ---</p>
+      </form>
+      <div class="botones-login">
+          <button id= "login-facebook" class="btn-face"><img src="./logo/facebook.png"></button>
+          <button id="login-google" class="btn-google"><img src="./logo/google-plus.png"></button></li>
+      </div>
+    </main>
+    <footer class="footer">
+        <img class="footer-img" src="./logo/Sin título-1.png" alt="logo">
+        <p class="footer-texto-color"><span class="barra-navegacion">Mommy’s Love</span> Copyright © All rights reserved. </p>
+    </footer>`;
 
   const div = document.createElement('div');
   div.innerHTML = temp;
@@ -110,40 +113,36 @@ const cadaPost = (objPost) => {
   const elem = document.createElement('div');
   elem.classList.add('formulario-post');
   elem.innerHTML = `
-  <div>
   <div class="imagen-post">
-  <div class="fondo-avatar">
-    <img class="imagen-tamaño" src="./logo/girl (1).png" alt="avatar">
+    <div class="fondo-avatar">
+      <img class="imagen-tamaño" src="./logo/girl (1).png" alt="avatar">
     </div>
     <span id="nombre-usuario">${objPost.displayName}</span>
     <div class="icono-estado">
-    <button class="selec-confi" id="mostrar-modal">Editar</button>
-    <button class="selec-confi" id="confirm-eliminar">Eliminar</button>
+      <button class="selec-confi" id="mostrar-modal">Editar</button>
+      <button class="selec-confi" id="confirm-eliminar">Eliminar</button>
     </div>
-   </div>   
+  </div>   
 
-   <div id="myModal" class="modal">
-   <div class="modal-content">
-     <button id="editar-post-${objPost.id}">Guardar</button>
-     <textarea id="texto-edit" cols="60" rows="5">${objPost.title}</textarea>
-   </div>
- </div>
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <button id="editar-post-${objPost.id}">Guardar</button>
+      <textarea id="texto-edit" cols="60" rows="5">${objPost.title}</textarea>
+    </div>
+  </div>
 
   <div id="confirm-modal" class="modal">
     <div class="modal-content">
       <p>¿Estas segura de que quieres eliminar este post?</p>
-      <button id="eliminar-post-${objPost.id}">SI</button>
+      <button id="eliminar-post-${objPost.id}">Si</button>
       <button id="no-eliminar">No</button>
     </div>
   </div>
 
-
-<div id="contenido-post">
-  <div>
-    <span>
-     <span id="texto-publicacion">${objPost.title}</span>
-    </span>
- </div>
+  <div id="contenido-post">
+    <div>
+        <h6 id="texto-publicacion">${objPost.title}</h6>
+    </div>
   <div>
       <button id="emoji-1" class="emoji-btn">
           <img class="emoji-post" src="./logo/happy.png"></img>
@@ -183,67 +182,62 @@ const cadaPost = (objPost) => {
   const btnEditar = elem.querySelector(`#editar-post-${objPost.id}`);
   btnEditar.addEventListener('click', () => editarPostOnSubmit(objPost)); 
 
- const btnReactionOne = elem.querySelector('#emoji-1');
- btnReactionOne.addEventListener('click', () => reactionCountOnClick(objPost));
+  const btnReactionOne = elem.querySelector('#emoji-1');
+  btnReactionOne.addEventListener('click', () => reactionCountOnClick(objPost));
  
   return elem;
 };
 
 // creando la pagina de la red social
 export const redsocial = (posts) => {
-  const temp = `<header class="header-position">
-  <div class="marca-header">
-    <img class="footer-img" src="./logo/Sin título-1.png" alt="logo">
-    <p class="barra-navegacion">Mommy's Love</p>
-  </div>
- <div class="op-header">
-  <a class="opcion-header" href="#"><img class="img-header"  src="./logo/love.png" alt="Publicaciones"></a>  
-  <a class="opcion-header" href="#"><img class="img-header"  src="./logo/profiles (1).png" alt="Noticias"></a>  
-  <a class="opcion-header" href="#"><img class="img-header"  src="./logo/user (1).png" alt="Perfil"></a> 
- </div>
+  const temp = `
+  <header class="header-position">
+    <div class="marca-header">
+      <img class="footer-img" src="./logo/Sin título-1.png" alt="logo">
+      <p class="barra-navegacion">Mommy's Love</p>
+    </div>
+    <div class="op-header">
+      <a class="opcion-header" href=""><img class="img-header"  src="./logo/love.png" alt="Publicaciones"></a>  
+      <a class="opcion-header" href=""><img class="img-header"  src="./logo/profiles (1).png" alt="Noticias"></a>  
+      <a class="opcion-header" href=""><img class="img-header"  src="./logo/user (1).png" alt="Perfil"></a> 
+    </div>
+  </header>
 
-</header>
-<main>
-<div id="ingreso-post">
-<form class="formulario-post">
-  <div class="imagen-post">
-   <div class="fondo-avatar">
-      <img class="imagen-tamaño" src="./logo/girl (1).png" alt="avatar">
-   </div>
-      <textarea  class="textarea" name="post" id="post" cols="30" rows="3" placeholder="¡Publica tus novedades!"></textarea>
-  </div>
-  <div class="imagen-post">
-      <select class="botones-post" name="" id="privacidad">
-          <option id="opcion-amigas" value="amigos">Amigas</option>
-          <option id="opcion-publico" value="publico">Público</option>
-      </select>
-      <button class="botones-post" id="publicar">Publicar</button>
-  </div>
-</form>
-</div>
-<div id="publicacion-post">
+  <main>
+    <div id="ingreso-post">
+      <form class="formulario-post">
+        <div class="imagen-post">
+          <div class="fondo-avatar">
+              <img class="imagen-tamaño" src="./logo/girl (1).png" alt="avatar">
+          </div>
+          <textarea  class="textarea" name="post" id="post" cols="30" rows="3" placeholder="¡Publica tus novedades!"></textarea>
+        </div>
+        <div class="imagen-post">
+            <select class="botones-post" name="" id="privacidad">
+                <option id="opcion-amigas" value="amigos">Amigas</option>
+                <option id="opcion-publico" value="publico">Público</option>
+            </select>
+            <button class="botones-post" id="publicar">Publicar</button>
+        </div>
+      </form>
+    </div>
+    <section id="lista-publicaciones"></section>
+  </main>
 
-
-<section id="lista-publicaciones">
-      
-</section>
-
-</main>
-
-<footer class="footer-color">
-<div class="texto-footer">
-<div class="opciones-footer">
-     <a class="link-footer" href=""><p>INFORMACIÓN</p></a> 
-     <a class="link-footer" href=""><p>AYUDA</p></a> 
-     <a class="link-footer" href=""><p>IDIOMA</p></a> 
-</div>
-<div class="divisor"></div>
-  <div class="footer">
-      <img  class="footer-img" src="./logo/Sin título-1.png" alt="logo">
-      <p class="footer-texto-color"><span class="barra-navegacion">Mommy’s Love</span> Copyright © All rights reserved. </p>
-  </div>  
-</div>
-</footer>`;
+  <footer class="footer-color">
+    <div class="texto-footer">
+      <div class="opciones-footer">
+          <a class="link-footer" href=""><p>INFORMACIÓN</p></a> 
+          <a class="link-footer" href=""><p>AYUDA</p></a> 
+          <a class="link-footer" href=""><p>IDIOMA</p></a> 
+      </div>
+      <div class="divisor"></div>
+      <div class="footer">
+          <img  class="footer-img" src="./logo/Sin título-1.png" alt="logo">
+          <p class="footer-texto-color"><span class="barra-navegacion">Mommy’s Love</span> Copyright © All rights reserved. </p>
+      </div>  
+    </div>
+  </footer>`;
 
   const div = document.createElement('div');
   div.innerHTML = temp;
