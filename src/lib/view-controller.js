@@ -1,5 +1,5 @@
 import { signUpWithEmailAndPassword, signInWithPassword, loginWithGoogle, loginWithFacebook, 
-  addPost, deletePost, editPost, seeReaction ,reactionCount } from './controller.js';
+  addPost, deletePost, editPost, seeReaction , reactionCount } from './controller.js';
 
 export const signUpWithEmailAndPasswordOnClick = (evt) => {
   evt.preventDefault();
@@ -33,18 +33,18 @@ export const signInWithPasswordOnClick = (evt) => {
 export const loginWithGoogleOnClick = (evt) => {
   evt.preventDefault();
   loginWithGoogle()
-  .then(() => {
-    location.hash = '#/redsocial';
-  })
-  .catch(function(error) {
-    let errorCode = error.code;
-    let errorMessage = error.message;
-    let email = error.email;
-    let credential = error.credential;
-    if (errorCode === 'auth/account-exists-with-different-credential') {
-      alert('Es el mismo usuario');
-    }
-  });
+    .then(() => {
+      location.hash = '#/redsocial';
+    })
+    .catch(function(error) {
+      let errorCode = error.code;
+      let errorMessage = error.message;
+      let email = error.email;
+      let credential = error.credential;
+      if (errorCode === 'auth/account-exists-with-different-credential') {
+        alert('Es el mismo usuario');
+      }
+    });
 };
 
 export const loginWithFacebookOnClick = (evt) => {
@@ -71,30 +71,29 @@ export const addPostOnSubmit = (evt) => {
     alert('Ingresa un contenido');
   } else if (selecPrivacy.value === 'amigos' && inputText !== '' || inputText.value === valueTrim) {
     console.log('Soy una publicación de amigos');
-    addPost(inputText.value, usarNameText, selecPrivacy)
+    addPost(inputText.value)
       .then(() => {
         inputText.value = '';
         data.message = 'Publicación agregada';
       })
-      .cath(() => {
+      .catch(() => {
         inputText.value = '';
         data.message = 'Lo sentimos, no se pudo agregar tu publicación';
       });
   } else if (selecPrivacy.value === 'publico' && inputText !== '' || inputText.value === valueTrim) {
     console.log('Soy una publicación publica');
-    addPost(inputText.value, usarNameText, selecPrivacy)
+    addPost(inputText.value)
       .then(() => {
         inputText.value = '';
         data.message = 'Publicación agregada';
       })
-      .cath(() => {
+      .catch(() => {
         inputText.value = '';
         data.message = 'Lo sentimos, no se pudo agregar tu publicación';
       });
   } else {
     console.log('no se ejecuta');
   }
- 
 };
 
 
@@ -108,7 +107,8 @@ export const editarPostOnSubmit = (objPost) => {
   editPost(objPost.id, textNewUpdate.value);
 };
 
-export const reactionCountOnClick = () => {
+export const reactionCountOnClick = (objPost) => {
+  seeReaction(objPost.id);
   let numberAction = document.querySelector('#number-of-actions-1');
-   numberAction.innerHTML = seeReaction() + reactionCount();
+  numberAction.innerHTML = reactionCount(objPost.id, objPost.reaction);
 };

@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">55.56% </span>
+        <span class="strong">68.42% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>20/36</span>
+        <span class='fraction'>26/38</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">44.44% </span>
+        <span class="strong">55% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>8/18</span>
+        <span class='fraction'>11/20</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">55.56% </span>
+        <span class="strong">68.42% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>20/36</span>
+        <span class='fraction'>26/38</span>
       </div>
     </div>
   </div>
@@ -132,7 +132,15 @@
 87
 88
 89
-90</td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+90
+91
+92
+93
+94
+95
+96
+97
+98</td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -185,14 +193,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
@@ -215,12 +224,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const signUpWithEmailAndPassword = <span class="fstat-no" title="function not covered" >(e</span>mail, password, cb) =&gt; {    
 <span class="cstat-no" title="statement not covered" >  firebase.auth().createUserWithEmailAndPassword(email, password)</span>
     // .then(result =&gt; {
@@ -250,11 +266,11 @@ export const loginWithGoogle = () =&gt; {
   // provider.setCustomParameters({
   //   'login_hint': 'user@example.com'
   // });
- return firebase.auth().signInWithPopup(provider).then(function(result) {
+  return firebase.auth().signInWithPopup(provider).then(function(result) {
     // let token = result.credential.accessToken;
     // let user = result.user;
     result;
-  })
+  });
 };
 &nbsp;
 &nbsp;
@@ -271,7 +287,8 @@ export const loginWithFacebook = <span class="fstat-no" title="function not cove
 &nbsp;
 export const addPost = (textNewPost) =&gt;
   firebase.firestore().collection('posts').add({
-    title: textNewPost
+    title: textNewPost,
+    reaction: 0,
   });
 &nbsp;
 export const getPost = (callback) =&gt;
@@ -302,21 +319,28 @@ export const editPost = <span class="fstat-no" title="function not covered" >(i<
     });
 };
 &nbsp;
-// Conteo de reacciones 
-export const reactionCount = <span class="fstat-no" title="function not covered" >()</span> =&gt; {  
-  let countClick = <span class="cstat-no" title="statement not covered" >0;</span>
-  function <span class="fstat-no" title="function not covered" >count(</span>) { 
-<span class="cstat-no" title="statement not covered" >   return countClick += 1 ;</span>
- }  
-<span class="cstat-no" title="statement not covered" > console.log(countClick);</span>
-<span class="cstat-no" title="statement not covered" > return count();</span>
+// Traer  las reacciones y conteo
+export const seeReaction = (idPost) =&gt; {
+  return firebase.firestore().collection('posts').doc(idPost).get()
+    .then((result) =&gt; {
+      const seeCount = result.data().reaction;
+      return seeCount;
+    }).catch(<span class="fstat-no" title="function not covered" >()</span> =&gt; {});
+};
+&nbsp;
+&nbsp;
+export const reactionCount = (idPost, reactionPost) =&gt; {  
+  let reactionClick = firebase.firestore().collection('posts').doc(idPost);
+  return reactionClick.update({
+    reaction: reactionPost += 1,
+  });
 };</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Feb 08 2019 18:59:26 GMT-0500 (GMT-05:00)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Feb 09 2019 12:44:17 GMT-0500 (GMT-05:00)
 </div>
 </div>
 <script src="prettify.js"></script>

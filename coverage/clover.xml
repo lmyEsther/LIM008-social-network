@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1549670367387" clover="3.2.0">
-  <project timestamp="1549670367388" name="All files">
-    <metrics statements="36" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="18" coveredmethods="8" elements="54" coveredelements="28" complexity="0" loc="36" ncloc="36" packages="1" files="1" classes="1">
-      <file name="controller.js" path="C:\Users\Laboratoria\Documents\PROYECTO RED SOCIAL\LIM008-social-network\src\lib\controller.js">
-        <metrics statements="36" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="18" coveredmethods="8"/>
+<coverage generated="1549734258037" clover="3.2.0">
+  <project timestamp="1549734258037" name="All files">
+    <metrics statements="38" coveredstatements="26" conditionals="0" coveredconditionals="0" methods="20" coveredmethods="11" elements="58" coveredelements="37" complexity="0" loc="38" ncloc="38" packages="1" files="1" classes="1">
+      <file name="controller.js" path="C:\Users\ivan_\Desktop\PROYECTO RED SOCIAL\LIM008-social-network\src\lib\controller.js">
+        <metrics statements="38" coveredstatements="26" conditionals="0" coveredconditionals="0" methods="20" coveredmethods="11"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
@@ -23,23 +23,25 @@
         <line num="45" count="0" type="stmt"/>
         <line num="49" count="2" type="stmt"/>
         <line num="50" count="1" type="stmt"/>
-        <line num="54" count="2" type="stmt"/>
         <line num="55" count="2" type="stmt"/>
-        <line num="57" count="2" type="stmt"/>
-        <line num="58" count="2" type="stmt"/>
-        <line num="59" count="3" type="stmt"/>
-        <line num="61" count="2" type="stmt"/>
-        <line num="64" count="2" type="stmt"/>
-        <line num="65" count="1" type="stmt"/>
-        <line num="71" count="2" type="stmt"/>
-        <line num="72" count="0" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="78" count="0" type="stmt"/>
-        <line num="83" count="2" type="stmt"/>
-        <line num="84" count="0" type="stmt"/>
-        <line num="86" count="0" type="stmt"/>
-        <line num="88" count="0" type="stmt"/>
-        <line num="89" count="0" type="stmt"/>
+        <line num="56" count="4" type="stmt"/>
+        <line num="58" count="4" type="stmt"/>
+        <line num="59" count="4" type="stmt"/>
+        <line num="60" count="7" type="stmt"/>
+        <line num="62" count="4" type="stmt"/>
+        <line num="65" count="2" type="stmt"/>
+        <line num="66" count="1" type="stmt"/>
+        <line num="72" count="2" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="79" count="0" type="stmt"/>
+        <line num="84" count="2" type="stmt"/>
+        <line num="85" count="1" type="stmt"/>
+        <line num="87" count="1" type="stmt"/>
+        <line num="88" count="1" type="stmt"/>
+        <line num="93" count="2" type="stmt"/>
+        <line num="94" count="1" type="stmt"/>
+        <line num="95" count="1" type="stmt"/>
       </file>
     </metrics>
   </project>
