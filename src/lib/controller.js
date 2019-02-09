@@ -23,15 +23,15 @@ export const signInWithPassword = (email, password) =>
 
 export const loginWithGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().languageCode = 'es';
-
-  provider.setCustomParameters({
-    'login_hint': 'user@example.com'
-  });
+  // firebase.auth().languageCode = 'es';
+  // provider.setCustomParameters({
+  //   'login_hint': 'user@example.com'
+  // });
  return firebase.auth().signInWithPopup(provider).then(function(result) {
-    let token = result.credential.accessToken;
-    let user = result.user;
-  });
+    // let token = result.credential.accessToken;
+    // let user = result.user;
+    result;
+  })
 };
 
 
@@ -78,12 +78,13 @@ export const editPost = (idPost, textNewUpdate) => {
       console.error('Error updating document: ', error);
     });
 };
+
 // Conteo de reacciones 
-export const reactionCount = () => {
- let emoji1;
- let emojivalue;
- for(i = 0 ; i <= 1000 ; i++){
-   emojivalue += emoji1;
- }
- return emojivalue;
+export const reactionCount = () => {  
+  let countClick = 0;
+  function count() { 
+   return countClick += 1 ;
+ }  
+ console.log(countClick);
+ return count();
 };
