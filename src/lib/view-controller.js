@@ -1,11 +1,12 @@
 import { signUpWithEmailAndPassword, signInWithPassword, loginWithGoogle, loginWithFacebook, 
-  addPost, deletePost, editPost } from './controller.js';
+  addPost, deletePost, editPost, seeReaction , reactionCount } from './controller.js';
 
 export const signUpWithEmailAndPasswordOnClick = (evt) => {
   evt.preventDefault();
   const email = document.getElementById('reg-correo').value;
   const password = document.getElementById('reg-pass').value;
   const inputName = document.getElementById('name').value;
+  
   signUpWithEmailAndPassword(email, password)
     .then(cred => {
       return firebase.firestore().collection('users').doc(cred.user.uid).set({
@@ -87,8 +88,6 @@ export const addPostOnSubmit = (evt) => {
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
       const inputText = document.getElementById('post');
-      // const selecPrivacy = document.getElementById('privacidad');
-      // const usarNameText = document.getElementById('nombre-usuario');
       let inputSpace = '                                                                                ';
       const inputTrim = inputSpace.trim();
       // const stringSpace = String;
@@ -115,4 +114,10 @@ export const editarPostOnSubmit = (objPost) => {
   modal.style.display = 'none';
 
   editPost(objPost.id, textNewUpdate.value);
+};
+
+export const reactionCountOnClick = (objPost) => {
+  seeReaction(objPost.id);
+  let numberAction = document.querySelector('#number-of-actions-1');
+  numberAction.innerHTML = reactionCount(objPost.id, objPost.reaction);
 };
