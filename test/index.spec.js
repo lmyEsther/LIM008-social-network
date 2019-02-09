@@ -15,7 +15,7 @@ global.firebase = firebasemock.MockFirebaseSdk(
 
 // iniciando tests
 
-import { signInWithPassword } from '../src/lib/controller.js';
+import { signInWithPassword , loginWithGoogle } from '../src/lib/controller.js';
 
 describe('sesión iniciada', () => {
   it('Debería poder iniciar sesion', () => {
@@ -23,5 +23,15 @@ describe('sesión iniciada', () => {
       .then((user) => {
         expect(user.email).toBe('kilolo@gmail.com');
       });
+  });
+});
+
+
+describe('sesion iniciada', () => {
+  it('Deberia poder iniciar sesion con google', () => {
+    return loginWithGoogle()
+    .then(() => {
+     expect().toBe('');
+    });
   });
 });

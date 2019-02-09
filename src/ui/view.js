@@ -148,7 +148,7 @@ const cadaPost = (objPost) => {
       <button id="emoji-1" class="emoji-btn">
           <img class="emoji-post" src="./logo/happy.png"></img>
       </button>
-      <span id="number-of-actions-1"></span>
+      <span id="number-of-actions-1">${objPost.reaction}</span>
       <button id="emoji-2" class="emoji-btn">
           <img class="emoji-post" src="./logo/sad.png"></img>
       </button>
@@ -184,7 +184,7 @@ const cadaPost = (objPost) => {
   btnEditar.addEventListener('click', () => editarPostOnSubmit(objPost)); 
 
  const btnReactionOne = elem.querySelector('#emoji-1');
- btnReactionOne.addEventListener('click', () => reactionCountOnClick());
+ btnReactionOne.addEventListener('click', () => reactionCountOnClick(objPost));
  
   return elem;
 };
