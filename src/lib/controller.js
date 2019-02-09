@@ -6,20 +6,16 @@ export const signInWithPassword = (email, password) =>
 
 
 export const loginWithGoogle = () => {
-  if (!firebase.auth().currentUser) {
   const provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().languageCode = 'es';
-
-  provider.setCustomParameters({
-    'login_hint': 'user@example.com'
+  // firebase.auth().languageCode = 'es';
+  // provider.setCustomParameters({
+  //   'login_hint': 'user@example.com'
+  // });
+  return firebase.auth().signInWithPopup(provider).then(function(result) {
+    // let token = result.credential.accessToken;
+    // let user = result.user;
+    result;
   });
- return firebase.auth().signInWithPopup(provider).then(function(result) {
-    let token = result.credential.accessToken;
-    let user = result.user;
-  });
-  } else {
-    firebase.auth().signOut();
-  }
 };
 
 
@@ -36,7 +32,8 @@ export const loginWithFacebook = () => {
 
 export const addPost = (textNewPost) =>
   firebase.firestore().collection('posts').add({
-    title: textNewPost
+    title: textNewPost,
+    reaction: 0,
   });
 
 export const getPost = (callback) =>
@@ -64,3 +61,19 @@ export const editPost = (idPost, textNewUpdate) => {
     });
 };
 
+// Traer  las reacciones y conteo
+export const seeReaction = (idPost) => {
+  return firebase.firestore().collection('posts').doc(idPost).get()
+    .then((result) => {
+      const seeCount = result.data().reaction;
+      return seeCount;
+    }).catch(() => {});
+};
+
+
+export const reactionCount = (idPost, reactionPost) => {  
+  let reactionClick = firebase.firestore().collection('posts').doc(idPost);
+  return reactionClick.update({
+    reaction: reactionPost += 1,
+  });
+};

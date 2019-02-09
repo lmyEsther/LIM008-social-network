@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<coverage generated="1549409096676" clover="3.2.0">
-  <project timestamp="1549409096676" name="All files">
-    <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="0" coveredelements="0" complexity="0" loc="0" ncloc="0" packages="0" files="0" classes="0">
-=======
-<coverage generated="1549488164630" clover="3.2.0">
-  <project timestamp="1549488164630" name="All files">
-    <metrics statements="44" coveredstatements="16" conditionals="4" coveredconditionals="0" methods="18" coveredmethods="6" elements="66" coveredelements="22" complexity="0" loc="44" ncloc="44" packages="1" files="1" classes="1">
-      <file name="controller.js" path="/Users/macbookair13/Desktop/RED SOCIAL/LIM008-social-network/src/lib/controller.js">
-        <metrics statements="44" coveredstatements="16" conditionals="4" coveredconditionals="0" methods="18" coveredmethods="6"/>
+<coverage generated="1549734258037" clover="3.2.0">
+  <project timestamp="1549734258037" name="All files">
+    <metrics statements="38" coveredstatements="26" conditionals="0" coveredconditionals="0" methods="20" coveredmethods="11" elements="58" coveredelements="37" complexity="0" loc="38" ncloc="38" packages="1" files="1" classes="1">
+      <file name="controller.js" path="C:\Users\ivan_\Desktop\PROYECTO RED SOCIAL\LIM008-social-network\src\lib\controller.js">
+        <metrics statements="38" coveredstatements="26" conditionals="0" coveredconditionals="0" methods="20" coveredmethods="11"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
@@ -16,45 +11,38 @@
         <line num="16" count="0" type="stmt"/>
         <line num="20" count="2" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
-        <line num="39" count="2" type="stmt"/>
-        <line num="40" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
         <line num="41" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
         <line num="45" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="55" count="0" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="58" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="63" count="0" type="stmt"/>
-        <line num="67" count="2" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
-        <line num="69" count="0" type="stmt"/>
-        <line num="70" count="0" type="stmt"/>
-        <line num="72" count="0" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="78" count="2" type="stmt"/>
-        <line num="79" count="1" type="stmt"/>
+        <line num="49" count="2" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="55" count="2" type="stmt"/>
+        <line num="56" count="4" type="stmt"/>
+        <line num="58" count="4" type="stmt"/>
+        <line num="59" count="4" type="stmt"/>
+        <line num="60" count="7" type="stmt"/>
+        <line num="62" count="4" type="stmt"/>
+        <line num="65" count="2" type="stmt"/>
+        <line num="66" count="1" type="stmt"/>
+        <line num="72" count="2" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="79" count="0" type="stmt"/>
         <line num="84" count="2" type="stmt"/>
-        <line num="85" count="2" type="stmt"/>
-        <line num="87" count="2" type="stmt"/>
-        <line num="88" count="2" type="stmt"/>
-        <line num="89" count="3" type="stmt"/>
-        <line num="91" count="2" type="stmt"/>
-        <line num="94" count="2" type="stmt"/>
+        <line num="85" count="1" type="stmt"/>
+        <line num="87" count="1" type="stmt"/>
+        <line num="88" count="1" type="stmt"/>
+        <line num="93" count="2" type="stmt"/>
+        <line num="94" count="1" type="stmt"/>
         <line num="95" count="1" type="stmt"/>
-        <line num="101" count="2" type="stmt"/>
-        <line num="102" count="0" type="stmt"/>
-        <line num="104" count="0" type="stmt"/>
-        <line num="108" count="0" type="stmt"/>
       </file>
->>>>>>> ad8fe006c0a7038acf3c2cde709170b22123e4bc
     </metrics>
   </project>
 </coverage>

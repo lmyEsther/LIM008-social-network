@@ -1,6 +1,6 @@
 import {signUpWithEmailAndPasswordOnClick, signInWithPasswordOnClick, 
   loginWithGoogleOnClick, loginWithFacebookOnClick, 
-  addPostOnSubmit, deletePostOnClick, editarPostOnSubmit} from '../lib/view-controller.js';
+  addPostOnSubmit, deletePostOnClick, editarPostOnSubmit, reactionCountOnClick} from '../lib/view-controller.js';
 
 export const registroForm = () => {
   const tmpl = `
@@ -116,9 +116,8 @@ const cadaPost = (objPost) => {
   <div class="imagen-post">
     <div class="fondo-avatar">
       <img class="imagen-tamaño" src="./logo/girl (1).png" alt="avatar">
-      <span id="nombre-usuario">${objPost.displayName}</span>
     </div>
-    
+    <span id="nombre-usuario">${objPost.displayName}</span>
     <div class="icono-estado">
       <button class="selec-confi" id="mostrar-modal">Editar</button>
       <button class="selec-confi" id="confirm-eliminar">Eliminar</button>
@@ -144,21 +143,21 @@ const cadaPost = (objPost) => {
     <div>
         <h6 id="texto-publicacion">${objPost.title}</h6>
     </div>
-
-    <div>
-        <button class="emoji-btn">
-            <img class="emoji-post" src="./logo/happy.png"></img>
-        </button>
-        <button class="emoji-btn">
-            <img class="emoji-post" src="./logo/sad.png"></img>
-        </button>
-        <button class="emoji-btn">
-            <img  class="emoji-post" src="./logo/heart.png"></img>
-        </button>
-        <button class="emoji-btn">
-            <img class="emoji-post" src="./logo/sonaja-logo.ico"></img>
-        </button>
-    </div>
+  <div>
+      <button id="emoji-1" class="emoji-btn">
+          <img class="emoji-post" src="./logo/happy.png"></img>
+      </button>
+      <span id="number-of-actions-1">${objPost.reaction}</span>
+      <button id="emoji-2" class="emoji-btn">
+          <img class="emoji-post" src="./logo/sad.png"></img>
+      </button>
+      <button id="emoji-3" class="emoji-btn">
+          <img  class="emoji-post" src="./logo/heart.png"></img>
+      </button>
+      <button id="emoji-4" class="emoji-btn">
+          <img class="emoji-post" src="./logo/sonaja-logo.ico"></img>
+      </button>
+  </div>
   </div>
   `;
   const modalConfirm = elem.querySelector('#confirm-modal');
@@ -183,6 +182,9 @@ const cadaPost = (objPost) => {
   const btnEditar = elem.querySelector(`#editar-post-${objPost.id}`);
   btnEditar.addEventListener('click', () => editarPostOnSubmit(objPost)); 
 
+  const btnReactionOne = elem.querySelector('#emoji-1');
+  btnReactionOne.addEventListener('click', () => reactionCountOnClick(objPost));
+ 
   return elem;
 };
 
