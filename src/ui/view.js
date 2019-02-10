@@ -20,25 +20,23 @@ export const registroForm = () => {
     <main class="register">
         <form class="formulario">
             <div>
-              <p class="btn-1"class="titulo-registro">Crea tu cuenta aquí</p>
+              <p class="titulo-registro">Crea tu cuenta aquí</p>
             </div>
-              <label class="btn-1" for="name">Nombre:</label>
-              <input class="btn-1" type="text" id="name">
-            
-              <label  class="btn-1" for="reg-correo">Correo:</label>
-              <input  class="btn-1" type="email" id="reg-correo" required>
-            
-              <label class="btn-1" for="reg-pass">Password:</label>
-              <input  class="btn-1" type="password" id="reg-pass" required>
+              
+            <div class="input">
+              <input class="btn-1" type="text" id="name" required placeholder="Nombre de Perfil">
+              <input class="btn-1" id="reg-correo" type="email" placeholder="Correo electrónico" required>
+              <input class="btn-1" id="reg-pass" type="password" placeholder="Contraseña" required>
+              <p id="error2" class="message-error"></p>
+            </div>
 
             <div class="botones-radio">
               <input type="radio" value="1">Madre primeriza 
               <input type="radio" value="2">Madre con experienca
             </div> 
-            <span id="error2" class="message-error"></span>
-
+            
             <div class="btn-1">
-                <button id="btn-crear-cuenta" class="boton-iniciar">CREAR CUENTA</button>
+                <button id="btn-crear-cuenta" class="boton-iniciar">Crear Cuenta</button>
             </div>
         </form>
     </main>
@@ -75,13 +73,13 @@ export const ingresoForm = () => {
       <form class="formulario"> 
           <p class="texto-center" class="btn-1">Iniciar sesión con tu cuenta</p>
           <div class="input">
-              <input class="btn-1" id="correo" type="text" placeholder="Correo electrónico" required>
+              <input class="btn-1" id="correo" type="email" placeholder="Correo electrónico" required>
               <input class="btn-1" id="password" type="password" placeholder="Contraseña" required>
-              <p id="error"></p>
+              <p id="error" class="message-error"></p>
           </div>
 
           <div class="btn-1">
-              <button id="ingresar" class="boton-iniciar">INGRESA</button>
+              <button id="ingresar" class="boton-iniciar">Ingresa</button>
           </div>
           <p>¿Eres nueva? --- <a href="#/registro" class="link-registro"> REGISTRATE </a> ---  </p>
           <p class="sign-up">--- O ingresa con tu cuenta de: ---</p>
@@ -116,8 +114,8 @@ const cadaPost = (objPost) => {
   <div class="imagen-post">
     <div class="fondo-avatar">
       <img class="imagen-tamaño" src="./logo/girl (1).png" alt="avatar">
-      <span id="nombre-usuario">${objPost.name}</span>
     </div>
+    <h4 id="nombre-usuario">${objPost.name}</h4>
     <div class="icono-estado">
       <button class="selec-confi" id="mostrar-modal">Editar</button>
       <button class="selec-confi" id="confirm-eliminar">Eliminar</button>
