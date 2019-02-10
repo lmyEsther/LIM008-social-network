@@ -12,9 +12,11 @@ header {
  height: 100px;
 }
 
+
 body{
-    background-color: #fafafa;
+    background-color: #fcf3e8;
 }
+
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -263,6 +265,7 @@ nav ul {
         border-radius: 7px;
         font-size: 15px;
         text-align: center;
+        background: #ffffff;
      }
      .imagen-post{
         display: flex;
@@ -423,4 +426,8 @@ nav ul {
 
     
    
+    textarea, #post {
+        background: #CCF3F8;
+    }
+    
 
