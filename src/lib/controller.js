@@ -30,10 +30,12 @@ export const loginWithFacebook = () => {
   });
 };
 
-export const addPost = (textNewPost) =>
+export const addPost = (textNewPost, userId, userName) =>
   firebase.firestore().collection('posts').add({
-    title: textNewPost,
-    reaction: 0,
+    content: textNewPost,
+    UID: userId,
+    name: userName,
+    reaction: 0
   });
 
 export const getPost = (callback) =>
@@ -54,11 +56,8 @@ export const editPost = (idPost, textNewUpdate) => {
   let washingtonRef = firebase.firestore().collection('posts').doc(idPost);
 
   return washingtonRef.update({
-    title: textNewUpdate,
-  })
-    .catch(function(error) {
-      console.error('Error updating document: ', error);
-    });
+    content: textNewUpdate,
+  });
 };
 
 // Traer  las reacciones y conteo
