@@ -138,7 +138,7 @@ Comentarios de los usuarios:
 
 #### Prototipo de baja fidelidad
 
-Diseño de baja fidelidad Número 1 :
+Diseño de baja fidelidad :
 
 
 ![diseño0]()
