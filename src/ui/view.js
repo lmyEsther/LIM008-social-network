@@ -1,6 +1,6 @@
 import {signUpWithEmailAndPasswordOnClick, signInWithPasswordOnClick, 
   loginWithGoogleOnClick, loginWithFacebookOnClick, 
-  addPostOnSubmit, deletePostOnClick, editarPostOnSubmit, reactionCountOnClick} from '../lib/view-controller.js';
+  addPostOnSubmit, deletePostOnClick, editarPostOnSubmit, reactionCountOnClick, reactionCountSadOnClick, reactionCountLikeOnClick, reactionCountLoveOnClick} from '../lib/view-controller.js';
 
 export const registroForm = () => {
   const tmpl = `
@@ -116,8 +116,8 @@ const cadaPost = (objPost) => {
   <div class="imagen-post">
     <div class="fondo-avatar">
       <img class="imagen-tamaño" src="./logo/girl (1).png" alt="avatar">
-      <span id="nombre-usuario">${objPost.name}</span>
     </div>
+    <span id="nombre-usuario">${objPost.name}</span>
     <div class="icono-estado">
       <button class="selec-confi" id="mostrar-modal">Editar</button>
       <button class="selec-confi" id="confirm-eliminar">Eliminar</button>
@@ -151,12 +151,15 @@ const cadaPost = (objPost) => {
       <button id="emoji-2" class="emoji-btn">
           <img class="emoji-post" src="./logo/sad.png"></img>
       </button>
+      <span id="number-of-actions-2">${objPost.reactionsad}</span>
       <button id="emoji-3" class="emoji-btn">
           <img  class="emoji-post" src="./logo/likee.png"></img>
       </button>
+      <span id="number-of-actions-3">${objPost.reactionlike}</span>
       <button id="emoji-4" class="emoji-btn">
           <img class="emoji-post" src="./logo/heart.png"></img>
       </button>
+      <span id="number-of-actions-4">${objPost.reactionlove}</span>
   </div>
   </div>
   `;
@@ -184,7 +187,12 @@ const cadaPost = (objPost) => {
 
   const btnReactionOne = elem.querySelector('#emoji-1');
   btnReactionOne.addEventListener('click', () => reactionCountOnClick(objPost));
- 
+  const btnReactionTwo = elem.querySelector('#emoji-2');
+  btnReactionTwo.addEventListener('click', () => reactionCountSadOnClick(objPost));
+  const btnReactionThree = elem.querySelector('#emoji-3');
+  btnReactionThree.addEventListener('click', () => reactionCountLikeOnClick(objPost));
+  const btnReactionFour = elem.querySelector('#emoji-4');
+  btnReactionFour.addEventListener('click', () => reactionCountLoveOnClick(objPost));
   return elem;
 };
 

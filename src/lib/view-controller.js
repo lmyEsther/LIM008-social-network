@@ -1,5 +1,5 @@
 import { signUpWithEmailAndPassword, signInWithPassword, loginWithGoogle, loginWithFacebook, 
-  addPost, deletePost, editPost, seeReaction , reactionCount } from './controller.js';
+  addPost, deletePost, editPost, seeReaction, reactionCount, reactionCountSad, reactionCountLike, reactionCountLove } from './controller.js';
 
 export const signUpWithEmailAndPasswordOnClick = (evt) => {
   evt.preventDefault();
@@ -118,6 +118,18 @@ export const editarPostOnSubmit = (objPost) => {
 
 export const reactionCountOnClick = (objPost) => {
   seeReaction(objPost.id);
-  let numberAction = document.querySelector('#number-of-actions-1');
-  numberAction.innerHTML = reactionCount(objPost.id, objPost.reaction);
+  let numberActionOne = document.querySelector('#number-of-actions-1');
+  numberActionOne.innerHTML = reactionCount(objPost.id, objPost.reaction);
+};
+export const reactionCountSadOnClick = (objPost) => {
+  let numberActionTwo = document.querySelector('#number-of-actions-2');
+  numberActionTwo.innerHTML = reactionCountSad(objPost.id, objPost.reactionsad);
+};
+export const reactionCountLikeOnClick = (objPost) => { 
+  let numberActionThree = document.querySelector('#number-of-actions-3');
+  numberActionThree.innerHTML = reactionCountLike(objPost.id, objPost.reactionlike);
+};
+export const reactionCountLoveOnClick = (objPost) => {
+  let numberActionFour = document.querySelector('#number-of-actions-4');
+  numberActionFour.innerHTML = reactionCountLove(objPost.id, objPost.reactionlove);
 };
