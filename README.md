@@ -19,22 +19,25 @@ Las Redes sociales y las madres primerizas:
 
  ![madre-primeriza](https://2.bp.blogspot.com/-zJEpUpePaGY/XF9YYVKTCLI/AAAAAAAAKqQ/otyw8JK1hicFe5E4byatsj2_BWCQDAbdwCLcBGAs/s1600/madre-joven-con-su-bebe-usando-la-computadora.jpg)
 
-En la actualidad existen redes sociales para cada público, tanto para jovenes, adultos o adolescentes, sin embargo no muchas para un público especifico como las madres primerizas, ella necesitan no solo estar al tanto de las nuevas tecnologías y redes sociales , sino tambien poder utilizarlas a su favor en su rol de madre primeriza. Poder no solo conocer a otra madres primerizas sino conocer, compartir y expresar todos sus conocimientos y dudas sobre su nueva etapa como madre.
+En la actualidad existen redes sociales para cada público, tanto para jóvenes, adultos o adolescentes, sin embargo, no muchas para un público especifico como las madres primerizas, ellas necesitan no solo estar al tanto de las nuevas tecnologías y redes sociales, sino también poder utilizarlas a su favor en su rol de madre primeriza. Poder no solo conocer a otras madres primerizas sino conocer, compartir y expresar todos sus conocimientos y dudas sobre su nueva etapa como madre.
+
+
 
 ## Resumen del Producto
 
-El proyecto es una red social de apoyo entre madres primerizas, donde podran interactuar entre ellas posteando publicaciones sobre sus experiecias y podran reaccionar con diferentes emoticones en cada publicación.
+El proyecto es una red social de apoyo entre madres primerizas, donde podrán interactuar entre ellas posteando publicaciones sobre sus experiencias teniendo las opciones de editar y eliminar además podrán reaccionar con diferentes emoticones en cada publicación.
 
 ***
 ## Definición del producto
 
-  El producto es una red social para madres primerizas, donde podran compartir, conocer y apoyarse en su nueva etapa como madres, una linda experiencia para conocer una hermosa comunidad de mujeres y tambien de algunos padres primerizos,sobre temas relacionados con el mundo de ser madre. La red social es una app web donde podrám registrarte y logearte con tu propia cuenta, ademas de tener acceso facil por google y facebook, en esta red social podrás realizar publicaciones y reaccionar a cada publicación.
+  El producto es una red social para madres primerizas, donde podrán compartir, conocer y apoyarse en su nueva etapa como madres, una linda experiencia para conocer una hermosa comunidad de mujeres y también de algunos padres primerizos, sobre temas relacionados con el mundo de ser madre. La red social es una app web donde podrás registrarte y logearse con tu propia cuenta, además de tener acceso fácil por Google y Facebook, en esta red social podrás realizar publicaciones y reaccionar a cada publicación.
 
+![mommy's love](https://2.bp.blogspot.com/-P3ChAwjS3ms/XGCL-PBTpkI/AAAAAAAAKrU/wtR0V1mZUkIOPU5j-Ba6pk0bOaeqFDdOQCLcBGAs/s1600/Happy%2BBirthday%2521.png)
 ***
 
 ## Problemática / Necesidad
 
-   La necesidad de nuestro público es tener una red social donde puedan apoyarse entre madres primerizas para resolver sus dudas y sentirce acompañadas en su nueva etapa, además de conocer sobre temas relacionados sobre la crianza de su bebe.
+   La necesidad de nuestro público es tener una red social donde puedan apoyarse entre madres primerizas para resolver sus dudas y sentirse acompañadas en su nueva etapa, además de conocer sobre temas relacionados sobre la crianza de su bebe.
 ***
 
 ## Solución del Problema
@@ -47,26 +50,28 @@ El proyecto es una red social de apoyo entre madres primerizas, donde podran int
 ### Proceso
 
 * Se realizó un diseño de baja fidelidad.
-* Se realizó una investigación sobre los temas de interes del público.
-* Se realizo entrevistas y encuentas para conocer al pblico y su feedback sobre el diseño y temas de interés.
+* Se realizó una investigación sobre los temas de interés del público.
+* Se realizo entrevistas y encuestas para conocer al público y su feedback sobre el diseño y temas de interés.
+
 
 ### Decisiones de diseño
 
  Para la creación de esta red social se tomaron las siguientes decisiones de diseño:
 
-*  Creación de una cabecera y pie de página con los colores del mismo tono para y un fondo claro donde donde esta el formulario de acceso y regitro, un logotipo de Mommy's Love en la parte de la cabecera para identificar la identidad de la página.
+*  Creación de una cabecera y pie de página con los colores del mismo tono y un fondo claro donde está ubicado el formulario de acceso y registro, un logotipo de Mommy's Love en la parte de la cabecera para identificar la identidad de la página.
 
-* Como vista principal se encuentra el formulario de acceso a la red social, donde tiene acceso adicional por google y facebook.
+* Como vista principal se encuentra el formulario de acceso a la red social, donde tiene acceso adicional por Google y Facebook.
 
-* Para el muro, se realizo un diseño SPA manteniendo los colores principales de la página con logotipo e imágenes inspiradas en la madre, en cada publicación se coloco un avatar que silume la foto de cada usuaria por defecto para luego ser personalizada.
+* Para el muro, se realizó un diseño SPA manteniendo los colores principales de la página con logotipo e imágenes inspiradas en la madre, en cada publicación se colocó un avatar que simule la foto de cada usuaria por defecto para luego ser personalizada.
 
-* Cada publicación tiene botones de editar y eliminar asi como un espacio para reaccionar con emoticones que reflejan su sentir.
+* Cada publicación tiene botones de editar y eliminar, así como un espacio para reaccionar con emoticones que reflejan su sentir.
 
-* En la parte del pie de página se agrego opciones para ayudar al usuario a estar informado, o en alguna duda sobre la aplicación.
+* En la parte del pie de página se agregó opciones para ayudar al usuario a estar informado, o en alguna duda sobre la aplicación.
 
-* Los colores que se usaron para el diseño de la página y la presentacion de cada publicacion son los siquientes: #fafafa , #EF5A5A, #FEFFDF, #fbd5af, #ffffffc5.
+* Los colores que se usaron para el diseño de la página y la presentación de cada publicación son los siguientes: #fafafa, #EF5A5A, #FEFFDF, #fbd5af, #ffffffc5.
 
-* Los tipo de letra usados para la página y las cartas son los siguientes : 'Sriracha', cursive ; 'Roboto', sans-serif; 
+* Los tipo de letra usados para la página y las cartas son los siguientes: 'Sriracha', cursive ; 'Roboto', sans-serif; 
+
 
 ## Usuarios y su relación con el producto
 
@@ -74,16 +79,16 @@ El proyecto es una red social de apoyo entre madres primerizas, donde podran int
 
 #### Proceso
 
-Para iniciar este proyecto realizamos entrevistas y encuentras a nuestro publico que son las madres primerizas, donde nos comentaron sus ideas y deseos sobre el diseño y temas que les gustaria ver en la red social.
+Para iniciar este proyecto realizamos entrevistas y encuentras a nuestro público que son las madres primerizas, donde nos comentaron sus ideas y deseos sobre el diseño y temas que les gustaría ver en la red social.
 
 Comentarios de los usuarios:
 1. ¿Te interesaría usar una red social de apoyo para madres primerizas? 
    * Si 
 2. ¿Qué tipo de contenido te gustaría publicar en la red social de madres primerizas?
 
-   * Consejos de alimentacion para bebes.
-   * Comidas para bebé ,estimulación para bebés
-   * Cuidado personal, como enfermedades, alimentación , etc.
+   * Consejos de alimentación para bebes.
+   * Comidas para bebé, estimulación para bebés
+   * Cuidado personal, como enfermedades, alimentación, etc.
  
 3. ¿De qué manera crees que pueda ayudar esta red social a las madres primerizas?
    * Con las experiencias
@@ -92,7 +97,7 @@ Comentarios de los usuarios:
 
 4. ¿Qué actividades te gustaría realizar en la red social de madres primerizas? Explica con detalle ;)
    * Interactuar con otras mamás.
-   * Compartir videos , fotos , comentarios con otras madres.
+   * Compartir videos, fotos, comentarios con otras madres.
 
 5. ¿Qué es lo más importante para ti en una red social?
    * Que lo compartido tenga una fuente confiable y real.
@@ -102,22 +107,19 @@ Comentarios de los usuarios:
 6. ¿Cuándo piensas en madres primerizas que color te viene a la mente?
    * Una gama de colores pasteles
 
-7. ¿Qué tendría que tener esta red social para que la recomiendes a otras madres primerizas o madres/amigas?
+7. ¿Qué debería tener esta red social para que la recomiendes a otras madres primerizas o madres/amigas?
    * Mucha información y opiniones reales de cada madre que participe
 
-   * Tutoriales,música,medicina pediatrica, chat,comentarios,tips.
+   * Tutoriales, música, medicina, pediatría, chat ,comentarios ,tips.
+
 
 ### Historias de Usuarios :
  
-- Yo como usuaria quiero poder crearme una cuenta para ingresar a la red social.
+- Yo como usuaria quiero recibir un correo de confirmación sobre mi cuenta creada para saber que mi cuenta ha sido creada.
 
-- Yo como usuaria quiero poder logearme con correo y contraseña para ingresar a la red social.
+ - Yo como usuaria quiero poder iniciar sesión con Google para tener fácil acceso.
 
- - Yo como usuaria quiero recibir un correo de confirmacion sobre mi cuenta creada para saber que mi cuenta ha sido creada.
-
- - Yo como usuaria quiero poder iniciar sesión con Google para tener facil acceso.
-
- - Yo como usuaria quiero poder iniciar sesión con Facebook para tener facil acceso.
+ - Yo como usuaria quiero poder iniciar sesión con Facebook para tener fácil acceso.
 
  - Yo como usuaria quiero escribir texto en mis publicaciones para contar mis experiencias.
 
@@ -125,7 +127,7 @@ Comentarios de los usuarios:
 
  - Yo como usuaria quiero ver mi nombre en las publicaciones para tenerlo personalizado. 
 
-- Yo como usuaria debo poder tener un aviso antes de eliminar una publicación para no equivocarme en eliminar algo .
+- Yo como usuaria debo poder tener un aviso antes de eliminar una publicación para no equivocarme en eliminar algo.
 
  - Yo como usuaria quiero poder reaccionar a las publicaciones para expresar lo que siento.
 
@@ -133,6 +135,7 @@ Comentarios de los usuarios:
 
  - Yo como usuaria quiero agregar imágenes a mis publicaciones para expresar mejor mi experiencia.
  
+
 
 ### Diseño de la Interfaz de Usuario
 
