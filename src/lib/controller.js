@@ -30,13 +30,21 @@ export const loginWithFacebook = () => {
   });
 };
 
-export const addPost = (textNewPost, userId, userName) =>
+export const addPost = (textNewPost, userId, userName, privacyUser) =>
   firebase.firestore().collection('posts').add({
     content: textNewPost,
     UID: userId,
     name: userName,
-    reaction: 0
+    reaction: 0,
+    privacity: privacyUser
   });
+
+  export const postsPrivados = (privacyUser) => {
+    firebase.firestore().collection('postsPrivados').add({
+    privacity: privacyUser
+    })
+    event.preventDefault();
+}
 
 export const getPost = (callback) =>
   firebase.firestore().collection('posts')
@@ -76,3 +84,4 @@ export const reactionCount = (idPost, reactionPost) => {
     reaction: reactionPost += 1,
   });
 };
+

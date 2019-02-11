@@ -30,6 +30,15 @@ describe('Div de Cada Post', () => {
       ));
   });
   // agregar el test deberia editar una publicacion
+  it('Deberia poder editar una publicación', (done) => {
+    return editPost('li234', 'Hola Mundo')
+    .then(() => editPost(
+      (data) => {
+        const result = data.find((post) => post.)
+      }
+    ));
+  });
+
   it('Deberia poder ver la reacción en la publicación', (done) => {
     return seeReaction('li234')
       .then(() => getPost(
