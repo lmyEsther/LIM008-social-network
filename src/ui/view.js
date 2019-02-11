@@ -200,8 +200,8 @@ export const redsocial = (posts) => {
   const temp = `
   <header class="header-position">
     <div class="marca-header">
-      <img class="footer-img" src="./logo/Sin título-1.png" alt="logo">
-      <p class="barra-navegacion">Mommy's Love</p>
+      <div class="encabezado-redsocial"> <img class="logo-redsocial" src="./logo/mommy.png" alt="logo">
+      </div>
     </div>
     <div class="op-header">
       <a class="opcion-header" href=""><img class="img-header"  src="./logo/love.png" alt="Publicaciones"></a>  

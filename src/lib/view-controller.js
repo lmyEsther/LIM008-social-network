@@ -89,7 +89,12 @@ export const loginWithGoogleOnClick = () => {
 };
 
 export const loginWithFacebookOnClick = () => {
-  loginWithFacebook();
+  loginWithFacebook()
+    .then(() => {
+      location.hash = '#/redsocial';
+    }).catch(function(error) {
+      error;
+    });
 };
 
 export const addPostOnSubmit = (evt) => {
@@ -115,10 +120,10 @@ export const addPostOnSubmit = (evt) => {
               addPost(inputText.value, user.uid, user.displayName, privacity.value);
             }
           });
-        }
       }
-    });
-    };
+    }
+  });
+};
 
 export const deletePostOnClick = (objPost) => deletePost(objPost.id);
 

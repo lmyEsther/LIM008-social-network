@@ -21,12 +21,8 @@ export const loginWithGoogle = () => {
 
 export const loginWithFacebook = () => {
   let provider = new firebase.auth.FacebookAuthProvider();
-  firebase.auth().signInWithPopup(provider).then(function(result) {
+  return firebase.auth().signInWithPopup(provider).then(function(result) {
     result;
-  }).then(() => {
-    location.hash = '#/redsocial';
-  }).catch(function(error) {
-    error;
   });
 };
 
@@ -42,41 +38,40 @@ export const addPost = (textNewPost, userId, userName, privacyUser) =>
     privacity: privacyUser
   });
 
-  export const postsPrivados = (privacyUser) => {
-    firebase.firestore().collection('postsPrivados').add({
-    privacity: privacyUser
-    })
-    event.preventDefault();
-}
 
 export const getPost = (callback) => {
-
   const user = firebase.auth().currentUser;
 
-  if (user) {
-
-  } else {
-
-  }
-  
-  firebase.firestore().collection('posts') 
-    .onSnapshot((querySnapshot) => {
-      const data = [];
-      querySnapshot.forEach((doc) => {
-        data.push({ id: doc.id, ...doc.data() });
+  if (user !== null) {
+    firebase.firestore().collection('posts') 
+      .onSnapshot((querySnapshot) => {
+        const data = [];
+        querySnapshot.forEach((doc) => {
+          data.push({ id: doc.id, ...doc.data() });
+        });
+        callback(data);
       });
-      callback(data);
-    });
-  }; 
+  } else {
+    firebase.firestore().collection('posts')
+      .where('privacity', '==', 'publico')
+      .onSnapshot((querySnapshot) => {
+        const data = [];
+        querySnapshot.forEach((doc) => {
+          data.push({ id: doc.id, ...doc.data() });
+        });
+        callback(data);
+      });
+  }
+}; 
 
 export const deletePost = (idPost) =>
   firebase.firestore().collection('posts').doc(idPost).delete();
 
 // Editar publicación
 export const editPost = (idPost, textNewUpdate) => {
-  let washingtonRef = firebase.firestore().collection('posts').doc(idPost);
+  let editContent = firebase.firestore().collection('posts').doc(idPost);
 
-  return washingtonRef.update({
+  return editContent.update({
     content: textNewUpdate,
   });
 };
