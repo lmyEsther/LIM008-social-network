@@ -200,8 +200,8 @@ export const redsocial = (posts) => {
   const temp = `
   <header class="header-position">
     <div class="marca-header">
-      <img class="footer-img" src="./logo/Sin título-1.png" alt="logo">
-      <p class="barra-navegacion">Mommy's Love</p>
+      <div class="encabezado-redsocial"> <img class="logo-redsocial" src="./logo/mommy.png" alt="logo">
+      </div>
     </div>
     <div class="op-header">
       <a class="opcion-header" href=""><img class="img-header"  src="./logo/love.png" alt="Publicaciones"></a>  
@@ -222,8 +222,8 @@ export const redsocial = (posts) => {
         </div>
         <div class="imagen-post">
             <select class="botones-post" name="" id="privacidad">
-                <option id="opcion-amigas" value="amigos">Amigas</option>
-                <option id="opcion-publico" value="publico">Público</option>
+                <option value="amigas">Amigas</option>
+                <option value="publico">Público</option>
             </select>
             <button class="botones-post" id="publicar">Publicar</button>
         </div>

@@ -12,9 +12,11 @@ header {
  height: 100px;
 }
 
+
 body{
-    background-color: #fafafa;
+    background-color: #fcf3e8;
 }
+
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -218,6 +220,9 @@ nav ul {
         flex-direction: row;
         align-content: flex-end;
         justify-content: flex-end;
+        box-sizing: border-box;
+
+        
     }
     .opcion-header{
        position: end;
@@ -254,20 +259,20 @@ nav ul {
     
         @media (min-width:900px) {
             .op-header {
-                margin-left: 65%;
+                margin-left: 60%;
             }
         }
     
         @media (min-width:1150px) {
             .op-header {
-                margin-left: 75%;
+                margin-left: 70%;
             }
         }
     
     
      
      .formulario-post{
-        width: 300px;
+        width: 70%;
         margin: auto;
         background: #fff2e5;
         padding: 10px 30px;
@@ -277,6 +282,7 @@ nav ul {
         border-radius: 7px;
         font-size: 15px;
         text-align: center;
+        background: #ffffff;
      }
      .imagen-post{
         display: flex;
@@ -352,12 +358,14 @@ nav ul {
       }
 
      textarea {
-         max-width: 250px;
-         min-width: 150px;
-         width: 100%;
+         margin-top: 10px;
+         max-width: 70%;
+         min-width: 20%;
          height: 20%;
          min-height: 70px;
          max-height: 70px;
+         width: 70%;
+
       }
 
 
@@ -372,7 +380,7 @@ nav ul {
       }
       #mostrar-modal, #confirm-eliminar {
       margin-left: 30%;
-      background: #f64575;
+      background: #f3ad7e;
       color: #f2f2f2;
 
     }
@@ -386,6 +394,7 @@ nav ul {
       ::placeholder {
         font-family: 'Roboto Condensed', sans-serif;
         text-align: center;
+        padding: 10px;
     }
 
     #publicar {
@@ -411,10 +420,29 @@ nav ul {
         margin-bottom: 30px;
     }
 
+
+
     select {
         background: #F4FFBD;
     }
 
     
    
+    textarea, #post {
+        background: #feffdf;
+    }
+    
 
+    .logo-redsocial {
+        width: 180px;
+        height: 50px;
+        padding: 10px;
+    }
+
+    .encabezado-redsocial {
+        background-color: #fcf3e8; 
+        margin-bottom: 28px;
+        border-radius: 5px;
+        box-sizing: border-box;
+
+    }

@@ -89,7 +89,12 @@ export const loginWithGoogleOnClick = () => {
 };
 
 export const loginWithFacebookOnClick = () => {
-  loginWithFacebook();
+  loginWithFacebook()
+    .then(() => {
+      location.hash = '#/redsocial';
+    }).catch(function(error) {
+      error;
+    });
 };
 
 export const addPostOnSubmit = (evt) => {
@@ -99,6 +104,7 @@ export const addPostOnSubmit = (evt) => {
       const inputText = document.getElementById('post');
       let inputSpace = '                                                                                ';
       const inputTrim = inputSpace.trim();
+      const privacity = document.getElementById('privacidad');
       // const stringSpace = String;
       // let valueSpace = `                                ${stringSpace}                                  `;
       // const valueTrim = valueSpace.trim();
@@ -109,9 +115,9 @@ export const addPostOnSubmit = (evt) => {
         firebase.firestore().collection('users').doc(user.uid).get()
           .then(doc => {
             if (user.displayName === null) { 
-              addPost(inputText.value, user.uid, doc.data().name);
+              addPost(inputText.value, user.uid, doc.data().name, privacity.value);
             } else { // en caso de que haya ingresado con facebook o google
-              addPost(inputText.value, user.uid, user.displayName);
+              addPost(inputText.value, user.uid, user.displayName, privacity.value);
             }
           });
       }

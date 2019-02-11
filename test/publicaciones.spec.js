@@ -11,7 +11,7 @@ const fixtureData = {
           reactionsad: 0,
           reactionlike: 0,
           reactionlove: 0,
-          complete: false
+          privacity: 'publico'
         }
       }
     }
@@ -20,11 +20,11 @@ const fixtureData = {
   
 global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled: true });
 
-import { addPost, getPost, deletePost, seeReaction, reactionCount, reactionCountSad, reactionCountLike, reactionCountLove } from '../src/lib/controller.js';
+import { addPost, getPost, deletePost, seeReaction, reactionCount, reactionCountSad, reactionCountLike, reactionCountLove, editPost } from '../src/lib/controller.js';
 
 describe('Div de Cada Post', () => {
   it('Debería agregar un post', (done) => {
-    return addPost('Hola Mundo', 'GELahJ3Zp8WvMQXQHiood6O4C7C3', 'Maria Alvarado')
+    return addPost('Hola Mundo', 'GELahJ3Zp8WvMQXQHiood6O4C7C3', 'Maria Alvarado', 'publico')
       .then(() => getPost(
         (data) => {
           const result = data.find((post) => post.content === 'Hola Mundo');
@@ -34,6 +34,17 @@ describe('Div de Cada Post', () => {
       ));
   });
   // agregar el test deberia editar una publicacion
+    it('Deberia poder editar una publicación', (done) => {
+    return editPost('li234', 'Bienvenida')
+    .then(() => getPost(
+      (data) => {
+        const result = data.find((post) => post.id === 'li234');
+        expect(result.content).toBe('Bienvenida');
+        done();
+      }
+    ));
+  }); 
+
   it('Deberia poder ver la reacción en la publicación', (done) => {
     return seeReaction('li234')
       .then(() => getPost(

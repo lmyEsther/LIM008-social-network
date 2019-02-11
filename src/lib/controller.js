@@ -21,16 +21,12 @@ export const loginWithGoogle = () => {
 
 export const loginWithFacebook = () => {
   let provider = new firebase.auth.FacebookAuthProvider();
-  firebase.auth().signInWithPopup(provider).then(function(result) {
+  return firebase.auth().signInWithPopup(provider).then(function(result) {
     result;
-  }).then(() => {
-    location.hash = '#/redsocial';
-  }).catch(function(error) {
-    error;
   });
 };
 
-export const addPost = (textNewPost, userId, userName) =>
+export const addPost = (textNewPost, userId, userName, privacyUser) =>
   firebase.firestore().collection('posts').add({
     content: textNewPost,
     UID: userId,
@@ -38,27 +34,44 @@ export const addPost = (textNewPost, userId, userName) =>
     reaction: 0,
     reactionsad: 0,
     reactionlike: 0,
-    reactionlove: 0
+    reactionlove: 0,
+    privacity: privacyUser
   });
 
-export const getPost = (callback) =>
-  firebase.firestore().collection('posts')
-    .onSnapshot((querySnapshot) => {
-      const data = [];
-      querySnapshot.forEach((doc) => {
-        data.push({ id: doc.id, ...doc.data() });
+
+export const getPost = (callback) => {
+  const user = firebase.auth().currentUser;
+
+  if (user !== null) {
+    firebase.firestore().collection('posts') 
+      .onSnapshot((querySnapshot) => {
+        const data = [];
+        querySnapshot.forEach((doc) => {
+          data.push({ id: doc.id, ...doc.data() });
+        });
+        callback(data);
       });
-      callback(data);
-    }); 
+  } else {
+    firebase.firestore().collection('posts')
+      .where('privacity', '==', 'publico')
+      .onSnapshot((querySnapshot) => {
+        const data = [];
+        querySnapshot.forEach((doc) => {
+          data.push({ id: doc.id, ...doc.data() });
+        });
+        callback(data);
+      });
+  }
+}; 
 
 export const deletePost = (idPost) =>
   firebase.firestore().collection('posts').doc(idPost).delete();
 
 // Editar publicación
 export const editPost = (idPost, textNewUpdate) => {
-  let washingtonRef = firebase.firestore().collection('posts').doc(idPost);
+  let editContent = firebase.firestore().collection('posts').doc(idPost);
 
-  return washingtonRef.update({
+  return editContent.update({
     content: textNewUpdate,
   });
 };
@@ -100,3 +113,4 @@ export const reactionCountLove = (idPost, reactionPostLove) => {
     reactionlove: reactionPostLove += 1
   });
 };
+
