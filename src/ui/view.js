@@ -208,6 +208,7 @@ export const redsocial = (posts) => {
       <a class="opcion-header" href=""><img class="img-header"  src="./logo/love.png" alt="Publicaciones"></a>  
       <a class="opcion-header" href=""><img class="img-header"  src="./logo/profiles (1).png" alt="Noticias"></a>  
       <a class="opcion-header" href=""><img class="img-header"  src="./logo/user (1).png" alt="Perfil"></a> 
+      <a class="opcion-header" id="cerrar-sesion"><img class="img-header" src="./logo/cancel.png" alt="cerrar-sesión"></a>
     </div>
   </header>
 
