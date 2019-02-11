@@ -1,6 +1,6 @@
 import {signUpWithEmailAndPasswordOnClick, signInWithPasswordOnClick, 
   loginWithGoogleOnClick, loginWithFacebookOnClick, 
-  addPostOnSubmit, deletePostOnClick, editarPostOnSubmit, reactionCountOnClick} from '../lib/view-controller.js';
+  addPostOnSubmit, deletePostOnClick, editarPostOnSubmit, reactionCountOnClick, reactionCountSadOnClick, reactionCountLikeOnClick, reactionCountLoveOnClick} from '../lib/view-controller.js';
 
 export const registroForm = () => {
   const tmpl = `
@@ -71,6 +71,7 @@ export const ingresoForm = () => {
 
     <main>
       <form class="formulario"> 
+          <p class="texto-1" class="btn-1">"Comparte <span class="link-registro">tu</span> historia y la de tu <span class="link-registro">bebe</span>"</p>
           <p class="texto-center" class="btn-1">Iniciar sesión con tu cuenta</p>
           <div class="input">
               <input class="btn-1" id="correo" type="email" placeholder="Correo electrónico" required>
@@ -149,12 +150,15 @@ const cadaPost = (objPost) => {
       <button id="emoji-2" class="emoji-btn">
           <img class="emoji-post" src="./logo/sad.png"></img>
       </button>
+      <span id="number-of-actions-2">${objPost.reactionsad}</span>
       <button id="emoji-3" class="emoji-btn">
           <img  class="emoji-post" src="./logo/likee.png"></img>
       </button>
+      <span id="number-of-actions-3">${objPost.reactionlike}</span>
       <button id="emoji-4" class="emoji-btn">
           <img class="emoji-post" src="./logo/heart.png"></img>
       </button>
+      <span id="number-of-actions-4">${objPost.reactionlove}</span>
   </div>
   </div>
   `;
@@ -182,7 +186,12 @@ const cadaPost = (objPost) => {
 
   const btnReactionOne = elem.querySelector('#emoji-1');
   btnReactionOne.addEventListener('click', () => reactionCountOnClick(objPost));
- 
+  const btnReactionTwo = elem.querySelector('#emoji-2');
+  btnReactionTwo.addEventListener('click', () => reactionCountSadOnClick(objPost));
+  const btnReactionThree = elem.querySelector('#emoji-3');
+  btnReactionThree.addEventListener('click', () => reactionCountLikeOnClick(objPost));
+  const btnReactionFour = elem.querySelector('#emoji-4');
+  btnReactionFour.addEventListener('click', () => reactionCountLoveOnClick(objPost));
   return elem;
 };
 
@@ -198,6 +207,7 @@ export const redsocial = (posts) => {
       <a class="opcion-header" href=""><img class="img-header"  src="./logo/love.png" alt="Publicaciones"></a>  
       <a class="opcion-header" href=""><img class="img-header"  src="./logo/profiles (1).png" alt="Noticias"></a>  
       <a class="opcion-header" href=""><img class="img-header"  src="./logo/user (1).png" alt="Perfil"></a> 
+      <a class="opcion-header" id="cerrar-sesion"><img class="img-header" src="./logo/cancel.png" alt="cerrar-sesión"></a>
     </div>
   </header>
 
