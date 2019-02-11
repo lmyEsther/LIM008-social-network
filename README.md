@@ -5,7 +5,7 @@
 * [Preámbulo](#preámbulo)
 * [Descripción](#resumen-del-producto)
 * [Definición del producto](#definición-del-producto)
-* [Problemática/Necesidad](#necesidad)
+* [Problemática/Necesidad](#La-necesidad)
 * [Solución del problema](#solución-del-problema)
 * [Proceso y decisiones de diseño](#proceso-y-decisiones-de-diseño)
 * [Usuarios y su relación con el producto](#usuarios-y-su-relación-con-el-producto)
@@ -142,9 +142,8 @@ Comentarios de los usuarios:
 #### Prototipo de baja fidelidad
 
 Diseño de baja fidelidad :
+![mommysbajafidelidad](https://4.bp.blogspot.com/-dSzh1adDw-c/XGGX5DgYvuI/AAAAAAAAKyo/3DrxIpgKERIJN-79S52UY6XsQXBUeN3aACLcBGAs/s640/BeFunky-collage.jpg)
 
-
-![diseño0]()
 
 #### Prototipo de alta fidelidad
 
