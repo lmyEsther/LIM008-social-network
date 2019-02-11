@@ -4,6 +4,8 @@ export const signUpWithEmailAndPassword = (email, password) =>
 export const signInWithPassword = (email, password) =>
   firebase.auth().signInWithEmailAndPassword(email, password);
 
+export const logOut = () => firebase.auth().signOut();
+
 
 export const loginWithGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
@@ -38,15 +40,15 @@ export const addPost = (textNewPost, userId, userName) =>
     reaction: 0
   });
 
-export const getPost = (callback) =>
-  firebase.firestore().collection('posts')
+export const getPost = (callback) => 
+  firebase.firestore().collection('posts').orderBy('content')
     .onSnapshot((querySnapshot) => {
       const data = [];
       querySnapshot.forEach((doc) => {
         data.push({ id: doc.id, ...doc.data() });
       });
       callback(data);
-    }); 
+    });
 
 export const deletePost = (idPost) =>
   firebase.firestore().collection('posts').doc(idPost).delete();

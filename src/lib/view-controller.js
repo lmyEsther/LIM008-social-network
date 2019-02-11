@@ -1,5 +1,5 @@
 import { signUpWithEmailAndPassword, signInWithPassword, loginWithGoogle, loginWithFacebook, 
-  addPost, deletePost, editPost, seeReaction, reactionCount } from './controller.js';
+  addPost, deletePost, editPost, seeReaction, reactionCount, logOut } from './controller.js';
 
 export const signUpWithEmailAndPasswordOnClick = (evt) => {
   evt.preventDefault();
@@ -133,4 +133,12 @@ export const reactionCountOnClick = (objPost) => {
   seeReaction(objPost.id);
   let numberAction = document.querySelector('#number-of-actions-1');
   numberAction.innerHTML = reactionCount(objPost.id, objPost.reaction);
+};
+
+export const logOutOnClick = (evt) => {
+  evt.preventDefault();
+  logOut()
+    .then(() => {
+      location.hash = '#/ingreso';
+    });
 };
