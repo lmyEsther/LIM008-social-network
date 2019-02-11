@@ -73,6 +73,7 @@ export const ingresoForm = () => {
 
     <main>
       <form class="formulario"> 
+          <p class="texto-1" class="btn-1">"Comparte <span class="link-registro">tu</span> historia y la de tu <span class="link-registro">bebe</span>"</p>
           <p class="texto-center" class="btn-1">Iniciar sesión con tu cuenta</p>
           <div class="input">
               <input class="btn-1" id="correo" type="text" placeholder="Correo electrónico" required>

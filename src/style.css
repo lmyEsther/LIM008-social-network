@@ -88,12 +88,18 @@ nav ul {
 .formulario p{
     margin-top: 20px;
 }
-.texo-1{
+.texto-1{
     text-align: center;
     font-size: 14px;
+    /* font-family: 'Sriracha', cursive; */
+    font-size: 16px;
+    /* color: rgba(34, 33, 33, 0.856); */
+    margin-top: 0%;
+    margin-bottom: 10px;
 }
 .texto-center{
     text-align: center;
+    margin: 10px;
 }
 .sign-up {
     margin-top: 15%;
