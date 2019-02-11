@@ -6,14 +6,25 @@ export const signUpWithEmailAndPasswordOnClick = (evt) => {
   const email = document.getElementById('reg-correo').value;
   const password = document.getElementById('reg-pass').value;
   const inputName = document.getElementById('name').value;
+  let textError2 = document.getElementById('error2');
   
   signUpWithEmailAndPassword(email, password)
     .then(cred => {
       return firebase.firestore().collection('users').doc(cred.user.uid).set({
         name: inputName
       });
-    }).then(() => {
-      location.hash = '#/redsocial';
+    })
+    .catch((error) => {
+      let errorCode = error.code;
+      let errorMessage = error.message;
+      
+      if (errorCode === 'auth/invalid-email' && errorMessage === 'The email address is badly formatted.') {
+        textError2.innerHTML = 'Ingrese un correo válido, example@example.com';
+      } else if (errorCode === 'auth/weak-password' && errorMessage === 'Password should be at least 6 characters') {
+        textError2.innerHTML = 'La contraseña debe contener mas de 6 caracteres';
+      } else {
+        textError2.innerHTML = `${errorCode} / ${errorMessage}`;
+      }
     });
   // .then(result => {
   //   const redir = {
@@ -38,7 +49,7 @@ export const signInWithPasswordOnClick = (evt) => {
         if (user) {
           location.hash = '#/redsocial';
         } else {
-          console.log('no esta logueado o el email no ha sido verificado');
+          alert('no esta logueado o el email no ha sido verificado');
         }
       });
     // (result) => {
@@ -64,8 +75,7 @@ export const signInWithPasswordOnClick = (evt) => {
     });
 };
 
-export const loginWithGoogleOnClick = (evt) => {
-  evt.preventDefault();
+export const loginWithGoogleOnClick = () => {
   loginWithGoogle()
     .then(() => {
       location.hash = '#/redsocial';
@@ -78,8 +88,7 @@ export const loginWithGoogleOnClick = (evt) => {
     });
 };
 
-export const loginWithFacebookOnClick = (evt) => {
-  evt.preventDefault();
+export const loginWithFacebookOnClick = () => {
   loginWithFacebook();
 };
 
@@ -99,7 +108,11 @@ export const addPostOnSubmit = (evt) => {
       } else {
         firebase.firestore().collection('users').doc(user.uid).get()
           .then(doc => {
-            addPost(inputText.value, user.uid, doc.data().name);
+            if (user.displayName === null) { 
+              addPost(inputText.value, user.uid, doc.data().name);
+            } else { // en caso de que haya ingresado con facebook o google
+              addPost(inputText.value, user.uid, user.displayName);
+            }
           });
       }
     }
