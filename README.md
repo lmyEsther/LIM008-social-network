@@ -142,6 +142,7 @@ Comentarios de los usuarios:
 #### Prototipo de baja fidelidad
 
 Diseño de baja fidelidad :
+
 ![mommysbajafidelidad](https://4.bp.blogspot.com/-dSzh1adDw-c/XGGX5DgYvuI/AAAAAAAAKyo/3DrxIpgKERIJN-79S52UY6XsQXBUeN3aACLcBGAs/s640/BeFunky-collage.jpg)
 
 
