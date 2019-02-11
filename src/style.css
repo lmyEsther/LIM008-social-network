@@ -90,12 +90,18 @@ nav ul {
 .formulario p{
     margin-top: 20px;
 }
-.texo-1{
+.texto-1{
     text-align: center;
     font-size: 14px;
+    /* font-family: 'Sriracha', cursive; */
+    font-size: 16px;
+    /* color: rgba(34, 33, 33, 0.856); */
+    margin-top: 0%;
+    margin-bottom: 10px;
 }
 .texto-center{
     text-align: center;
+    margin: 10px;
 }
 .sign-up {
     margin-top: 15%;
@@ -220,8 +226,10 @@ nav ul {
     }
     .opcion-header{
        position: end;
-       margin: 15px;
+       margin: 10px;
        margin-left: 20px;
+       background-color: #EF5A5A;
+       box-sizing: border-box;
      }
      .fondo-avatar{
          background-color: #dfdbdb;
@@ -230,16 +238,22 @@ nav ul {
          margin-right: 10%;     
          margin-bottom: 10%; 
         }
-    
+        @media (min-width:320px) {
+            .op-header {
+                margin: 0%;
+                margin-left: 0%; 
+            }
+        }
+
         @media (min-width:500px) {
             .op-header {
-                margin-left: 35%; 
+                margin-left: 30%; 
             }
         }
     
         @media (min-width:700px) {
             .op-header {
-                margin-left: 58%;
+                margin-left: 50%;
             }
         }
     
@@ -302,30 +316,6 @@ nav ul {
          margin: 8px;
          margin-top: 15px;
      }
-    @media screen and (max-width:1300px) and (min-width:1000){
-        .cabecera{
-            display: flex;
-            align-content: center;
-            justify-content: center;
-            align-items: center;
-        }
-        .cabecera img{  
-            width: 350px;
-            height: 200px;
-        }
-        .formulario{
-            width: 300px;
-            margin: auto;
-            background: rgb(255, 255, 255);
-            padding: 10px 30px;
-            box-sizing: border-box;
-            margin-top: 40px;
-            border-radius: 7px;
-            font-size: 15px;
-            text-align: right;
-            padding-bottom: 20px;
-        }
-    }
 
     #error-login-pass {
         color: red;    
@@ -368,8 +358,12 @@ nav ul {
       }
 
      textarea {
+         max-width: 250px;
+         min-width: 150px;
          width: 100%;
          height: 20%;
+         min-height: 70px;
+         max-height: 70px;
       }
 
 
@@ -384,7 +378,7 @@ nav ul {
       }
       #mostrar-modal, #confirm-eliminar {
       margin-left: 30%;
-      background: #f64575;
+      background: #f3ad7e;
       color: #f2f2f2;
 
     }
@@ -405,7 +399,7 @@ nav ul {
     }
 
     #texto-publicacion {
-        font-size: 150%;
+        font-size: 120%;
         font-family: 'Lora', serif;
         color: #283773;
         background: white;

@@ -1,19 +1,30 @@
 import { signUpWithEmailAndPassword, signInWithPassword, loginWithGoogle, loginWithFacebook, 
-  addPost, deletePost, editPost, seeReaction , reactionCount } from './controller.js';
+  addPost, deletePost, editPost, seeReaction, reactionCount, reactionCountSad, reactionCountLike, reactionCountLove } from './controller.js';
 
 export const signUpWithEmailAndPasswordOnClick = (evt) => {
   evt.preventDefault();
   const email = document.getElementById('reg-correo').value;
   const password = document.getElementById('reg-pass').value;
   const inputName = document.getElementById('name').value;
+  let textError2 = document.getElementById('error2');
   
   signUpWithEmailAndPassword(email, password)
     .then(cred => {
       return firebase.firestore().collection('users').doc(cred.user.uid).set({
         name: inputName
       });
-    }).then(() => {
-      location.hash = '#/redsocial';
+    })
+    .catch((error) => {
+      let errorCode = error.code;
+      let errorMessage = error.message;
+      
+      if (errorCode === 'auth/invalid-email' && errorMessage === 'The email address is badly formatted.') {
+        textError2.innerHTML = 'Ingrese un correo válido, example@example.com';
+      } else if (errorCode === 'auth/weak-password' && errorMessage === 'Password should be at least 6 characters') {
+        textError2.innerHTML = 'La contraseña debe contener mas de 6 caracteres';
+      } else {
+        textError2.innerHTML = `${errorCode} / ${errorMessage}`;
+      }
     });
   // .then(result => {
   //   const redir = {
@@ -38,7 +49,7 @@ export const signInWithPasswordOnClick = (evt) => {
         if (user) {
           location.hash = '#/redsocial';
         } else {
-          console.log('no esta logueado o el email no ha sido verificado');
+          alert('no esta logueado o el email no ha sido verificado');
         }
       });
     // (result) => {
@@ -64,8 +75,7 @@ export const signInWithPasswordOnClick = (evt) => {
     });
 };
 
-export const loginWithGoogleOnClick = (evt) => {
-  evt.preventDefault();
+export const loginWithGoogleOnClick = () => {
   loginWithGoogle()
     .then(() => {
       location.hash = '#/redsocial';
@@ -78,8 +88,7 @@ export const loginWithGoogleOnClick = (evt) => {
     });
 };
 
-export const loginWithFacebookOnClick = (evt) => {
-  evt.preventDefault();
+export const loginWithFacebookOnClick = () => {
   loginWithFacebook();
 };
 
@@ -90,6 +99,7 @@ export const addPostOnSubmit = (evt) => {
       const inputText = document.getElementById('post');
       let inputSpace = '                                                                                ';
       const inputTrim = inputSpace.trim();
+      const privacity = document.getElementById('privacidad');
       // const stringSpace = String;
       // let valueSpace = `                                ${stringSpace}                                  `;
       // const valueTrim = valueSpace.trim();
@@ -99,12 +109,16 @@ export const addPostOnSubmit = (evt) => {
       } else {
         firebase.firestore().collection('users').doc(user.uid).get()
           .then(doc => {
-            addPost(inputText.value, user.uid, doc.data().name);
+            if (user.displayName === null) { 
+              addPost(inputText.value, user.uid, doc.data().name, privacity.value);
+            } else { // en caso de que haya ingresado con facebook o google
+              addPost(inputText.value, user.uid, user.displayName, privacity.value);
+            }
           });
+        }
       }
-    }
-  });
-};
+    });
+    };
 
 export const deletePostOnClick = (objPost) => deletePost(objPost.id);
 
@@ -118,6 +132,18 @@ export const editarPostOnSubmit = (objPost) => {
 
 export const reactionCountOnClick = (objPost) => {
   seeReaction(objPost.id);
-  let numberAction = document.querySelector('#number-of-actions-1');
-  numberAction.innerHTML = reactionCount(objPost.id, objPost.reaction);
+  let numberActionOne = document.querySelector('#number-of-actions-1');
+  numberActionOne.innerHTML = reactionCount(objPost.id, objPost.reaction);
+};
+export const reactionCountSadOnClick = (objPost) => {
+  let numberActionTwo = document.querySelector('#number-of-actions-2');
+  numberActionTwo.innerHTML = reactionCountSad(objPost.id, objPost.reactionsad);
+};
+export const reactionCountLikeOnClick = (objPost) => { 
+  let numberActionThree = document.querySelector('#number-of-actions-3');
+  numberActionThree.innerHTML = reactionCountLike(objPost.id, objPost.reactionlike);
+};
+export const reactionCountLoveOnClick = (objPost) => {
+  let numberActionFour = document.querySelector('#number-of-actions-4');
+  numberActionFour.innerHTML = reactionCountLove(objPost.id, objPost.reactionlove);
 };

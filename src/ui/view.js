@@ -1,6 +1,6 @@
 import {signUpWithEmailAndPasswordOnClick, signInWithPasswordOnClick, 
   loginWithGoogleOnClick, loginWithFacebookOnClick, 
-  addPostOnSubmit, deletePostOnClick, editarPostOnSubmit, reactionCountOnClick} from '../lib/view-controller.js';
+  addPostOnSubmit, deletePostOnClick, editarPostOnSubmit, reactionCountOnClick, reactionCountSadOnClick, reactionCountLikeOnClick, reactionCountLoveOnClick} from '../lib/view-controller.js';
 
 export const registroForm = () => {
   const tmpl = `
@@ -20,25 +20,23 @@ export const registroForm = () => {
     <main class="register">
         <form class="formulario">
             <div>
-              <p class="btn-1"class="titulo-registro">Crea tu cuenta aquí</p>
+              <p class="titulo-registro">Crea tu cuenta aquí</p>
             </div>
-              <label class="btn-1" for="name">Nombre:</label>
-              <input class="btn-1" type="text" id="name">
-            
-              <label  class="btn-1" for="reg-correo">Correo:</label>
-              <input  class="btn-1" type="email" id="reg-correo" required>
-            
-              <label class="btn-1" for="reg-pass">Password:</label>
-              <input  class="btn-1" type="password" id="reg-pass" required>
+              
+            <div class="input">
+              <input class="btn-1" type="text" id="name" required placeholder="Nombre de Perfil">
+              <input class="btn-1" id="reg-correo" type="email" placeholder="Correo electrónico" required>
+              <input class="btn-1" id="reg-pass" type="password" placeholder="Contraseña" required>
+              <p id="error2" class="message-error"></p>
+            </div>
 
             <div class="botones-radio">
               <input type="radio" value="1">Madre primeriza 
               <input type="radio" value="2">Madre con experienca
             </div> 
-            <span id="error2" class="message-error"></span>
-
+            
             <div class="btn-1">
-                <button id="btn-crear-cuenta" class="boton-iniciar">CREAR CUENTA</button>
+                <button id="btn-crear-cuenta" class="boton-iniciar">Crear Cuenta</button>
             </div>
         </form>
     </main>
@@ -73,15 +71,16 @@ export const ingresoForm = () => {
 
     <main>
       <form class="formulario"> 
+          <p class="texto-1" class="btn-1">"Comparte <span class="link-registro">tu</span> historia y la de tu <span class="link-registro">bebe</span>"</p>
           <p class="texto-center" class="btn-1">Iniciar sesión con tu cuenta</p>
           <div class="input">
-              <input class="btn-1" id="correo" type="text" placeholder="Correo electrónico" required>
+              <input class="btn-1" id="correo" type="email" placeholder="Correo electrónico" required>
               <input class="btn-1" id="password" type="password" placeholder="Contraseña" required>
-              <p id="error"></p>
+              <p id="error" class="message-error"></p>
           </div>
 
           <div class="btn-1">
-              <button id="ingresar" class="boton-iniciar">INGRESA</button>
+              <button id="ingresar" class="boton-iniciar">Ingresa</button>
           </div>
           <p>¿Eres nueva? --- <a href="#/registro" class="link-registro"> REGISTRATE </a> ---  </p>
           <p class="sign-up">--- O ingresa con tu cuenta de: ---</p>
@@ -116,8 +115,8 @@ const cadaPost = (objPost) => {
   <div class="imagen-post">
     <div class="fondo-avatar">
       <img class="imagen-tamaño" src="./logo/girl (1).png" alt="avatar">
-      <span id="nombre-usuario">${objPost.name}</span>
     </div>
+    <h4 id="nombre-usuario">${objPost.name}</h4>
     <div class="icono-estado">
       <button class="selec-confi" id="mostrar-modal">Editar</button>
       <button class="selec-confi" id="confirm-eliminar">Eliminar</button>
@@ -151,12 +150,15 @@ const cadaPost = (objPost) => {
       <button id="emoji-2" class="emoji-btn">
           <img class="emoji-post" src="./logo/sad.png"></img>
       </button>
+      <span id="number-of-actions-2">${objPost.reactionsad}</span>
       <button id="emoji-3" class="emoji-btn">
           <img  class="emoji-post" src="./logo/likee.png"></img>
       </button>
+      <span id="number-of-actions-3">${objPost.reactionlike}</span>
       <button id="emoji-4" class="emoji-btn">
           <img class="emoji-post" src="./logo/heart.png"></img>
       </button>
+      <span id="number-of-actions-4">${objPost.reactionlove}</span>
   </div>
   </div>
   `;
@@ -184,7 +186,12 @@ const cadaPost = (objPost) => {
 
   const btnReactionOne = elem.querySelector('#emoji-1');
   btnReactionOne.addEventListener('click', () => reactionCountOnClick(objPost));
- 
+  const btnReactionTwo = elem.querySelector('#emoji-2');
+  btnReactionTwo.addEventListener('click', () => reactionCountSadOnClick(objPost));
+  const btnReactionThree = elem.querySelector('#emoji-3');
+  btnReactionThree.addEventListener('click', () => reactionCountLikeOnClick(objPost));
+  const btnReactionFour = elem.querySelector('#emoji-4');
+  btnReactionFour.addEventListener('click', () => reactionCountLoveOnClick(objPost));
   return elem;
 };
 
@@ -200,6 +207,7 @@ export const redsocial = (posts) => {
       <a class="opcion-header" href=""><img class="img-header"  src="./logo/love.png" alt="Publicaciones"></a>  
       <a class="opcion-header" href=""><img class="img-header"  src="./logo/profiles (1).png" alt="Noticias"></a>  
       <a class="opcion-header" href=""><img class="img-header"  src="./logo/user (1).png" alt="Perfil"></a> 
+      <a class="opcion-header" id="cerrar-sesion"><img class="img-header" src="./logo/cancel.png" alt="cerrar-sesión"></a>
     </div>
   </header>
 
@@ -214,8 +222,8 @@ export const redsocial = (posts) => {
         </div>
         <div class="imagen-post">
             <select class="botones-post" name="" id="privacidad">
-                <option id="opcion-amigas" value="amigos">Amigas</option>
-                <option id="opcion-publico" value="publico">Público</option>
+                <option value="amigas">Amigas</option>
+                <option value="publico">Público</option>
             </select>
             <button class="botones-post" id="publicar">Publicar</button>
         </div>
