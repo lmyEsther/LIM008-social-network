@@ -112,7 +112,7 @@ const cadaPost = (objPost) => {
     </div>
     <div>
       <h4 id="nombre-usuario">${objPost.name}</h4>
-      <p>${objPost.date.toDate()}</p>
+      <p id="fecha">${objPost.date.toDate()}</p>
     </div>
     
     <div class="icono-estado">
