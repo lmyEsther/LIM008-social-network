@@ -106,12 +106,12 @@ const cadaPost = (objPost) => {
   const elem = document.createElement('div');
   elem.classList.add('formulario-post');
   elem.innerHTML = `
-  <div class="imagen-post">
+  <div class="imagen-get">
     <div class="fondo-avatar">
       <img class="imagen-tamaño" src="./logo/girl (1).png" alt="avatar">
     </div>
-    <h4 id="nombre-usuario">${objPost.name}</h4>
-    <div class="icono-estado">
+    <h4 class="nombre-usuario" id="nombre-usuario">${objPost.name}</h4>
+    <div>
       <button class="selec-confi" id="mostrar-modal">Editar</button>
       <button class="selec-confi" id="confirm-eliminar">Eliminar</button>
     </div>
@@ -194,7 +194,7 @@ export const redsocial = (posts) => {
   const temp = `
   <header class="header-position">
     <div class="marca-header">
-      <div class="encabezado-redsocial"> <img class="logo-redsocial" src="./logo/mommy.png" alt="logo">
+      <div class="encabezado-redsocial"><img class="logo-redsocial" src="./logo/mommy.png" alt="logo">
       </div>
     </div>
     <div class="op-header">
