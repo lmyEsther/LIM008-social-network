@@ -246,11 +246,14 @@ nav ul {
             background-color: #fcf3e8; 
             margin-bottom: 28px;
             border-radius: 15px;
-            /* box-sizing: border-box; */
     
         }
         .nombre-usuario {
             margin-top: 15px;
+            font-size: 20px;
+        }
+        #fecha{
+            font-size: 10px;
         }
         .formulario-post{
             width: 78%;
@@ -329,7 +332,7 @@ nav ul {
          height: 25px;
          width: 75px;
          margin: 5px;
-         font-size: 12px;
+         font-size: 10px;
      }
      .emoji-post{
          width: 25px;
@@ -458,6 +461,6 @@ nav ul {
     textarea, #post {
         background: #feffdf;
     }
-    
+
 
    
