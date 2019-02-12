@@ -234,7 +234,7 @@ nav ul {
          border-radius: 50%;
          padding: 10px; 
          margin-right: 10%;     
-         margin-bottom: 10%; 
+         margin-bottom: 40%; 
         }
         .logo-redsocial {
             width: 80px;
@@ -458,6 +458,6 @@ nav ul {
     textarea, #post {
         background: #feffdf;
     }
-    
+
 
    
