@@ -93,9 +93,7 @@ nav ul {
 .texto-1{
     text-align: center;
     font-size: 14px;
-    /* font-family: 'Sriracha', cursive; */
-    font-size: 16px;
-    /* color: rgba(34, 33, 33, 0.856); */
+    font-size: 16px; 
     margin-top: 0%;
     margin-bottom: 10px;
 }
@@ -239,7 +237,7 @@ nav ul {
          margin-bottom: 10%; 
         }
         .logo-redsocial {
-            width: 83px;
+            width: 80px;
             height: 30px;
             padding: 13px;
         }
@@ -248,7 +246,7 @@ nav ul {
             background-color: #fcf3e8; 
             margin-bottom: 28px;
             border-radius: 15px;
-            box-sizing: border-box;
+            /* box-sizing: border-box; */
     
         }
         .nombre-usuario {
@@ -267,12 +265,11 @@ nav ul {
             text-align: center;
             background: #ffffff;
          }
-        @media (min-width:320px) {
+        @media (min-width:300px) {
             .op-header {
                 margin: 0%;
                 margin-left: 0%; 
             }
-
         }
         @media (min-width:400px) {
             .op-header {
@@ -303,7 +300,7 @@ nav ul {
                 margin-left: 70%;
             }
             .formulario-post{
-                width: 500px;
+                width: 600px;
              }
         }
 
@@ -325,7 +322,7 @@ nav ul {
          margin: 10px 10px 10px 10px;
          border-radius: 3px;
          padding: 5px;
-         color: #383836;
+         color: #ffffffc5;
      }
 
      .selec-confi{
@@ -452,7 +449,7 @@ nav ul {
 
 
     select {
-        background: #F4FFBD;
+        background: #ffe79a;
     }
 
     

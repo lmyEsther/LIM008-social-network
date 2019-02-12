@@ -111,7 +111,7 @@ const cadaPost = (objPost) => {
       <img class="imagen-tamaño" src="./logo/girl (1).png" alt="avatar">
     </div>
     <h4 class="nombre-usuario" id="nombre-usuario">${objPost.name}</h4>
-    <div class="icono-estado">
+    <div>
       <button class="selec-confi" id="mostrar-modal">Editar</button>
       <button class="selec-confi" id="confirm-eliminar">Eliminar</button>
     </div>
@@ -194,7 +194,7 @@ export const redsocial = (posts) => {
   const temp = `
   <header class="header-position">
     <div class="marca-header">
-      <div class="encabezado-redsocial"> <img class="logo-redsocial" src="./logo/mommy.png" alt="logo">
+      <div class="encabezado-redsocial"><img class="logo-redsocial" src="./logo/mommy.png" alt="logo">
       </div>
     </div>
     <div class="op-header">
