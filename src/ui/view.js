@@ -1,6 +1,6 @@
 import {signUpWithEmailAndPasswordOnClick, signInWithPasswordOnClick, 
   loginWithGoogleOnClick, loginWithFacebookOnClick, 
-  addPostOnSubmit, deletePostOnClick, editarPostOnSubmit, reactionCountOnClick, reactionCountSadOnClick, reactionCountLikeOnClick, reactionCountLoveOnClick} from '../lib/view-controller.js';
+  addPostOnSubmit, deletePostOnClick, editarPostOnSubmit, reactionCountOnClick, reactionCountSadOnClick, reactionCountLikeOnClick, reactionCountLoveOnClick, logOutOnClick} from '../lib/view-controller.js';
 
 export const registroForm = () => {
   const tmpl = `
@@ -9,9 +9,6 @@ export const registroForm = () => {
     </header>
     <nav class="nav-view">
         <ul>
-          <li>
-              <a href="#/registro"><img class="boton-view" src="./logo/planing.png"></a>
-          </li>
           <li>
             <a href="#/ingreso"><img class="boton-view" src="./logo/log-in-button-with-arrow.png"></a>
           </li>
@@ -60,9 +57,6 @@ export const ingresoForm = () => {
 
     <nav class="nav-view">
       <ul>
-        <li>
-          <a href="#/registro"><img class="boton-view" src="./logo/planing.png"></a>
-        </li>
         <li>
           <a href="#/ingreso"><img class="boton-view" src="./logo/log-in-button-with-arrow.png"></a>
         </li>
@@ -249,13 +243,14 @@ export const redsocial = (posts) => {
 
   const div = document.createElement('div');
   div.innerHTML = temp;
-
+  const btnLogOut = div.querySelector('#cerrar-sesion');
   const btnPost = div.querySelector('#publicar');
   const tagDiv = div.querySelector('#lista-publicaciones');
   posts.forEach(post => {
     tagDiv.appendChild(cadaPost(post));
   });
   btnPost.addEventListener('click', addPostOnSubmit);
+  btnLogOut.addEventListener('click', logOutOnClick);
   return div;
 };
 

@@ -4,16 +4,13 @@ export const signUpWithEmailAndPassword = (email, password) =>
 export const signInWithPassword = (email, password) =>
   firebase.auth().signInWithEmailAndPassword(email, password);
 
+export const logOut = () => firebase.auth().signOut();
+
 
 export const loginWithGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
-  // firebase.auth().languageCode = 'es';
-  // provider.setCustomParameters({
-  //   'login_hint': 'user@example.com'
-  // });
+  
   return firebase.auth().signInWithPopup(provider).then(function(result) {
-    // let token = result.credential.accessToken;
-    // let user = result.user;
     result;
   });
 };
@@ -63,7 +60,7 @@ export const getPost = (callback) => {
       });
   }
 }; 
-
+// Eliminar Publicacion
 export const deletePost = (idPost) =>
   firebase.firestore().collection('posts').doc(idPost).delete();
 

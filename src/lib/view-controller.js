@@ -1,5 +1,5 @@
 import { signUpWithEmailAndPassword, signInWithPassword, loginWithGoogle, loginWithFacebook, 
-  addPost, deletePost, editPost, seeReaction, reactionCount, reactionCountSad, reactionCountLike, reactionCountLove } from './controller.js';
+  addPost, deletePost, editPost, seeReaction, reactionCount, reactionCountSad, reactionCountLike, reactionCountLove, logOut } from './controller.js';
 
 export const signUpWithEmailAndPasswordOnClick = (evt) => {
   evt.preventDefault();
@@ -13,6 +13,14 @@ export const signUpWithEmailAndPasswordOnClick = (evt) => {
       return firebase.firestore().collection('users').doc(cred.user.uid).set({
         name: inputName
       });
+    }).then(result => {
+      const redir = {
+        url: 'https://lmyesther.github.io/LIM008-social-network/src'
+      };
+      result.user.sendEmailVerification(redir).catch(function(error) {
+        alert(`No se pudo enviar email ${error}`);
+      });
+      firebase.auth().signOut();
     })
     .catch((error) => {
       let errorCode = error.code;
@@ -26,15 +34,6 @@ export const signUpWithEmailAndPasswordOnClick = (evt) => {
         textError2.innerHTML = `${errorCode} / ${errorMessage}`;
       }
     });
-  // .then(result => {
-  //   const redir = {
-  //     url: 'http://localhost:5000/'
-  //   };
-  //   result.user.sendEmailVerification(redir).catch(function(error) {
-  //     alert(`No se pudo enviar email ${error}`);
-  //   });
-  //   firebase.auth().signOut();
-  // })
 };
 
 export const signInWithPasswordOnClick = (evt) => {
@@ -44,20 +43,21 @@ export const signInWithPasswordOnClick = (evt) => {
   const textError = document.getElementById('error');
 
   signInWithPassword(email, password)
+    .then((result) => {
+      if (result.user.emailVerified) {
+        location.hash = '#/redsocial';
+      } else {
+        alert('Por favor, verifica tu email');
+      }
+    })
     .then(() => {
       firebase.auth().onAuthStateChanged(user => { // para detectar que el usuario ya se ha logueado
         if (user) {
           location.hash = '#/redsocial';
         } else {
-          alert('no esta logueado o el email no ha sido verificado');
+          alert('no esta logueado');
         }
       });
-    // (result) => {
-    // if (result.user.emailVerified) {
-    //   location.hash = '#/redsocial';
-    // } else {
-    //   alert('Por favor, verifica tu email');
-    // }
     })
     .catch((error) => {
       let errorCode = error.code;
@@ -151,4 +151,12 @@ export const reactionCountLikeOnClick = (objPost) => {
 export const reactionCountLoveOnClick = (objPost) => {
   let numberActionFour = document.querySelector('#number-of-actions-4');
   numberActionFour.innerHTML = reactionCountLove(objPost.id, objPost.reactionlove);
+};
+
+export const logOutOnClick = (evt) => {
+  evt.preventDefault();
+  logOut()
+    .then(() => {
+      location.hash = '#/ingreso';
+    });
 };
