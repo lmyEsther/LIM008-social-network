@@ -110,8 +110,12 @@ const cadaPost = (objPost) => {
     <div class="fondo-avatar">
       <img class="imagen-tamaño" src="./logo/girl (1).png" alt="avatar">
     </div>
-    <h4 class="nombre-usuario" id="nombre-usuario">${objPost.name}</h4>
     <div>
+      <h4 id="nombre-usuario">${objPost.name}</h4>
+      <p>${objPost.date.toDate()}</p>
+    </div>
+    
+    <div class="icono-estado">
       <button class="selec-confi" id="mostrar-modal">Editar</button>
       <button class="selec-confi" id="confirm-eliminar">Eliminar</button>
     </div>
@@ -201,7 +205,7 @@ export const redsocial = (posts) => {
       <a class="opcion-header" href=""><img class="img-header"  src="./logo/love.png" alt="Publicaciones"></a>  
       <a class="opcion-header" href=""><img class="img-header"  src="./logo/profiles (1).png" alt="Noticias"></a>  
       <a class="opcion-header" href=""><img class="img-header"  src="./logo/user (1).png" alt="Perfil"></a> 
-      <a class="opcion-header" id="cerrar-sesion"><img class="img-header" src="./logo/cancel.png" alt="cerrar-sesión"></a>
+      <a class="opcion-header" id="cerrar-sesion" href=""><img class="img-header" src="./logo/cancel.png" alt="cerrar-sesión"></a>
     </div>
   </header>
 

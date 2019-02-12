@@ -23,6 +23,7 @@ export const loginWithFacebook = () => {
   });
 };
 
+// agregar post con data del usuario
 export const addPost = (textNewPost, userId, userName, privacyUser) =>
   firebase.firestore().collection('posts').add({
     content: textNewPost,
@@ -32,34 +33,34 @@ export const addPost = (textNewPost, userId, userName, privacyUser) =>
     reactionsad: 0,
     reactionlike: 0,
     reactionlove: 0,
-    privacity: privacyUser
+    privacity: privacyUser,
+    date: firebase.firestore.FieldValue.serverTimestamp()
   });
 
-
-export const getPost = (callback) => {
-  const user = firebase.auth().currentUser;
-
+// obtener posts automaticamente con onSnapshot
+export const getPost = (callback, user) => {
   if (user !== null) {
-    firebase.firestore().collection('posts') 
+    firebase.firestore().collection('posts').orderBy('date', 'desc') 
       .onSnapshot((querySnapshot) => {
         const data = [];
         querySnapshot.forEach((doc) => {
           data.push({ id: doc.id, ...doc.data() });
         });
-        callback(data);
+        return callback(data);
       });
   } else {
     firebase.firestore().collection('posts')
-      .where('privacity', '==', 'publico')
+      .where('privacity', '==', 'publico').orderBy('date', 'desc')
       .onSnapshot((querySnapshot) => {
         const data = [];
         querySnapshot.forEach((doc) => {
           data.push({ id: doc.id, ...doc.data() });
         });
-        callback(data);
+        return callback(data);
       });
   }
 }; 
+
 // Eliminar Publicacion
 export const deletePost = (idPost) =>
   firebase.firestore().collection('posts').doc(idPost).delete();
