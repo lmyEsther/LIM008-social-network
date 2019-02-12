@@ -203,11 +203,21 @@ nav ul {
         height: 30px;
     }
     .marca-header{
-        display: flex;
-        justify-content: flex-start;
+        text-align: center;
         margin-left: 15px;
         margin-top: 15px;
     }
+
+    @media (min-width:500px)  {
+        .marca-header,.logo-redsocial {
+            width: 70%;
+        }
+        
+    }
+
+    
+
+
     .header-position{
         background-color: #EF5A5A;
         display: flex;
@@ -237,9 +247,8 @@ nav ul {
          margin-bottom: 10%; 
         }
         .logo-redsocial {
-            width: 80px;
-            height: 30px;
-            padding: 13px;
+            width: 80%;
+            padding: 12px;
         }
     
         .encabezado-redsocial {
@@ -462,5 +471,31 @@ nav ul {
         background: #feffdf;
     }
 
+    #cierre-post {
+        border: none;
+        height: 30px;
+        padding: 4px;
+        font-size: 15px;
+        border-radius: 5px;
+        box-sizing: border-box;
+        transition: all 100ms ease;
+        margin-left: 98%;
+        background:#EF5A5A;
+        color: #f2f2f2;
 
-   
+    }
+    
+
+   .btn-edit {
+    border: none;
+    height: 30px;
+    padding: 4px;
+    font-size: 15px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: all 100ms ease;
+    margin-left: 80%;
+    background: #EF5A5A;
+    color: #f2f2f2;
+    margin-bottom: 2px; 
+   }
