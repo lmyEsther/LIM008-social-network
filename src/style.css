@@ -238,13 +238,48 @@ nav ul {
          margin-right: 10%;     
          margin-bottom: 10%; 
         }
+        .logo-redsocial {
+            width: 83px;
+            height: 30px;
+            padding: 13px;
+        }
+    
+        .encabezado-redsocial {
+            background-color: #fcf3e8; 
+            margin-bottom: 28px;
+            border-radius: 15px;
+            box-sizing: border-box;
+    
+        }
+        .nombre-usuario {
+            margin-top: 15px;
+        }
+        .formulario-post{
+            width: 78%;
+            margin: auto;
+            background: #fff2e5;
+            padding: 10px 30px;
+            box-sizing: border-box;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-radius: 7px;
+            font-size: 15px;
+            text-align: center;
+            background: #ffffff;
+         }
         @media (min-width:320px) {
             .op-header {
                 margin: 0%;
                 margin-left: 0%; 
             }
-        }
 
+        }
+        @media (min-width:400px) {
+            .op-header {
+                margin: 0%;
+                margin-left: 10%; 
+            }
+        }
         @media (min-width:500px) {
             .op-header {
                 margin-left: 30%; 
@@ -267,27 +302,20 @@ nav ul {
             .op-header {
                 margin-left: 70%;
             }
+            .formulario-post{
+                width: 500px;
+             }
         }
-    
-    
-     
-     .formulario-post{
-        width: 70%;
-        margin: auto;
-        background: #fff2e5;
-        padding: 10px 30px;
-        box-sizing: border-box;
-        margin-top: 40px;
-        margin-bottom: 20px;
-        border-radius: 7px;
-        font-size: 15px;
-        text-align: center;
-        background: #ffffff;
-     }
+
      .imagen-post{
         display: flex;
         flex-direction: row;
         justify-content: center;
+     }
+     .imagen-get{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
      }
      .imagen-tamaño{
          width: 50px;
@@ -302,8 +330,9 @@ nav ul {
 
      .selec-confi{
          height: 25px;
-         width: 80px;
+         width: 75px;
          margin: 5px;
+         font-size: 12px;
      }
      .emoji-post{
          width: 25px;
@@ -433,16 +462,4 @@ nav ul {
     }
     
 
-    .logo-redsocial {
-        width: 180px;
-        height: 50px;
-        padding: 10px;
-    }
-
-    .encabezado-redsocial {
-        background-color: #fcf3e8; 
-        margin-bottom: 28px;
-        border-radius: 5px;
-        box-sizing: border-box;
-
-    }
+   
