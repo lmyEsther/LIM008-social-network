@@ -31,8 +31,8 @@ describe('Div de Cada Post', () => {
           const result = data.find((post) => post.content === 'Hola Mundo');
           expect(result.content).toBe('Hola Mundo');
           done();
-        }
-      ), 'user');
+        }, 'user'
+      ));
   });
   // agregar el test deberia editar una publicacion
   it('Deberia poder editar una publicación', (done) => {
@@ -42,8 +42,8 @@ describe('Div de Cada Post', () => {
           const result = data.find((post) => post.id === 'li234');
           expect(result.content).toBe('Bienvenida');
           done();
-        }
-      ), null);
+        }, null
+      ));
   }); 
 
   it('Deberia poder ver la reacción en la publicación', (done) => {
@@ -53,8 +53,8 @@ describe('Div de Cada Post', () => {
           const result = data.find((post) => post.reaction === 0);
           expect(result.reaction).toBe(0);
           done();
-        }
-      ), null);
+        }, null
+      ));
   });
   it('Deberia poder dar reaccióne de feliz en la publicación', (done) => {
     return reactionCount('li234', 0)
@@ -63,8 +63,8 @@ describe('Div de Cada Post', () => {
           const result = data.find((post) => post.reaction === 1);
           expect(result.reaction).toBe(1);
           done();
-        }
-      ), 'userCualquiera');
+        }, 'userCualquiera'
+      ));
   });
   it('Deberia poder dar reacción de tristeza en la publicación', (done) => {
     return reactionCountSad('li234', 0)
@@ -73,8 +73,8 @@ describe('Div de Cada Post', () => {
           const result = data.find((post) => post.reactionsad === 1);
           expect(result.reactionsad).toBe(1);
           done();
-        }
-      ), null);
+        }, null
+      ));
   });
   it('Deberia poder dar reacción de me gusta en la publicación', (done) => {
     return reactionCountLike('li234', 0)
@@ -83,8 +83,8 @@ describe('Div de Cada Post', () => {
           const result = data.find((post) => post.reactionlike === 1);
           expect(result.reactionlike).toBe(1);
           done();
-        }
-      ), 'userCual');
+        }, 'userCual'
+      ));
   });
   it('Deberia poder dar reacción de me encanta en la publicación', (done) => {
     return reactionCountLove('li234', 0)
@@ -93,8 +93,8 @@ describe('Div de Cada Post', () => {
           const result = data.find((post) => post.reactionlove === 1);
           expect(result.reactionlove).toBe(1);
           done();
-        }
-      ), null);
+        }, null
+      ));
   });
   it('Deberia eliminar el post agregado', (done) => {
     return deletePost('li234')
@@ -103,8 +103,8 @@ describe('Div de Cada Post', () => {
           const result = data.find((post) => post.id === 'li234');
           expect(result).toBe(undefined);
           done();
-        }
-      ), 'usuario');
+        }, 'usuario'
+      ));
   });
 });
   
