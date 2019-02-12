@@ -123,7 +123,8 @@ const cadaPost = (objPost) => {
 
   <div id="myModal" class="modal">
     <div class="modal-content">
-      <button id="editar-post-${objPost.id}">Guardar</button>
+      <button id= "cierre-post"> &times </button>
+      <button class= "btn-edit" id="editar-post-${objPost.id}">Guardar</button>
       <textarea id="texto-edit" cols="60" rows="5">${objPost.content}</textarea>
     </div>
   </div>
@@ -181,6 +182,11 @@ const cadaPost = (objPost) => {
   });
   const btnEditar = elem.querySelector(`#editar-post-${objPost.id}`);
   btnEditar.addEventListener('click', () => editarPostOnSubmit(objPost)); 
+  const btnCerrar = elem.querySelector('#cierre-post')
+  btnCerrar.addEventListener('click', () => {
+    let modal = document.querySelector('#myModal');
+    modal.style.display = 'none';
+  });
 
   const btnReactionOne = elem.querySelector('#emoji-1');
   btnReactionOne.addEventListener('click', () => reactionCountOnClick(objPost));
