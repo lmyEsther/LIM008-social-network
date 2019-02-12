@@ -1,5 +1,5 @@
 import { signUpWithEmailAndPassword, signInWithPassword, loginWithGoogle, loginWithFacebook, 
-  addPost, deletePost, editPost, seeReaction, reactionCount, logOut } from './controller.js';
+  addPost, deletePost, editPost, seeReaction, reactionCount, reactionCountSad, reactionCountLike, reactionCountLove, logOut } from './controller.js';
 
 export const signUpWithEmailAndPasswordOnClick = (evt) => {
   evt.preventDefault();
@@ -89,7 +89,12 @@ export const loginWithGoogleOnClick = () => {
 };
 
 export const loginWithFacebookOnClick = () => {
-  loginWithFacebook();
+  loginWithFacebook()
+    .then(() => {
+      location.hash = '#/redsocial';
+    }).catch(function(error) {
+      error;
+    });
 };
 
 export const addPostOnSubmit = (evt) => {
@@ -99,6 +104,7 @@ export const addPostOnSubmit = (evt) => {
       const inputText = document.getElementById('post');
       let inputSpace = '                                                                                ';
       const inputTrim = inputSpace.trim();
+      const privacity = document.getElementById('privacidad');
       // const stringSpace = String;
       // let valueSpace = `                                ${stringSpace}                                  `;
       // const valueTrim = valueSpace.trim();
@@ -109,9 +115,9 @@ export const addPostOnSubmit = (evt) => {
         firebase.firestore().collection('users').doc(user.uid).get()
           .then(doc => {
             if (user.displayName === null) { 
-              addPost(inputText.value, user.uid, doc.data().name);
+              addPost(inputText.value, user.uid, doc.data().name, privacity.value);
             } else { // en caso de que haya ingresado con facebook o google
-              addPost(inputText.value, user.uid, user.displayName);
+              addPost(inputText.value, user.uid, user.displayName, privacity.value);
             }
           });
       }
@@ -131,8 +137,20 @@ export const editarPostOnSubmit = (objPost) => {
 
 export const reactionCountOnClick = (objPost) => {
   seeReaction(objPost.id);
-  let numberAction = document.querySelector('#number-of-actions-1');
-  numberAction.innerHTML = reactionCount(objPost.id, objPost.reaction);
+  let numberActionOne = document.querySelector('#number-of-actions-1');
+  numberActionOne.innerHTML = reactionCount(objPost.id, objPost.reaction);
+};
+export const reactionCountSadOnClick = (objPost) => {
+  let numberActionTwo = document.querySelector('#number-of-actions-2');
+  numberActionTwo.innerHTML = reactionCountSad(objPost.id, objPost.reactionsad);
+};
+export const reactionCountLikeOnClick = (objPost) => { 
+  let numberActionThree = document.querySelector('#number-of-actions-3');
+  numberActionThree.innerHTML = reactionCountLike(objPost.id, objPost.reactionlike);
+};
+export const reactionCountLoveOnClick = (objPost) => {
+  let numberActionFour = document.querySelector('#number-of-actions-4');
+  numberActionFour.innerHTML = reactionCountLove(objPost.id, objPost.reactionlove);
 };
 
 export const logOutOnClick = (evt) => {
