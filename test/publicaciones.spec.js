@@ -11,7 +11,8 @@ const fixtureData = {
           reactionsad: 0,
           reactionlike: 0,
           reactionlove: 0,
-          privacity: 'publico'
+          privacity: 'publico',
+          date: '12 de febrero de 2019, 09:56:40 UTC-5'
         }
       }
     }
@@ -31,18 +32,18 @@ describe('Div de Cada Post', () => {
           expect(result.content).toBe('Hola Mundo');
           done();
         }
-      ));
+      ), 'user');
   });
   // agregar el test deberia editar una publicacion
-    it('Deberia poder editar una publicación', (done) => {
+  it('Deberia poder editar una publicación', (done) => {
     return editPost('li234', 'Bienvenida')
-    .then(() => getPost(
-      (data) => {
-        const result = data.find((post) => post.id === 'li234');
-        expect(result.content).toBe('Bienvenida');
-        done();
-      }
-    ));
+      .then(() => getPost(
+        (data) => {
+          const result = data.find((post) => post.id === 'li234');
+          expect(result.content).toBe('Bienvenida');
+          done();
+        }
+      ), null);
   }); 
 
   it('Deberia poder ver la reacción en la publicación', (done) => {
@@ -53,7 +54,7 @@ describe('Div de Cada Post', () => {
           expect(result.reaction).toBe(0);
           done();
         }
-      ));
+      ), null);
   });
   it('Deberia poder dar reaccióne de feliz en la publicación', (done) => {
     return reactionCount('li234', 0)
@@ -63,7 +64,7 @@ describe('Div de Cada Post', () => {
           expect(result.reaction).toBe(1);
           done();
         }
-      ));
+      ), 'userCualquiera');
   });
   it('Deberia poder dar reacción de tristeza en la publicación', (done) => {
     return reactionCountSad('li234', 0)
@@ -73,7 +74,7 @@ describe('Div de Cada Post', () => {
           expect(result.reactionsad).toBe(1);
           done();
         }
-      ));
+      ), null);
   });
   it('Deberia poder dar reacción de me gusta en la publicación', (done) => {
     return reactionCountLike('li234', 0)
@@ -83,7 +84,7 @@ describe('Div de Cada Post', () => {
           expect(result.reactionlike).toBe(1);
           done();
         }
-      ));
+      ), 'userCual');
   });
   it('Deberia poder dar reacción de me encanta en la publicación', (done) => {
     return reactionCountLove('li234', 0)
@@ -93,7 +94,7 @@ describe('Div de Cada Post', () => {
           expect(result.reactionlove).toBe(1);
           done();
         }
-      ));
+      ), null);
   });
   it('Deberia eliminar el post agregado', (done) => {
     return deletePost('li234')
@@ -103,7 +104,7 @@ describe('Div de Cada Post', () => {
           expect(result).toBe(undefined);
           done();
         }
-      ));
+      ), 'usuario');
   });
 });
   
