@@ -1,5 +1,6 @@
 import { signUpWithEmailAndPassword, signInWithPassword, loginWithGoogle, loginWithFacebook, 
-  addPost, deletePost, editPost, seeReaction, reactionCount, reactionCountSad, reactionCountLike, reactionCountLove, logOut, getPost } from './controller.js';
+  addPost, deletePost, editPost, seeReaction, reactionCount, reactionCountSad, reactionCountLike, reactionCountLove, 
+  logOut, getPost } from './controller.js';
 
 export const signUpWithEmailAndPasswordOnClick = (evt) => {
   evt.preventDefault();
@@ -104,9 +105,6 @@ export const addPostOnSubmit = (evt) => {
       let inputSpace = '                                                                                ';
       const inputTrim = inputSpace.trim();
       const privacity = document.getElementById('privacidad');
-      // const stringSpace = String;
-      // let valueSpace = `                                ${stringSpace}                                  `;
-      // const valueTrim = valueSpace.trim();
 
       if (inputText.value === '' || inputText.value === inputTrim || inputText.value === ' ') {
         alert('Ingresa un contenido');
@@ -137,7 +135,15 @@ export const editarPostOnSubmit = (objPost) => {
 };
 
 export const reactionCountOnClick = (objPost) => {
-  seeReaction(objPost.id);
+  seeReaction(objPost.id)
+    .then((result) => {
+      const seeCount = result.data().reaction;
+      const seeCountSad = result.data().reactionsad;
+      const seeCountLike = result.data().reactionlike;
+      const seeCountLove = result.data().reactionlove;
+      return seeCount, seeCountSad, seeCountLike, seeCountLove;
+    }).catch(() => {});
+
   let numberActionOne = document.querySelector('#number-of-actions-1');
   numberActionOne.innerHTML = reactionCount(objPost.id, objPost.reaction);
 };

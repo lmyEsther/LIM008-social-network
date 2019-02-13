@@ -115,7 +115,9 @@ Comentarios de los usuarios:
 
 ### Historias de Usuarios :
  
-- Yo como usuaria quiero recibir un correo de confirmación sobre mi cuenta creada para saber que mi cuenta ha sido creada.
+- Yo como usuaria quiero crear un cuenta con mi nombre, correo y contraseña en la red social.
+
+- Yo como usuaria quiero iniciar sesión con mi correo y contraseña.
 
  - Yo como usuaria quiero poder iniciar sesión con Google para tener fácil acceso.
 
@@ -123,18 +125,27 @@ Comentarios de los usuarios:
 
  - Yo como usuaria quiero escribir texto en mis publicaciones para contar mis experiencias.
 
- - Yo como usuario debo poder elegir la privacidad de mis publicaciones para sentirme más segura.
+ - Yo como usuaria debo poder elegir la privacidad de mis publicaciones para sentirme más segura.
 
  - Yo como usuaria quiero ver mi nombre en las publicaciones para tenerlo personalizado. 
 
 - Yo como usuaria debo poder tener un aviso antes de eliminar una publicación para no equivocarme en eliminar algo.
 
+- Yo como usuaria quiero poder eliminar una publicacion.
+
  - Yo como usuaria quiero poder reaccionar a las publicaciones para expresar lo que siento.
 
- - Yo como usuaria quiero poder editar mi publicación para corregir o agregar mi contenido.
+ - Yo como usuaria quiero visualizar la cantidad de reacciones a las publicaciones para analizar aceptación y veracidad.
 
- - Yo como usuaria quiero agregar imágenes a mis publicaciones para expresar mejor mi experiencia.
- 
+ - Yo como usuaria quiero poder editar mi publicación para corregir o agregar mi contenido. 
+
+ - Yo como usuaria quiero estar al tanto de la fecha en que se publico cada publicacion en el muro.
+
+ - Yo como usuaria quiero poder visualizar en primer lugar mi post en el muro al momento de publicar.
+
+ - Yo como usuario quiero tener la opción para cerrar mi sesión.
+
+ - Yo como usuaria quiero poder ver mensajes de error en español para saber en que me estoy equivocando en determinado momento.
 
 
 ### Diseño de la Interfaz de Usuario
@@ -162,6 +173,16 @@ Diseño de alta fidelidad con Figma:
 
 Nuestros usuarios nos comentaron sus ideas y molestias en el diseño para ser mejoradas las cuales mencionamos a continuación :
 
-*
-*
-*
+* Iconos de inicio y registro no descriptivos.
+* La tipografía mas divertida o mas llamativa.
+* Publicar fotos.
+* Logo MommysLove que regrese a la pagina principal.
+* Eliminar icono de registro puesto que ya teniamos una llamada a registrarse en la pantalla de iniciar sesión.
+* Cambiar el eslogan de la red social.
+* Cambiar color de los botones de editar y eliminar por la paleta de colores de la pagina.
+* Cambiar iconos de reacciones y colocar hover en cada uno descriptivo.
+* Que hayan opciones para compartir en fb e instagram.
+* 2 tipos de tipografia.
+* Que los posts que publique esten de primero en la lista puesto que se perdia aleatoriamente y el usuario queria verificar luego de haber publicado.
+* Mismo logo en todas las pantallas de la página.
+* Poder publicar fotos en mis posts.
