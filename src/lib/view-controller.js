@@ -93,7 +93,10 @@ export const loginWithFacebookOnClick = () => {
     .then(() => {
       location.hash = '#/redsocial';
     }).catch(function(error) {
-      error;
+      let errorCode = error.code;
+      if (errorCode === 'auth/account-exists-with-different-credential') {
+        alert('Es el mismo usuario');
+      }
     });
 };
 

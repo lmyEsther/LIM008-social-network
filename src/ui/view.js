@@ -125,8 +125,8 @@ const cadaPost = (objPost) => {
 
   <div id="myModal" class="modal">
     <div class="modal-content">
-      <button id= "cierre-post"> &times </button>
-      <button class= "btn-edit" id="editar-post-${objPost.id}">Guardar</button>
+      <button id="cierre-post"> &times </button>
+      <button class="btn-edit" id="editar-post-${objPost.id}">Guardar</button>
       <textarea id="texto-edit" cols="60" rows="5">${objPost.content}</textarea>
     </div>
   </div>
@@ -134,8 +134,8 @@ const cadaPost = (objPost) => {
   <div id="confirm-modal" class="modal">
     <div class="modal-content">
       <p>¿Estas segura de que quieres eliminar este post?</p>
-      <button id="eliminar-post-${objPost.id}">Si</button>
-      <button id="no-eliminar">No</button>
+      <button id="eliminar-post-${objPost.id}" class="btn-edit">Si</button>
+      <button id="no-eliminar" class="btn-edit">No</button>
     </div>
   </div>
 
