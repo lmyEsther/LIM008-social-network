@@ -75,16 +75,7 @@ export const editPost = (idPost, textNewUpdate) => {
 };
 
 // Traer  las reacciones y conteo
-export const seeReaction = (idPost) => {
-  return firebase.firestore().collection('posts').doc(idPost).get()
-    .then((result) => {
-      const seeCount = result.data().reaction;
-      const seeCountSad = result.data().reactionsad;
-      const seeCountLike = result.data().reactionlike;
-      const seeCountLove = result.data().reactionlove;
-      return seeCount, seeCountSad, seeCountLike, seeCountLove;
-    }).catch(() => {});
-};
+export const seeReaction = (idPost) => firebase.firestore().collection('posts').doc(idPost).get();
 
 export const reactionCount = (idPost, reactionPost) => {  
   let reactionClick = firebase.firestore().collection('posts').doc(idPost);

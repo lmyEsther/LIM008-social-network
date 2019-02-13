@@ -55,7 +55,6 @@ nav ul {
     height: 100px; 
 }
 .section{
-    display: flex;
     flex-wrap:  wrap;
     flex-direction: row;
 }
@@ -63,7 +62,7 @@ nav ul {
     font-family: 'Sriracha', cursive;
     color: #FEFFDF;
 }
-.cuerpo{
+#cuerpo{
     font-family: 'Roboto', sans-serif;
     text-align: right;
 }
