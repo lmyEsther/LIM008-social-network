@@ -1,28 +1,3 @@
-export const signUpWithEmailAndPassword = (email, password) =>    
-  firebase.auth().createUserWithEmailAndPassword(email, password);
-
-export const signInWithPassword = (email, password) =>
-  firebase.auth().signInWithEmailAndPassword(email, password);
-
-export const logOut = () => firebase.auth().signOut();
-
-
-export const loginWithGoogle = () => {
-  const provider = new firebase.auth.GoogleAuthProvider();
-  
-  return firebase.auth().signInWithPopup(provider).then(function(result) {
-    result;
-  });
-};
-
-
-export const loginWithFacebook = () => {
-  let provider = new firebase.auth.FacebookAuthProvider();
-  return firebase.auth().signInWithPopup(provider).then(function(result) {
-    result;
-  });
-};
-
 // agregar post con data del usuario
 export const addPost = (textNewPost, userId, userName, privacyUser) =>
   firebase.firestore().collection('posts').add({

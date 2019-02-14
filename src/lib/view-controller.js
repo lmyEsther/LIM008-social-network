@@ -1,6 +1,7 @@
-import { signUpWithEmailAndPassword, signInWithPassword, loginWithGoogle, loginWithFacebook, 
-  addPost, deletePost, editPost, seeReaction, reactionCount, reactionCountSad, reactionCountLike, reactionCountLove, 
-  logOut, getPost } from './controller.js';
+import { addPost, deletePost, editPost, seeReaction, reactionCount, reactionCountSad, reactionCountLike, reactionCountLove, 
+  getPost } from './controller.js';
+
+import { signUpWithEmailAndPassword, signInWithPassword, loginWithGoogle, loginWithFacebook, logOut } from './controller-auth.js';
 
 export const signUpWithEmailAndPasswordOnClick = (evt) => {
   evt.preventDefault();

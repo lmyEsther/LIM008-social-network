@@ -14,8 +14,7 @@ global.firebase = firebasemock.MockFirebaseSdk(
 );
 
 // iniciando tests
-
-import { signInWithPassword, loginWithGoogle, loginWithFacebook, signUpWithEmailAndPassword } from '../src/lib/controller.js';
+import { signInWithPassword, loginWithGoogle, loginWithFacebook, signUpWithEmailAndPassword, logOut } from '../src/lib/controller-auth.js';
 
 describe('sesión iniciada', () => {
   it('Debería poder iniciar sesion', () => {
@@ -25,7 +24,6 @@ describe('sesión iniciada', () => {
       });
   });
 });
-
 
 describe('sesión iniciada', () => {
   it('Debería poder registrar al usuario', () => {
@@ -53,4 +51,13 @@ describe('sesion iniciada', () => {
       });
   });
 });
+
+describe('sesion cerrada', () => {
+  it('deberia poder cerrar sesion', () => {
+    return logOut()
+      .then(() => {
+        expect(firebase.auth().currentUser).toBe(null);
+      });
+  });
+}); 
 
