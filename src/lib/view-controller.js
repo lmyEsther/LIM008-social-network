@@ -139,8 +139,10 @@ export const editarPostOnSubmit = (objPost) => {
     modal.style.display = 'none';
 
     editPost(objPost.id, textNewUpdate.value);
-  }
+  } 
 };
+
+
 
 export const reactionCountOnClick = (objPost) => {
   seeReaction(objPost.id)
