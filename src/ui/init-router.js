@@ -1,4 +1,6 @@
-import { registroForm, ingresoForm, redsocial } from './view.js';
+import { registroForm } from './view-registro.js';
+import { ingresoForm } from './view-ingreso.js';
+import { redsocial } from './view-wall-main.js';
 import { getPostRouter } from '../lib/view-controller.js';
 
 

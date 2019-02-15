@@ -5,10 +5,11 @@ import { signUpWithEmailAndPassword, signInWithPassword, loginWithGoogle, loginW
 
 export const signUpWithEmailAndPasswordOnClick = (evt) => {
   evt.preventDefault();
-  const email = document.getElementById('reg-correo').value;
-  const password = document.getElementById('reg-pass').value;
-  const inputName = document.getElementById('name').value;
-  let textError2 = document.getElementById('error2');
+  const form = evt.target.closest('form');
+  const email = form.querySelector('#reg-correo').value;
+  const password = form.querySelctor('#reg-pass').value;
+  const inputName = form.querySelector('#name').value;
+  let textError2 = form.querySe('#error2');
   
   signUpWithEmailAndPassword(email, password)
     .then(cred => {
@@ -41,11 +42,11 @@ export const signUpWithEmailAndPasswordOnClick = (evt) => {
 
 export const signInWithPasswordOnClick = (evt) => {
   evt.preventDefault();
- //  const form = evt.target.closets('form');
-
-  const email = document.getElementById('correo').value;
-  const password = document.getElementById('password').value;
-  const textError = document.getElementById('error');
+  
+  const form = evt.target.closest('form');
+  const email = form.querySelector('#correo').value;
+  const password = form.querySelector('#password').value;
+  const textError = form.querySelector('#error');
 
   signInWithPassword(email, password)
     // .then((result) => {
@@ -133,16 +134,12 @@ export const addPostOnSubmit = (evt) => {
 export const deletePostOnClick = (objPost) => deletePost(objPost.id);
 
 export const editarPostOnSubmit = (objPost) => {
-  if (objPost.UID === firebase.auth().currentUser.uid) { 
-    let textNewUpdate = document.querySelector('#texto-edit');
-    let modal = document.querySelector('#myModal');
-    modal.style.display = 'none';
+  let textNewUpdate = document.querySelector('#texto-edit');
+  let modal = document.querySelector('#myModal');
+  modal.style.display = 'none';
 
-    editPost(objPost.id, textNewUpdate.value);
-  } 
+  editPost(objPost.id, textNewUpdate.value);
 };
-
-
 
 export const reactionCountOnClick = (objPost) => {
   seeReaction(objPost.id)
