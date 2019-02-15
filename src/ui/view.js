@@ -104,7 +104,7 @@ export const ingresoForm = () => {
 };
 
 // creando la publicacion de forma dinamica por cada post publicado
-const cadaPost = (objPost) => {
+const cadaPost = (objPost, currentUserId) => {
   const elem = document.createElement('div');
   elem.classList.add('formulario-post');
   elem.innerHTML = `
@@ -113,14 +113,13 @@ const cadaPost = (objPost) => {
       <img class="imagen-tamaño" src="./logo/girl (1).png" alt="avatar">
     </div>
     <div>
-      <h4 id="nombre-usuario">${objPost.name}</h4>
+      <h4 class="nombre-usuario">${objPost.name}</h4>
       <p id="fecha">${objPost.date.toDate()}</p>
     </div>
-    
-    <div class="icono-estado">
-      <button class="selec-confi" id="mostrar-modal">Editar</button>
-      <button class="selec-confi" id="confirm-eliminar">Eliminar</button>
-    </div>
+    ${objPost.UID === currentUserId ? `<div class="icono-estado">
+    <button class="selec-confi" id="mostrar-modal">Editar</button>
+    <button class="selec-confi" id="confirm-eliminar">Eliminar</button>
+  </div>` : ''}
   </div>   
 
   <div id="myModal" class="modal">
@@ -163,32 +162,34 @@ const cadaPost = (objPost) => {
   </div>
   </div>
   `;
+
   const modalConfirm = elem.querySelector('#confirm-modal');
+  if (objPost.UID === currentUserId) {
+    const btnConfirm = elem.querySelector('#confirm-eliminar'); 
+    btnConfirm.addEventListener('click', () => {
+      modalConfirm.style.display = 'block';
+    });
+    const btnEliminar = elem.querySelector(`#eliminar-post-${objPost.id}`);
+    btnEliminar.addEventListener('click', () => deletePostOnClick(objPost));
 
-  const btnConfirm = elem.querySelector('#confirm-eliminar'); 
-  btnConfirm.addEventListener('click', () => {
-    modalConfirm.style.display = 'block';
-  });
-  const btnEliminar = elem.querySelector(`#eliminar-post-${objPost.id}`);
-  btnEliminar.addEventListener('click', () => deletePostOnClick(objPost));
-
-  const noEliminar = elem.querySelector('#no-eliminar');
-  noEliminar.addEventListener('click', () => {
-    modalConfirm.style.display = 'none';
-  });
+    const noEliminar = elem.querySelector('#no-eliminar');
+    noEliminar.addEventListener('click', () => {
+      modalConfirm.style.display = 'none';
+    });
   
-  const btnModal = elem.querySelector('#mostrar-modal');
-  btnModal.addEventListener('click', () => {
-    let modal = elem.querySelector('#myModal');
-    modal.style.display = 'block';
-  });
-  const btnEditar = elem.querySelector(`#editar-post-${objPost.id}`);
-  btnEditar.addEventListener('click', () => editarPostOnSubmit(objPost)); 
-  const btnCerrar = elem.querySelector('#cierre-post')
-  btnCerrar.addEventListener('click', () => {
-    let modal = document.querySelector('#myModal');
-    modal.style.display = 'none';
-  });
+    const btnModal = elem.querySelector('#mostrar-modal');
+    btnModal.addEventListener('click', () => {
+      let modal = elem.querySelector('#myModal');
+      modal.style.display = 'block';
+    });
+    const btnEditar = elem.querySelector(`#editar-post-${objPost.id}`);
+    btnEditar.addEventListener('click', () => editarPostOnSubmit(objPost)); 
+    const btnCerrar = elem.querySelector('#cierre-post');
+    btnCerrar.addEventListener('click', () => {
+      let modal = document.querySelector('#myModal');
+      modal.style.display = 'none';
+    });
+  }
 
   const reactions = {
     '#emoji-1': reactionCountOnClick,
@@ -262,7 +263,8 @@ export const redsocial = (posts) => {
   const btnPost = div.querySelector('#publicar');
   const tagDiv = div.querySelector('#lista-publicaciones');
   posts.forEach(post => {
-    tagDiv.appendChild(cadaPost(post));
+    tagDiv.appendChild(
+      cadaPost(post, firebase.auth().currentUser.uid));
   });
   btnPost.addEventListener('click', addPostOnSubmit);
   btnLogOut.addEventListener('click', logOutOnClick);
