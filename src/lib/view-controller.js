@@ -41,6 +41,8 @@ export const signUpWithEmailAndPasswordOnClick = (evt) => {
 
 export const signInWithPasswordOnClick = (evt) => {
   evt.preventDefault();
+ //  const form = evt.target.closets('form');
+
   const email = document.getElementById('correo').value;
   const password = document.getElementById('password').value;
   const textError = document.getElementById('error');
@@ -131,11 +133,13 @@ export const addPostOnSubmit = (evt) => {
 export const deletePostOnClick = (objPost) => deletePost(objPost.id);
 
 export const editarPostOnSubmit = (objPost) => {
-  let textNewUpdate = document.querySelector('#texto-edit');
-  let modal = document.querySelector('#myModal');
-  modal.style.display = 'none';
+  if (objPost.UID === firebase.auth().currentUser.uid) { 
+    let textNewUpdate = document.querySelector('#texto-edit');
+    let modal = document.querySelector('#myModal');
+    modal.style.display = 'none';
 
-  editPost(objPost.id, textNewUpdate.value);
+    editPost(objPost.id, textNewUpdate.value);
+  }
 };
 
 export const reactionCountOnClick = (objPost) => {

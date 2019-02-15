@@ -190,14 +190,17 @@ const cadaPost = (objPost) => {
     modal.style.display = 'none';
   });
 
-  const btnReactionOne = elem.querySelector('#emoji-1');
-  btnReactionOne.addEventListener('click', () => reactionCountOnClick(objPost));
-  const btnReactionTwo = elem.querySelector('#emoji-2');
-  btnReactionTwo.addEventListener('click', () => reactionCountSadOnClick(objPost));
-  const btnReactionThree = elem.querySelector('#emoji-3');
-  btnReactionThree.addEventListener('click', () => reactionCountLikeOnClick(objPost));
-  const btnReactionFour = elem.querySelector('#emoji-4');
-  btnReactionFour.addEventListener('click', () => reactionCountLoveOnClick(objPost));
+  const reactions = {
+    '#emoji-1': reactionCountOnClick,
+    '#emoji-2': reactionCountSadOnClick,
+    '#emoji-3': reactionCountLikeOnClick,
+    '#emoji-4': reactionCountLoveOnClick
+  };
+
+  Object.keys(reactions).forEach((elemId) => {
+    const btnReaction = elem.querySelector(elemId);
+    btnReaction.addEventListener('click', () => reactions[elemId](objPost));
+  });
   return elem;
 };
 
