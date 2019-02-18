@@ -78,3 +78,21 @@ export const reactionCountLove = (idPost, reactionPostLove) => {
   });
 };
 
+export const editProfile = (idUser, editName) => {
+  let collectionUser = firebase.firestore().collection('users').doc(idUser);
+
+  return collectionUser.update({
+    name: editName
+  });
+};
+
+export const getUsers = (callback) => {
+  firebase.firestore().collection('users')
+    .onSnapshot((querySnapshot) => {
+      const data = [];
+      querySnapshot.forEach((doc) => {
+        data.push({ id: doc.id, ...doc.data() });
+      });
+      return callback(data);
+    });
+};

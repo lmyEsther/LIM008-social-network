@@ -15,13 +15,20 @@ const fixtureData = {
           date: '12 de febrero de 2019, 09:56:40 UTC-5'
         }
       }
+    },
+    users: {
+      __doc__: {
+        GELahJ3Zp8WvMQXQHiood6O4C7C3: {
+          name: 'Maria'
+        }
+      }
     }
-  }
+  } 
 };
   
 global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled: true });
 
-import { addPost, getPost, deletePost, seeReaction, reactionCount, reactionCountSad, reactionCountLike, reactionCountLove, editPost } from '../src/lib/controller.js';
+import { addPost, getPost, deletePost, seeReaction, reactionCount, reactionCountSad, reactionCountLike, reactionCountLove, editPost, editProfile, getUsers } from '../src/lib/controller.js';
 
 describe('Div de Cada Post', () => {
   it('Debería agregar un post', (done) => {
@@ -108,3 +115,13 @@ describe('Div de Cada Post', () => {
   });
 });
   
+it('Deberia poder editar su nombre', (done) => {
+  return editProfile('GELahJ3Zp8WvMQXQHiood6O4C7C3', 'Olga')
+    .then(() => getUsers(
+      (data) => {
+        const result = data.find((user) => user.id === 'GELahJ3Zp8WvMQXQHiood6O4C7C3');
+        expect(result.name).toBe('Olga');
+        done();
+      }
+    ));
+}); 

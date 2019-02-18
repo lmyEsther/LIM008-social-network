@@ -15,6 +15,7 @@ const cadaPost = (objPost, currentUserId) => {
       <h4 class="nombre-usuario">${objPost.name}</h4>
       <p id="fecha">${objPost.date.toDate()}</p>
     </div>
+
     ${objPost.UID === currentUserId ? `<div class="icono-estado">
     <button class="selec-confi" id="mostrar-modal">Editar</button>
     <button class="selec-confi" id="confirm-eliminar">Eliminar</button>
@@ -115,7 +116,7 @@ export const redsocial = (posts) => {
     <div class="op-header">
       <a class="opcion-header" href=""><img class="img-header"  src="./logo/love.png" alt="Publicaciones"></a>  
       <a class="opcion-header" href=""><img class="img-header"  src="./logo/profiles (1).png" alt="Noticias"></a>  
-      <a class="opcion-header" href=""><img class="img-header"  src="./logo/user (1).png" alt="Perfil"></a> 
+      <a class="opcion-header" href="#/profile"><img class="img-header"  src="./logo/user (1).png" alt="Perfil"></a> 
       <a class="opcion-header" id="cerrar-sesion" href=""><img class="img-header" src="./logo/cancel.png" alt="cerrar-sesión"></a>
     </div>
   </header>

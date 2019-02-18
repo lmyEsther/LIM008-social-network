@@ -169,17 +169,12 @@ export const reactionCountLoveOnClick = (objPost) => {
 
 export const logOutOnClick = (evt) => {
   evt.preventDefault();
-  firebase.auth().onAuthStateChanged(user => {
-    if (user) {
-      logOut()
-        .then(() => {
-          alert('Hasta Pronto');
-          location.hash = '#/ingreso';
-        });
-    } else {
-      location.hash = '#/registro';
-    }
-  });
+
+  logOut()
+    .then(() => {
+      alert('Hasta Pronto');
+      location.hash = '#/ingreso';
+    });
 };
 
 export const getPostRouter = (callback) => {
