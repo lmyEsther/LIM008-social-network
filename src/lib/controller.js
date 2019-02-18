@@ -78,3 +78,10 @@ export const reactionCountLove = (idPost, reactionPostLove) => {
   });
 };
 
+export const addFriends = () => {
+ 
+};
+
+export const deleteFriends = () => {
+
+};
