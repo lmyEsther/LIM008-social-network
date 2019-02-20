@@ -1,7 +1,8 @@
 import { addPost, deletePost, editPost, seeReaction, reactionCount, reactionCountSad, reactionCountLike, reactionCountLove, 
-  getPost } from './controller.js';
+  getPost, 
+  editProfile} from './controller.js';
 
-import { signUpWithEmailAndPassword, signInWithPassword, loginWithGoogle, loginWithFacebook, logOut } from './controller-auth.js';
+import { signUpWithEmailAndPassword, signInWithPassword, loginWithGoogle, loginWithFacebook, logOut, editProfile } from './controller-auth.js';
 
 export const signUpWithEmailAndPasswordOnClick = (evt) => {
   evt.preventDefault();
@@ -181,4 +182,12 @@ export const getPostRouter = (callback) => {
   const user = firebase.auth().currentUser;
 
   return getPost(callback, user);
+};
+
+export const editProfileOnClick = (evt) => {
+  evt.preventDefaul();
+  const editName = document.getElementById('name');
+
+  editProfile();
+
 };

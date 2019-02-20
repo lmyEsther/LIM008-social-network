@@ -1,4 +1,4 @@
-import {} from '../lib/view-controller.js';
+import { editProfileOnClick } from '../lib/view-controller.js';
 
 export const profile = (userProfile) => { // falta aún el init-router de profile y hacerlo dinamico
   const temp = `
@@ -42,5 +42,6 @@ export const profile = (userProfile) => { // falta aún el init-router de profil
 
   const div = document.createElement('div');
   div.innerHTML = temp;
+
   return div;
 };
