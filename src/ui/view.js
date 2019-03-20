@@ -56,15 +56,6 @@ export const ingresoForm = () => {
     <header class="cabecera">
         <img src="logo/encabezado.png" alt="encabezado">
     </header>
-
-//     <nav class="nav-view">
-//       <ul>
-//         <li>
-//           <a href="#/ingreso"><img class="boton-view" src="./logo/log-in-button-with-arrow.png"></a>
-//         </li>
-//       </ul>
-//     </nav>
-
     <main>
       <form class="formulario"> 
           <p class="texto-1" class="btn-1">"Comparte <span class="link-registro">tu</span> historia y la de tu <span class="link-registro">bebe</span>"</p>
