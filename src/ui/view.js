@@ -57,13 +57,13 @@ export const ingresoForm = () => {
         <img src="logo/encabezado.png" alt="encabezado">
     </header>
 
-    <nav class="nav-view">
-      <ul>
-        <li>
-          <a href="#/ingreso"><img class="boton-view" src="./logo/log-in-button-with-arrow.png"></a>
-        </li>
-      </ul>
-    </nav>
+//     <nav class="nav-view">
+//       <ul>
+//         <li>
+//           <a href="#/ingreso"><img class="boton-view" src="./logo/log-in-button-with-arrow.png"></a>
+//         </li>
+//       </ul>
+//     </nav>
 
     <main>
       <form class="formulario"> 
